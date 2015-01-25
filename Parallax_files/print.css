@@ -1,0 +1,339 @@
+   Print style */
+/* Reset quotes */
+q {quotes: none}
+q:before, q:after {content: ""}   
+/* Hide everything unneeded */
+header h1, video, header nav, footer, {display: none}
+/* font sizes */
+body {
+	font: 12pt 'Quicksand','Open Sans', arial, sans-serif;
+	line-height: 1.3;
+
+	
+	-webkit-print-color-adjust: exact;
+	position:relative;
+}
+
+/*img{display:none;}
+*/
+#mylogoparallax{display:none;}
+#mylogoparallax1{display:none;}
+#mylogoparallax2{display:none;}
+#mylogoparallax3{display:none;}
+#mylogoparallax4{display:none;}
+#mylogoparallax5{display:none;}
+#mylogoparallax6{display:none;}
+#mylogoparallax7{display:none;}
+#mylogoparallax8{display:none;}
+#mylogoparallax9{display:none;}
+#mylogoparallax10{display:none;}
+#mylogoparallax11{display:none;}
+#mylogoparallax12{display:none;}
+#mylogoparallax13{display:none;}
+
+
+/*.background-image{display:none;}*/
+.content{display: none}
+.content ul{display: none}
+.content ul li{display: none}
+.block{display: none}
+.block-center{display: none}
+.block a{display: none}
+.example {	display: none}
+.example h5 {display: none}
+.example:hover, .active {display: none}
+.thumb_img {display: none}
+.description { position:relative;}
+.info {display: none}
+.sliders {display: none}
+.white {display: none}
+.hand {	display: none}
+/*.blur {display:none;}
+*/
+
+.page-break{page-break-after: always}
+/*@page {
+    size: A4;
+    margin: 20;
+
+
+}*/
+
+
+.footnoteforprint1{font-size:8px;}
+.footnoteforprint2{font-size:8px;}
+.footnoteforprint3{font-size:8px;}
+.footnoteforprint4{font-size:8px;}
+.footnoteforprint5{font-size:8px;}
+.footnoteforprint6{font-size:8px;}
+.footnoteforprint7{font-size:8px;}
+.footnoteforprint8{font-size:8px;}
+.footnoteforprint9{font-size:8px;}
+.footnoteforprint10{font-size:8px;}
+.footnoteforprint11{font-size:8px;}
+.footnoteforprint12{font-size:8px;}
+.footnoteforprint13{font-size:8px;}
+
+/*
+.scroll_paral_1_tekst{ 
+ position: relative;
+    height:1500px;
+    background: url("printgilgamesh.png") no-repeat ;
+    background-size: 26cm 10cm;
+    padding-top:400px;
+    top:0px!important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom,  from(rgba(0,0,0,1)), to(rgba(0,0,0,0.95)));
+}
+.scroll_paral_2_tekst{ 
+    position: relative; 
+    height:1500px;
+    background: url("printelysian.png") no-repeat;
+    background-size: 29cm 10cm;
+    padding-top:400px;
+    top:750px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.95)), to(rgba(0,0,0,0.9)));
+}
+.footnoteforprint1{
+    width: 100%;
+    position: fixed; 
+    height:50px;
+    top:10cm !important;
+}
+.footnoteforprint2{
+      width: 100%;
+    position: fixed; 
+    height:50px;
+    top:10.5cm !important;
+}
+
+.scroll_paral_3_tekst{ 
+    position: relative;
+     height:1500px;
+    background: url("printegypt.png") no-repeat;
+    background-size: 29cm 10cm;
+    padding-top:400px;
+    top:1570px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.9)), to(rgba(0,0,0,0.85)));}
+
+.scroll_paral_4_tekst{ 
+    position: relative;
+    height:1500px;
+ 
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:2160px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.85)), to(rgba(0,0,0,0.8)));}
+.scroll_paral_5_tekst{ 
+    position: relative;
+    height:1500px;
+ 
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:2760px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.75)), to(rgba(0,0,0,0.7)));}
+
+.scroll_paral_13_tekst{ 
+    position: relative;
+    height:1500px;
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:3700px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.7)), to(rgba(0,0,0,0.65)));}
+
+
+
+.scroll_paral_6_tekst{ 
+    position: relative;
+    height:1500px;
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:5400px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.65)), to(rgba(0,0,0,0.6)));}
+.scroll_paral_7_tekst{ 
+    position: relative;
+    height:1500px;
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:6700px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.6)), to(rgba(0,0,0,0.55)));}
+.scroll_paral_8_tekst{ 
+    position: relative;
+    height:1500px;
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:7700px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.55)), to(rgba(0,0,0,0.5)));}
+.scroll_paral_9_tekst{ 
+    position: relative;
+    height:1500px;
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:8000px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.45)));}
+.scroll_paral_10_tekst{ 
+    position: relative;
+    height:1500px;
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:9000px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.45)), to(rgba(0,0,0,0.35)));}
+.scroll_paral_11_tekst{ 
+    position: relative;
+    height:1500px;
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:7500px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.35)), to(rgba(0,0,0,0.3)));}
+.scroll_paral_12_tekst{ 
+    position: relative;
+    height:1500px;
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:8000px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.3)), to(rgba(0,0,0,0.25)));}*/
+
+
+
+.scroll_paral_1_tekst{ 
+     position:absolute;
+   height:auto;
+   background: url("printviking.png") no-repeat;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom,  from(rgba(0,0,0,1)), to(rgba(0,0,0,0.95)));
+}
+.scroll_paral_2_tekst{ 
+  position:relative;
+   height:auto;
+   background: url("printviking.png") no-repeat;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.95)), to(rgba(0,0,0,0.9)));
+}
+/*.footnoteforprint1{
+    width: 100%;
+    position: fixed; 
+    height:50px;
+    top:10cm !important;
+}
+.footnoteforprint2{
+      width: 100%;
+    position: fixed; 
+    height:50px;
+    top:10.5cm !important;
+}
+*/
+.scroll_paral_3_tekst{ 
+
+  position:relative;
+   height:auto;
+   background: url("printviking.png") no-repeat;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.9)), to(rgba(0,0,0,0.85)));}
+
+.scroll_paral_4_tekst{ 
+ position:relative;
+  height:10cm;
+   background: url("printviking.png") no-repeat;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.85)), to(rgba(0,0,0,0.8)));}
+.scroll_paral_5_tekst{ 
+ position:relative;
+  height:10cm;
+   background: url("printviking.png") no-repeat;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.75)), to(rgba(0,0,0,0.7)));}
+
+.scroll_paral_13_tekst{ 
+    position:relative;
+     height:10cm;
+   background: url("printviking.png") no-repeat;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.7)), to(rgba(0,0,0,0.65)));}
+
+
+
+.scroll_paral_6_tekst{ 
+    position: relative;
+    height:1500px;
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:5400px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.65)), to(rgba(0,0,0,0.6)));}
+.scroll_paral_7_tekst{ 
+    position: relative;
+    height:1500px;
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:6700px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.6)), to(rgba(0,0,0,0.55)));}
+.scroll_paral_8_tekst{ 
+    position: relative;
+    height:1500px;
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:7700px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.55)), to(rgba(0,0,0,0.5)));}
+.scroll_paral_9_tekst{ 
+    position: relative;
+    height:1500px;
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:8000px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0.45)));}
+.scroll_paral_10_tekst{ 
+    position: relative;
+    height:1500px;
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:9000px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.45)), to(rgba(0,0,0,0.35)));}
+.scroll_paral_11_tekst{ 
+    position: relative;
+    height:1500px;
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:7500px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.35)), to(rgba(0,0,0,0.3)));}
+.scroll_paral_12_tekst{ 
+    position: relative;
+    height:1500px;
+    background: url("printviking.png") no-repeat;
+    background-size: 27cm 10cm;
+    padding-top:400px;
+    top:8000px !important;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.3)), to(rgba(0,0,0,0.25)));}*/
+
+
+
+
+/*
+.bronnenlijst{
+position: relative;top:8000px !important;-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, 
+    from(rgba(0,0,0,0.25)), to(rgba(0,0,0,0.20)));}
+*/
+}
+.text1{display:none;}
+.text2{display:none;}
+.text3{display:none;}
+.text4{display:none;}
+.text5{display:none;}
+.text6{display:none;}
+.text7{display:none;}
+.text8{display:none;}
+.text9{display:none;}
+.text10{display:none;}
+.text11{display:none;}
+.text12{display:none;}
+.text13{display:none;}
+
+
+.preload{display:none;}

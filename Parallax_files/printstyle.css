@@ -1,0 +1,203 @@
+
+
+
+
+body {
+  font: 12pt 'Quicksand','Open Sans', arial, sans-serif;
+  line-height: 1.3;
+margin:0; padding:0; 
+  font-size:9px;font-family: 'Droid Sans', sans-serif;position:relative;color:#666;
+  -webkit-print-color-adjust: exact;
+
+  position:relative;
+
+}
+
+@page {
+   size:  21cm 29.7cm;
+   margin: 0;
+
+}
+.bounding-box {
+
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+/*  Parallax related styles */
+.overflow-hidden{position: relative;overflow:hidden;padding: 0;	margin: 0;}
+.glowbox{-moz-box-shadow: 0 0 3px 5px #000;-webkit-box-shadow: 0 0 3px 5px #000;box-shadow: 0 0 3px 5px #000;}
+.innerglowbox{box-shadow:inset 0 0 5px #000000;-moz-box-shadow:inset 0 0 5px #000000;-webkit-box-shadow:inset 0 0 5px #000000;}
+.bgblack{background-color: #000;color: #fff;}
+.content-img {transition:all 0.3s;-webkit-transition: all 0.3s;-o-transition: all 0.3s;-moz-transition: all 0.3s;-ms-transition: all 0.3s;}
+.content-img:hover {opacity:0.65;}
+
+
+/*  UI CONTROLS */
+#sensitivityX, #sensitivityY, #easingCoefficient, #focusZ{width: 300px; }
+
+/*  Style for preview pages */
+ul, ol, h1,h2,h3,h4,h5,h6,form,li,p,input,select,legend,textarea{ margin:0; padding:0; font-size: 9px;}
+body{font-size:9px;font-family: 'Droid Sans', sans-serif;line-height:1.5;position:relative;color:#666;}
+h1, h2, h3, h4 , span{font-family: 'Quicksand', sans-serif;font-weight: normal; margin-bottom: 0px; font-size: 140;height:50px;font-weight: 300 !important; }
+h2 {	font-size: 40px; margin-bottom:40px; color: rgba(0,0,0,0.2);}
+h3 { font-size: 24px;margin-bottom: 20px;}
+h4 {	font-size: 18px;}
+h5 {	font-size: 14px;}
+a{	
+    position:'absolute';
+    color: red;
+    width:'400px';
+    background:'#ded';
+    padding:'0em 1em 0em 1em';
+    border:'solid 1px';
+    font-size':'90%';
+    font-family': 'Droid Sans' sans-serif;
+    line-height':1.5;
+ /*   -moz-border-radius':'.5em';
+    -webkit-border-radius':'.5em';*/
+    /*border-radius':'.5em';*/
+    opacity:1;
+    text-decoration: none;
+}
+/*a {color: #fff;text-decoration: none;outline: none;}*/
+a:hover {	color: #fff;	text-decoration: none;}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0;}
+p { 
+	font-family: 'Droid Sans';
+	margin:0px; padding:0px; width:100%; 
+}
+sup{line-height: 1.5}
+}
+
+.wrapper_fullwidth{width:100%;position:relative;z-index: 1;background: #000;height:40px;clear:both;font-size: 9px;color: #999;}
+.wrapper_fullwidth a{text-decoration: none;display: block;float:left;line-height: 40px;}
+.wrapper_fullwidth a:hover{color:#fff;}
+.right{float:right; }
+.right a{text-decoration: none; }
+.right a:hover{text-decoration: none; }
+.center{ position: relative;margin:0 auto 20px auto;width:640px;padding-top:40px;padding-bottom:0px;text-align:center}
+.text-center{ text-align:center}
+.row{ position: relative; z-index:-20; margin:0px auto 0px auto; z-index: 0;}
+.left{
+  
+  width:550px;
+  float:left;
+}
+.right{
+  width:550px;
+  float:right;
+}
+.row a img{border:none;}
+.row  a:hover img{opacity:1;}
+/* Nicolas Gallagher's micro clearfix */
+.row:before, .row:after, .clearfix:before, .clearfix:after { content:""; display:table; }
+.row:after, .clearfix:after { clear: both; }
+.row, .clearfix { zoom: 1; }
+
+.column{ position: relative;float:left;margin:px 13px 45px 13px;}
+
+.content{position: relative;float:left;width:260px;overflow: hidden; color:#666;padding-left:30px;}
+.content ul{padding-bottom:30px;}
+.content ul li{list-style-position: inside;}
+.block{position: relative;overflow: hidden; padding-left: 100px}
+.block-center{ position: relative;margin:0 auto 0px auto;width:99%;}
+.block a{text-decoration: none;}
+.example {	background-color:#959595;height: 120px;width: 120px;-moz-border-radius: 60px;-webkit-border-radius: 60px;border-radius: 60px;text-align:center;}
+.example h5 {color:#fff;padding-top:50px;font-size: 30px;}
+.example:hover, .active {background-color:#474747;cursor:pointer;}
+.thumb_img {float:left;margin: 0px 20px 0px 0px;}
+.description {position: absolute;display:block;width:50%; height:auto;margin:0 auto;padding:10px 10px 15px 20px;overflow: hidden;}
+.outerscrollarea{position:relative; width:100%; overflow:scroll;}
+.scrollarea{position:relative;overflow:auto;}
+.info {position:absolute;z-index:20; margin:0 auto; display:block; padding: 0px 0px 10px 15px;}
+.sliders {display:block; padding: 0px 0px 0px 0px;}
+.white {	color:#fff;font-size: 10px;}
+.hand {	 cursor: pointer;}
+#outside {
+  width: 100%;
+  height: auto;
+  overflow: scroll;
+}
+#outside2 {
+  width: 100%;
+  height: auto;
+  overflow: scroll;
+}
+#outside3 {
+  width: 100%;
+  height: auto;
+  overflow: scroll;
+}
+#inside {
+  width: 5000px;
+  list-style:none;
+}
+#inside li {
+  
+  width: 810px;
+  height: auto;
+ 
+  float: left;
+  padding: 5px;
+  margin:0;
+}
+.bronnenlijst{}
+.controls ul{list-style-type:none;}
+.controls a{text-decoration: underline;}
+table td{ padding:0px 10px 10px 10px;}
+#features{position: relative;margin:0 auto 0px auto;width:400px;}
+#features ul li{list-style-position: inside; }
+
+#main{float:right; width:350px;padding-top:40px;padding-bottom:10px;}
+#bottom{font-size: 11px; color:#aaa;}
+#bottom a{float:none; display:inline;}
+
+/*.texttitel{position:relative;width:100%;font-size:600%;text-align:center; top:-55px;color: rgba(0,0,0,1); z-index: 6000;}*/
+.texttitel{display:none;}
+.button{display: block;	width: 30px;height: 29px;text-indent: -9999px;	left: 0px;outline: none; float:left;}
+
+.rotat{background-image:"Parallax_files/foreground.png";
+background-size: 200% 200%;}
+#play{	background-image: url(../img/play.png);	}
+#play:hover{background: transparent url(../img/play_hover.png) bottom left no-repeat;}
+
+#stop{	background-image: url(../img/stop.png);	}
+#stop:hover{background: transparent url(../img/stop_hover.png) bottom left no-repeat;}
+
+#pause{	background-image: url(../img/pause.png);	}
+#pause:hover{background: transparent url(../img/pause_hover.png) bottom left no-repeat;}
+
+#pause3s{width: 90px;background-image: url(../img/pause3s.png);	}
+#pause3s:hover{background: transparent url(../img/pause3s_hover.png) bottom left no-repeat;}
+.footnotes{display:none;}
+
+.footnoteforprint1{background-color:black; width:50%; height:auto;margin:0 auto;padding:100px 10px 15px 20px;overflow: hidden;}
+.footnoteforprint2{background-color:black; width:50%; height:auto;margin:0 auto;padding:100px 10px 15px 20px;overflow: hidden;}
+.footnoteforprint3{background-color:black; width:50%; height:auto;margin:0 auto;padding:100px 10px 15px 20px;overflow: hidden;}
+.footnoteforprint4{background-color:black; width:50%; height:auto;margin:0 auto;padding:100px 10px 15px 20px;overflow: hidden;}
+.footnoteforprint5{background-color:black; width:50%; height:auto;margin:0 auto;padding:100px 10px 15px 20px;overflow: hidden;}
+.footnoteforprint6{background-color:black; width:50%; height:auto;margin:0 auto;padding:100px 10px 15px 20px;overflow: hidden;}
+.footnoteforprint7{background-color:black; width:50%; height:auto;margin:0 auto;padding:100px 10px 15px 20px;overflow: hidden;}
+.footnoteforprint8{background-color:black; width:50%; height:auto;margin:0 auto;padding:100px 10px 15px 20px;overflow: hidden;}
+.footnoteforprint9{background-color:black; width:50%; height:auto;margin:0 auto;padding:100px 10px 15px 20px;overflow: hidden;}
+.footnoteforprint10{background-color:black; width:50%; height:auto;margin:0 auto;padding:100px 10px 15px 20px;overflow: hidden;}
+.footnoteforprint11{background-color:black; width:50%; height:auto;margin:0 auto;padding:100px 10px 15px 20px;overflow: hidden;}
+.footnoteforprint12{background-color:black; width:50%; height:auto;margin:0 auto;padding:100px 10px 15px 20px;overflow: hidden;}
+.footnoteforprint13{background-color:black; width:50%; height:auto;margin:0 auto;padding:100px 10px 15px 20px;overflow: hidden;}
+
+/* floating footnote div */
+#footnotediv {
+	z-index:5000;
+	font-size: 10px;
+	font-color:red;
+	border:10px solid white;
+	position:absolute;
+	width:600px;
+	height:auto;
+	overflow:visible;
+	background-color:white;
+}
+.boxshadow {
+
+}

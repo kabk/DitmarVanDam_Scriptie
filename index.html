@@ -13,11 +13,14 @@
 -->
 
 	<!-- Including styles -->
-	<link type="text/css" href="./Parallax_files/style.css" rel="stylesheet">	
-	
+	<link type="text/css" href="./Parallax_files/style.css" rel="stylesheet"  media="screen"> 	
+	<link rel="stylesheet" type="text/css" href="./Parallax_files/print2.css" media="print">	
+<!-- 	<link rel="stylesheet" type="text/css" href="./Parallax_files/bigfoot.css"rel="stylesheet"  media="screen">  -->
 	<!-- Including jQuery -->
 	<script type="text/javascript" src="./Parallax_files/jquery-1.7.1.min.js"></script>
 	<script type="text/javascript" src="./Parallax_files/jquery.real-parallax.js"></script>
+		<script type="text/javascript" src="./Parallax_files/footnotes.js"></script>
+
 
 <!-- script voor animatie van de tekst
 
@@ -44,32 +47,94 @@
 	});
  -->
 
-<script type="text/javascript">
-window.setInterval(blur, 3);
+ <script type="text/javascript">
+// window.setInterval(blur, 3);
 
-function blur() {
-  $('.blur').each(function(e){
-  //var random = Math.random()*1;
-  var random = (Math.random()*2)+1;
+// function blur() {
+	
+//   $('.blur').each(function(e){
+//   //var random = Math.random()*1;
+//   var random = (Math.random()*2)+1;
   
-  value = 'blur('+random+'px)';
-  this.style.webkitFilter = value;
+//   value = 'blur('+random+'px)';
+//   this.style.webkitFilter = value;
     
-  //this.style.contrast = random;
- });
+//   //this.style.contrast = random;
+//  });
   
- }
+//  }
 </script>
-<!-- 
+<!-- 	
 infintescroll -->
 <script>
-  $('document').ready(function() {
-             $(document).scroll(function(){
-             if(document.documentElement.clientHeight + 
-             $(document).scrollTop() >= document.body.offsetHeight )$(document).scrollTop(0);
-             });
-          }); 
-//           </script>
+//   $('document').ready(function() {
+//              $(document).scroll(function(){
+//              if(document.documentElement.clientHeight + 
+//              $(document).scrollTop() >= document.body.offsetHeight )$(document).scrollTop(0);
+//              });
+//           }); 
+//  </script>
+
+<script>
+var hover = false;
+var hoverDiv = '';
+window.setInterval(blur, 600);
+function blur() {
+    if (hover) {
+        var random = (Math.random()*2+0.5);     
+        var value = 'blur('+random+'px)';
+        for (d in hoverDiv) {
+            console.log(hoverDiv[d]);
+            $(hoverDiv[d]).css({"-webkit-filter" : value});
+        }
+    }
+}
+
+$(document).ready(function() {
+    $('.blurA').each(function(e){
+        var divA = ['#divA1','#divA2','#divA3'];
+        $(this).mouseover(function() {
+            hover = true;
+            hoverDiv = divA;
+        });
+        $(this).mouseout(function() {
+            for (d in divA) {
+                $(divA[d]).css({"-webkit-filter" : 'blur(0)'});
+                hover = false;
+                hoverDiv = '';
+            }
+        });
+    });
+    $('.blurB').each(function(e){
+        var divs = ['#divB1','#divB2','#divB3'];
+        $(this).mouseover(function() {
+            hover = true;
+            hoverDiv = divs;
+        });
+        $(this).mouseout(function() {
+            for (d in divs) {
+                $(divs[d]).css({"-webkit-filter" : 'blur(0)'});
+                hover = false;
+                hoverDiv = '';
+            }
+        });
+    });
+});
+
+</script>
+<script>
+var isCtrl = false;
+$(document).keyup(function (e) {
+ if(e.which == 17) isCtrl=false;
+}).keydown(function (e) {
+    if(e.which == 17) isCtrl=true;
+    if(e.which == 80 && isCtrl == true) {
+        alert('Er wordt een nieuw venster geopend waar de website geprint kan worden naar een vergankelijke realiteit.');
+        window.open('Parallax_ditmar_print.html');
+        return false;
+    }
+});
+</script>
 <style>
 .left{
 	
@@ -235,7 +300,7 @@ infintescroll -->
 
 		.tunnel6{
 	      left: -200px; top: 0px; padding: 0px; margin: 0px; position: absolute;
-		  width:2050px; height: 1204px
+		  width:2050px; height: 1204px;
 		  background-image: url("./Parallax_files/tunnel6.png");
 		  background-size: 1920px 1080px;
 		}
@@ -324,6 +389,51 @@ infintescroll -->
 		  background-size: 1600px 815px;
 		}
 
+		.transhumanisme1{
+	      left: -150px; top: 0px; padding: 0px; margin: 0px; position: absolute;
+		   width: 1600px; height:700px;
+		  background-image: url("./Parallax_files/transhumanism2.png");
+		  background-size: 1600px 700px;
+		}
+
+		.transhumanisme2{
+	      left: 240px; top: 0px; padding: 0px; margin: 0px; position: absolute;
+		  width: 1600px; height:700px;
+		  background-image: url("./Parallax_files/transhumanism3.png");
+		  background-size: 1600px 700px;
+		}
+
+
+		.graveyard1{
+	      left: 00px; top: 150px; padding: 0px; margin: 0px; position: absolute;
+		   width: 2100px; height:815px;
+		  background-image: url("./Parallax_files/graveyard2.png");
+		  background-size: 2100px 815px;
+		}
+
+		.graveyard2{
+	      left: 	00px; top: -140px; padding: 0px; margin: 0px; position: absolute;
+		  width: 2100px; height:815px;
+		  background-image: url("./Parallax_files/graveyard3.png");
+		  background-size: 2100px 815px;
+		}
+
+		.graveyard3{
+	      left: 0px; top: 270px; padding: 0px; margin: 0px; position: absolute;
+		   width: 2100px; height:700px;
+		  background-image: url("./Parallax_files/graveyard4.png");
+		  background-size: 2100px 700px;
+		}
+
+		.graveyard4{
+	      left: 0px; top: 00px; padding: 0px; margin: 0px; position: absolute;
+		  width: 2100px; height:860px;
+		  background-image: url("./Parallax_files/graveyard5.png");
+		  background-size: 2100px 860px;
+		}
+
+
+
 
 
 
@@ -341,1061 +451,1757 @@ opacity:0.1;
 
 
 	</head>
+
 	<body>
-
-<!-- --------------------------------------------------------------------------------------GILGAMESH-------------------------------------------------------------------------------------------------------- -->
-
-
-
-		<div style="position:relative; height:10px; background-color: #000;"></div>
- 		<div style="position:relative;margin-top:0px;z-index:20;width: 99%; height: 813px; overflow-x: hidden; overflow-y: hidden;">	
-			<div class="row">
-				<div class="info">							
-					<div class="block-center">
-						<div class="block">
-							<div id="l"></div>
-						</div>			
-					</div>		
-					<div id="mylogoparallax0" class="column" style="width: 920px; height: 813px; overflow: hidden;">    
-						
-
-						<div class="blur"><div class="gilgamesh1 scroll_paral_1_1" style="background-position: 0px 0px;"></div></div>
-						<div class="blur"><div class="gilgamesh2 scroll_paral_1_2" style="background-position: 0px 0px;"></div></div>
-						<div class="blur"><div style="left: 100px; top: -0px; padding: 0px; margin: 0px; position: absolute;">
-						<img src="Parallax_files/gilgamesh3.png" width="1600px" height="813px" style="display: inline; opacity:0.5; -webkit-filter: grayscale(0.8);"></div>	</div>
-						<div style="left: 800px; top: 600px; padding: 0px; margin: 0px; position: absolute;">
-							<h2 style="color:white">Gilgamesj en Enkidoe (2100 v. Chr.). </h2> <width="1600px" height="813px" style="display: inline;"></div>
-
-					</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<script type="text/javascript">		
-			$(document).ready(function(){					
-				$('#mylogoparallax0').parallax({width: 1800,  height: 813,focusZ:50, sensitivityY:0.2, sensitivityX:0.2}); 
-			});
-		</script>	
-			
-		<div style="position:relative; height:400px; background-color: #000;">
-			<div style="padding-top:140px; padding-left:2%;">
-				<div class="example thumb_img"><h5>01</h5></div>
-				<h2 style="font-size:600%;padding-top:50px">OPVATTINGEN IN OUDE CULTUREN</h2>
-			</div>
-		</div>
-
-		<div class="scroll_paral_1_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 800px; width:98%;">
-			
-			<div class="description" style="position:relative">
-				<nav> <p>In een van de oudste heldendichten vindt men het verhaal van Gilgamesj en Enkidoe. Gilgamesj was voor een deel goddelijk en voor een deel menselijk. Hij regeerde als machtig koning over zijn stad. Enkidoe, een man geschapen uit de flora en fauna en krachtig als een dozijn wilde dieren, trotseerde Gilgamesj. Hoewel verloren, slaagde hij er wel in, de vriendschap van Gilgamesj te winnen. Om hun krachten in goede staat te behouden, plande Gilgamesj een reis naar het Cederbos. Zij wilden namelijk van het aldaar groeiende cederhout een poort maken voor de stad. Eenmaal daar werd het tweetal door Humbaba, de demonische beschermer van het bos, tegengehouden. Nadat zij hem overwonnen hadden, twijfelde Gilgamesj over het lot van de demon, maar Enkidoe overtuigde hem tot doden, zodat hij op die manier eeuwig zou worden herinnerd. De goden waren furieus over de dood van Humbaba en wezen Enkidoe aan als verantwoordelijke. Na de dood van zijn vriend, die tijdens zijn sterven de onderwereld tot in detail beschreef, was Gilgamesj naast zijn verdriet ook bang geworden voor de dood. Hij besloot daarom het eeuwige leven te behalen en zocht steun bij Utnapishtim. Utnapishtim komt in veel soortgelijke verhalen over de Zondvloed voor, weliswaar met andere namen, maar ook hier was hij met zijn gezin de enige overlevende van voor die tijd. De goden schonken hem in deze epos het eeuwig leven en dat wilde Gilgamesj ook. Nadat hij de gevaarlijke reis naar het “begin van de rivieren” had voltooid, vond hij hem. Hij faalde in de test voor eeuwig leven, maar Utnapishtim wees hem op de bloem die hem weer jong zou maken. De bloem groeide op de bodem van de zee, maar Gilgamesj bond stenen om zijn voeten en kreeg de bloem in zijn bezit. Hij vertrouwde het echter niet en wilde de bloem liever testen op een ouder persoon. Helaas raakte hij de bloem kwijt op de terugreis. De bloem werd gegeten door een slang en dit zou een oorzaak zijn van de gave van het vervellen.  
-				</p></nav>
-			</div>
-		</div>
-
-<!-- --------------------------------------------------------------------------------------ELYSIAN---------------------------------------------------------------------------------------------------------- -->
-
-	<div style="position:relative;z-index:20; width: 100%; height: 1200px; overflow-x: hidden; overflow-y: hidden;">
-			<div class="row">
-
-							<div id="l"></div>		
-				<div id="mylogoparallax" class="column" style="width: 2000px; height: 1200px; overflow:hidden">        
-			
-						<div style="width:120%; height:120%;z-index:-50000;left: 0px; top: 0px; padding: 0px; margin: 0px; position: absolute;">
-							<video autoplay loop id="bgvid"><source src="Parallax_files/rippling-circle-in-white-and-black-water_bj-wso_eh__PM.mp4" type="video/mp4"></video>
-						</div>
-					
-						<div class="blur"><div style="left: -300px; top: -300px; padding: 0px; margin: 0px; position: absolute;"><img src="Parallax_files/elysium4.png" width="3264px" height="2448px" style="display: inline;"></div></div>
-
-					    <div class="blur"><div class="elysium3 scroll_elysian1" style="background-position: 0px 00px;"></div></div>
-						<div class="blur"><div style="left: 600px; top: 600px; padding: 0px; margin: 0px; position: absolute;">
-							<h2 style="color:white;font-size: 1000%;">Elysische velden </h2> <width="1600px" height="813px" style="display: inline;"></div></div>
-						<div class="blur"><div class="elysium2 scroll_elysian2" style="background-position: 0px 0px;"></div></div>
-						<div class="blur"><div class="elysium1 scroll_elysian3" style="background-position: 0px 0px;"></div></div>
-					
-					</div>
-				</div>
-			</div>				
-	</div>
-			
-	
-<script type="text/javascript">		
-				$(document).ready(function(){					
-					$('#mylogoparallax').parallax({width: 1800,  height: 1200,focusZ:20, sensitivityY:0.40, sensitivityX:0.2}); 
-				});
-			</script>
-
-	
-		<div style="position:relative; height:400px; background-color: #000;">
-			<div style="padding-top:140px; padding-left:2%;">
-				<div class="example thumb_img"><h5>01</h5></div>
-				<h2 style="font-size:600%;padding-top:50px">OPVATTINGEN IN OUDE CULTUREN</h2>
-			</div>
-		</div>
-
-		<div class="scroll_paral_2_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 800px; width:98%;">
-			
-			<div class="description" style="position:relative">
-				<nav> <p>In de Griekse oudheid had men drie plaatsen waar men naartoe kon wanneer men overleden was: Tartaros, Elysium en Asphodulus. Alle drie bevonden zich in de zogenaamde “onderwereld”, waar Hades het voor het zeggen had. Tartaros was een ellendige plek in de duisternis, terwijl het Elysium zich in het zonlicht bevond. Asphodulus was een schimmige tussenplek waar je doelloos en willoos ronddwaalde. Voordat de ziel naar de onderwereld kon reizen, diende het begrafenisritueel volgens de regels te verlopen, omdat anders Hades het niet zou accepteren. Als dat werd voldaan, kwam de goddelijke boodschapper Hermes je ophalen en kwam je voorbij Cerberus, die je zonder problemen de onderwereld binnenliet, maar niet meer liet verlaten. Eenmaal aangekomen bij de dodenrivier Styx, betaalde je de veerman en kwam je bij drie rechters. Deze besloten vervolgens je toekomstbestemming. Dat leek vrij willekeurig te gebeuren, hoewel de meeste doden naar Asphodulus werden verbannen.  
-				</p></nav>
-			</div>
-		</div>
-
-<!-- ------------------------------------------------------------------------------------EGYPTE-------------------------------------------------------------------------------------------------------------- -->
+		<!-- <div class="wrapperconclusion">
+    <img id="slideconclusion" src="http://lorempixel.com/output/cats-q-c-100-100-4.jpg" />
+</div> -->
+<div class="CONTENTALL">
 
 
 
-	<div style="position:relative;z-index:20; width: 100%; height: 663px; overflow-x: hidden; overflow-y: hidden;">
-			<div class="row">		
-				<div id="mylogoparallax2" class="column" style="width: 2000px; height: 1813px; overflow:hidden">        
-					   
-					    	<div class="blur"><div class="egypte1 scroll_egypte1" style="background-position: 0px 00px;"></div></div>
-					    	<div style="left: 200px; top: 100px; padding: 0px; margin: 0px; position: absolute;"><h2 style="color:white;font-size: 750%;">Egyptenaren (1150 v. Chr.).</h2> <width="1600px" height="813px" style="display: inline;">
-							</div>
-							<div class="blur"><div class="egypte2 scroll_egypte2" style="background-position: 0px 0px;"></div></div>
-							<div class="blur"><div class="egypte3 scroll_egypte3" style="background-position: 0px 0px;"></div></div>
-							<div class="blur"><div class="egypte4 scroll_egypte4" style="background-position: 0px 0px;"></div></div>
+	<!---------------------------------------------------------------------------------------GILGAMESH-------------------------------------------------------------------------------------------------------- -->
+
+			<div style="position:relative; height:10px; background-color: #000;"></div>
+	 		<div style="position:relative;margin-top:0px;z-index:20;width: 99%; height: 813px; overflow-x: hidden; overflow-y: hidden;">	
+				<div class="row">
+					<div class="info">							
+						<div class="block-center">
+							<div class="block">
+								<div id="l"></div>
+							</div>			
+						</div>		
+						<div id="mylogoparallax0" class="column" style="width: 920px; height: 813px; overflow: hidden;">    
 							
-							<div class="blur"><div style="left: -100px; top: 100px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/egypte3.png" width="2000px" height="663px" style="display: inline;"></div></div>
-				</div>								
-			</div>	
-	</div>
-<script type="text/javascript">		
-				$(document).ready(function(){					
-					$('#mylogoparallax2').parallax({width: 1800,  height: 663,focusZ:70, sensitivityY:0, sensitivityX:0.2}); 
-				});
-			</script>
 
+							<div class="blur"><div class="gilgamesh1 scroll_paral_1_1" style="background-position: 0px 0px;"></div></div>
+							<div class="blur"><div class="gilgamesh2 scroll_paral_1_2" style="background-position: 0px 0px;"></div></div>
+							<div class="blur"><div style="left: 100px; top: -0px; padding: 0px; margin: 0px; position: absolute;">
+							<img src="Parallax_files/gilgamesh3.png" width="1600px" height="813px" style=""></div>	</div>
+							<!-- <div style="left: 800px; top: 600px; padding: 0px; margin: 0px; position: absolute;">
+								<h2 style="color:white">Gilgamesj en Enkidoe (2100 v. Chr.). </h2> <width="1600px" height="813px" style="display: inline;"></div>
+	 -->
+						</div>
 
-<div style="position:relative; height:400px; background-color: #000;">
-			<div style="padding-top:140px; padding-left:2%;">
-				<div class="example thumb_img"><h5>01</h5></div>
-				<h2 style="font-size:600%;padding-top:50px">OPVATTINGEN IN OUDE CULTUREN</h2>
-			</div>
-		</div>
+						</div>
 
-		<div class="scroll_paral_3_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
-			
-			<div class="description" style="position:relative">
-				<nav> <p>Ook de Egyptenaren hadden een visie op het leven en de dood, maar hier was geen sprake van een hel. Zij geloofden in een proces waarbij je hart op de weegschaal werd geplaatst en tegen een zogenaamde “veer van Maät” gewogen werd. Wanneer het hart lichter was dan de veer, was er niets aan de hand en kon je door naar het dodenrijk genaamd Kherneter. Je diende je wel te hebben gemummificeerd als je een succesvolle rustplaats wilde vinden in het dodenrijk. Indien je hart zwaarder was, werd je opgegeten door Ammit, de Grote Verslinderaar, wat dan je tweede dood betekende. Hierna was er niets.  Welke van de twee het werd, bepaalde de rechter Osiris met nog 42 andere rechters. Het wegen van het hart was echter niet puur doorslaggevend. Je kon je verdedigen, net als in een normale rechtszaal. Voor die reden namen de overledenen doorgaans veel manuscripten, ook wel dodenboeken, mee het graf in zodat deze van dienst konden zijn in het proces.  
-				</p></nav>
-			</div>
-		</div>
-
-<!-- --------------------------------------------------------------------------------------VIKING----------------------------------------------------------------------------------------------------------   -->
-
-
-
-
-	<div style="position:relative;z-index:20; width: 100%; height: 1080px; overflow-x: hidden; overflow-y: hidden;">
-			<div class="row">		
-				<div id="mylogoparallax3" class="column" style="width:2000px; height: 1066px; overflow:hidden">        
-					   
-					<div class="viking1 scroll_viking1" style="background-position: 0px 0px;"></div>
-					<div style="left: 00px; top: 350px; padding: 0px; margin: 0px; position: absolute;">
-						<h2 style="color:white;font-size: 690%;">Walhalla en Helheim (800-1100 n. Chr.). </h2> <width="1600px" height="813px" style="display: inline;">
-					</div>
-					<div class="viking2 scroll_viking2" style="background-position: 0px 0px;"></div>
-					<div class="viking3 scroll_viking3" style="background-position: 0px 0px;"></div>
-					<div class="viking4 scroll_viking4" style="background-position: 0px 0px;"></div>
-					<div style="left: 0px; top: 0px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/viking5.png" width="1600px" height="1066px" style="display: inline;"></div>
-				</div>								
-			</div>				
-	</div>
-<script type="text/javascript">		
-				$(document).ready(function(){					
-					$('#mylogoparallax3').parallax({width: 1800,height: 1200,focusZ:40, sensitivityY:0.2, sensitivityX:0.1}); 
-				});
-			</script>
-
-
-<div style="position:relative; height:400px; background-color: #000;">
-			<div style="padding-top:140px; padding-left:2%;">
-				<div class="example thumb_img"><h5>01</h5></div>
-				<h2 style="font-size:600%;padding-top:50px">OPVATTINGEN IN OUDE CULTUREN</h2>
-			</div>
-		</div>
-
-		<div class="scroll_paral_4_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
-			
-			<div class="description" style="position:relative">
-				<nav> <p>De heldhaftigheid en het succes van de Vikingen kunnen wellicht hun oorsprong vinden in het geloof dat zij hadden in Walhalla. Dit werd namelijk voorgesteld als een grote zaal waarin Odin, hun god, een eeuwig durend feestmaal aan de gang had. Echter, je moest wel worden opgehaald door Odins Walkuren en die namen je alleen mee als je heldhaftig op een slagveld was gestorven. Onwaardige strijders en vrouwen kwamen terecht in een oord, genaamd Fólkvangr, waar de godin Freya heerste en continu liefdesliederen te horen zouden zijn. Indien je door ziekte of ouderdom was overleden, was Helheim je bestemming: een plek van pure ellende. Vaak liet men zich daarom met speren doorboren in een poging het Helheim te ontvluchten. 
-				</p></nav>
-			</div>
-		</div>
-
-<!-- ---------------------------------------------------------------------------------------BEGRAAFPLAATS--------------------------------------------------------------------------------------------------   -->
-
-
-	<div style="position:relative;z-index:20; width: 100%; height: 795px; overflow-x: hidden; overflow-y: hidden;">
-			<div class="row">		
-				<div id="mylogoparallax4" class="column" style="width:2000px; height: 795px; overflow:hidden">        
-					 <div style="left: -100px; top: 0px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/begraafplaats1.png" width="2300px" height="795px" style="display: inline;">
-					 </div>	
-					 <div class="begraaf1 scroll_begraaf1" style="background-position: 0px 0px;"></div>
-					 <div style="left: 00px; top: 850px; padding: 0px; margin: 0px; position: absolute;">
-						<h2 style="color:white;font-size: 690%;">Eerste dodenakker (1778 n. Chr.). </h2> <width="1600px" height="813px" style="display: inline;">
-					</div>					
-				</div>				
-			</div>
- 	</div>
-<script type="text/javascript">		
-				$(document).ready(function(){					
-					$('#mylogoparallax4').parallax({width:2300,  height: 795,focusZ:50, sensitivityY:0, sensitivityX:0.2}); 
-				});
-			</script>
-
-
-<div style="position:relative; height:400px; background-color: #000;">
-			<div style="padding-top:140px; padding-left:2%;">
-				<div class="example thumb_img"><h5>01</h5></div>
-				<h2 style="font-size:600%;padding-top:50px">OPVATTINGEN IN OUDE CULTUREN</h2>
-			</div>
-		</div>
-
-		<div class="scroll_paral_5_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
-			
-			<div class="description" style="position:relative">
-				<nav> <p>Opvattingen in de westerse cultuur
-
-De manier waarop de westerse beschaving historisch gezien met de dood is omgegaan wordt door Philippe Ariès (1914-1984), een gerenommeerd Frans historicus, omschreven in vijf periodes.
-<ul>1.	De tamme dood. Hieronder wordt een natuurlijke omgang met de dood verstaan; het wordt gevreesd, maar herkend. Als het zover is, dan wordt de dood geaccepteerd. Dit was lange tijd de enige vorm van omgang met de dood. </ul>
-<ul>2.	De dood van de Ik. 1100-1200 n. Chr. ontstond een nieuwe opinie ten op zichte van de dood: meer gefocust op het individu werd de dood gezien als een persoonlijk kwaad. Niet langer was het simpelweg het einde van het leven, maar een bitter noodlot, met alle negatieve associaties van dien. </ul>
-<ul>3.	Afstandelijk maar naderend. Na de 16e eeuw werd de dood weer wat op de achtergrond geplaatst en had het niet veel te maken met het leven van alledag. Toch was het ook rond deze tijd de komst van het westerse familie-ideaal, waarbij de dood in het achterhoofd je toch af en toe van je gedachten deed afleiden. (Deze periode is lastig om te onderzoeken en veel historici hebben tegengestelde overtuigingen).</ul>
-<ul>4.	De dood van de ander. Halverwege de 18e eeuw veranderde de dood mee met het romanticisme: de dood werd gedecoreerd. Ook met het familiebeeld werd de focus verplaatst naar de overlevenden, niet de overledene. </ul>
-<ul>5.	De onzichtbare dood. Tegenwoordig is de dood afstandelijk. We vegen het schoon in ziekenhuizen en aan de hand van een begrafenisritueel, maar houden het vaak voor ons tijdens gezelligheid en houden het weg van kinderen. </ul>
-
-				</p></nav>
-			</div>
-		</div>
-
-
-<!-- --------------------------------------------------------------------------------------WATISLEVEN-------------------------------------------------------------------------------------------------   -->
-
-<div style="position:relative;z-index:20; width: 100%; height: 1200px; overflow-x: hidden; overflow-y: hidden;">
-			<div class="row">		
-				<div id="mylogoparallax7" class="column" style="width:1920px; height: 1200px; overflow:hidden"> 
-
-
-				      <div class="gear4 scroll_gear4" style="background-position: 0px 0px;"></div>
-					 
-					 
-
-					<div style="left: -200px; top: 0px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/gear2tp.png" width="1920px" height="1200px" style="display: inline;"></div>
-					
-					 <div class="gear3 scroll_gear3" style="background-position: 0px 0px;"></div>
- 					 <div class="gear1 scroll_gear1" style="background-position: 0px 0px;"></div>
-										
-										 <div style="left: 100px; top: 300px; padding: 0px; margin: 0px; position: absolute;">
-						<h2 style="color:white;font-size: 690%;">Wat is leven? </h2> <width="1600px" height="813px" style="display: inline;">
-					</div>
-				</div>				
-			</div>
- 	</div>
-<script type="text/javascript">		
-				$(document).ready(function(){					
-					$('#mylogoparallax7').parallax({width: 1920,  height: 1200,focusZ:25, sensitivityY:0.2, sensitivityX:0.2});
-				});
-			</script>
-
-<div style="position:relative; height:700px; background-color: #000;">
-			<div style="padding-top:290px; padding-left:2%;">
-				<div class="example thumb_img"><h5>04</h5></div>
-				<h2 style="font-size:600%;padding-top:50px">WAT IS LEVEN?</h2>
-			</div>
-		</div>
-
-		<div class="scroll_paral_6_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
-			
-			<div class="description" style="position:relative; ">
-				<nav> <p>
-
-					Abiogenese is de wetenschappelijke term voor het onbewezen ontstaan van leven uit niet-levende materie.  Zonder bovennatuurlijke en metafysische inbreng is het een hypothetische verklaring voor de eerste vormen van leven op aarde. De modellen van de abiogenese dienen een verklaring te vinden voor alles wat tot nu toe wordt geacht nodig te zijn voor leven: water, DNA, cellen, eiwitten en andere organische moleculen. Los van deze aspecten waar het leven uit bestaat, zeggen ze echter niets over een definitie, een algemene omschrijving die je kunt geven aan het fenomeen “leven”. <br> 
-	Er zijn veel verschillende definities over wat leven is, maar geen van deze theorieën is compleet. Zodra gekeken wordt naar de benodigde componenten die worden toegeschreven aan iets levends, wordt het vaag en ontoereikend.  
-<ul>•	Aristoteles definieerde het leven als iets dat groeit, zichzelf kan onderhouden en reproduceert. Maar zou in dit geval vuur ook niet levend moeten zijn?  </ul>
-<ul>•	Descartes achtte het leven als een mechanisme. Met dat begrip wordt bedoeld, dat alles wat we kunnen ervaren in de wereld, is opgebouwd uit waarneembare mechanieken. Wat dat betreft is een klok ook levend.  </ul>
-<ul>•	Sommigen beroepen zich op het vermogen tot metabolisme: iets is levend als het kan groeien dankzij de energie die het tot zich neemt en vervolgens weer afscheidt. Volgens die logica is een auto ook een levend wezen.  </ul>
-<ul>•	In 1944 werd door Erwin Schrödinger, een Australische natuurkundige, leven omschreven aan de hand van de tweede wet van thermodynamica. Deze stelt in een simpele uitleg voor dat als je deeltjes willekeurig neerzet, ze zich uiteindelijk zo ver mogelijk zullen verspreiden. Dankzij ons metabolisme zijn onze deeltjes juist tegenstrijdig daaraan: de kans dat wij als losse deeltjes mens over de aarde zweven is natuurkundig gezien vele malen groter, maar in de praktijk doen wij dat geheel tegenstrijdig in “kluwen mens”. Echter, aan de hand van die theorie zouden kristallen ook een vorm van leven moeten zijn: de kans dat een kristal ontstaat is natuurkundig gezien ook heel klein: het wil liever geen kristal vormen, omdat ze daarvoor de kernkracht van de deeltjes moeten overwinnen om zo dicht bij elkaar in de buurt te komen om verbindingen te vormen. Het feit dat ze dat toch doen, is vergelijkbaar met het feit dat wij toch kluwen mensen zijn. </ul>
-<br>
-Een echt sluitende definitie voor leven is nog niet gevonden. Deze definitie is voor velen natuurlijk uitermate interessant. Levensvragen zijn ontstaan om het hele gebeuren om ons heen te verklaren, maar wellicht kunnen we pas definiëren wat leven is, zodra we een andere vorm van leven hebben gevonden.
-
-
-				</p></nav>
-			</div>
-		</div>
-
-
-
-<!-- --------------------------------------------------------------------------------------DNA--------------------------------------------------------------------------------------------------   -->
-
-
-
-<div style="position:relative;z-index:20; width: 100%; height: 1080px; overflow-x: hidden; overflow-y: hidden;">
-			<div class="row">		
-				<div id="mylogoparallax8" class="column" style="width:1920px; height: 1080px; overflow:hidden"> 
-
-					<div class="blur"><div style="left:-100px; top: -100px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/dna5.png" width="2200px" height="1238px" style="display: inline;"></div></div>
-					<div style="width:120%; height:120%;z-index:-50000;left: 0px; top: 0px; padding: 0px; margin: 0px; position: absolute;">
-							<video autoplay loop id="bgvid"><source src="Parallax_files/rippling-circle-in-white-and-black-water_bj-wso_eh__PM.mp4" type="video/mp4"></video></div>
-				    <div class="blur"> <div class="dna4 scroll_dna4" style="background-position: 0px 0px;"></div></div>
-					<div style="left: 1200px;   top: 440px; padding: 0px; margin: 0px; position: absolute;">
-						<h2 style="color:white;font-size: 690%;">DNA </h2> <width="1600px" height="813px" style="display: inline;"></div>
-					<div class="blur"> <div class="dna3 scroll_dna3" style="background-position: 0px 0px;"></div></div>		
-					<div class="blur"> <div class="dna2 scroll_dna2" style="background-position: 0px 0px;"></div></div>
- 					<div class="blur"> <div class="dna1 scroll_dna1" style="background-position: 0px 0px;"></div></div>
-										
-				</div>				
-			</div>
- 	</div>
-<script type="text/javascript">		
-				$(document).ready(function(){					
-					$('#mylogoparallax8').parallax({width: 1920,  height: 1080,focusZ:25, sensitivityY:0.2, sensitivityX:0.2});
-				});
-			</script>
-
-<div style="position:relative; height:400px; background-color: #000;">
-			<div style="padding-top:140px; padding-left:2%;">
-				<div class="example thumb_img"><h5>04</h5></div>
-				<h2 style="font-size:600%;padding-top:50px">DNA</h2>
-			</div>
-		</div>
-
-		<div class="scroll_paral_7_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
-			
-			<div class="description" style="position:relative; ">
-				<nav> <p>
-
-						DNA is een belangrijk onderwerp om apart te nemen, omdat het in het rijtje van benodigdheden voor leven het onderdeel is dat de basis vormt voor het verschil tussen levensvormen. Het geeft de genetische code door die ons tot op zekere hoogte op onze ouders laat lijken, maar met nieuwe mutaties. Iets minder dichtbij, hoewel slechts twee procent, lijkt de mens dan op apen, en nog verder weg op andere vormen van leven, zoals planten en bacteriën. 
-	Op 14 april 2003 was de eerst complete genoomsequentie van een mens (het in kaart brengen van de nagenoeg volledige DNA-volgorde van een menselijk lichaam) een feit. Deze prestatie vormt sindsdien een belangrijk speelveld voor nieuwe onderzoeken.  Momenteel worden bijvoorbeeld de uitwerkingen die DNA heeft op gezichtskenmerken onderzocht, waarbij de invloed van geslacht en ras wordt buitengesloten. Op deze wijze kan bepaald worden hoe specifieke genen hun uitwerkingen hebben op ons voorkomen. Dit is een volgende stap naar een digitale visualisatie van de mens waarbij DNA gebruikt wordt.  
-
-
-
-				</p></nav>
-			</div>
-		</div>
-
-
-
-
-
-<!-- --------------------------------------------------------------------------------------BIJNADOODERVARING--------------------------------------------------------------------------------------------------   -->
-
-<div style="position:relative;z-index:20; width: 100%; height: 1000px; overflow-x: hidden; overflow-y: hidden;">
-			<div class="row">		
-				<div id="mylogoparallax6" class="column" style="width:2050px; height: 1204px; overflow:hidden">        
-					 <div style="left: -200px; top: 0px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/tunnel1.png" width="2050px" height="1204px" style="display: inline;"></div>
-					 <div class="tunnel2 scroll_tunnel2" style="background-position: 0px 0px;"></div>
-					 
-					 <div class="tunnel3 scroll_tunnel3" style="background-position: 0px 0px;"></div>
-
-					 <div style="left: -200px; top: 0; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/tunnel4.png" width="2050px" height="1204px" style="display: inline;"></div>
-					  <div style="left: 290px; top: 350px; padding: 0px; margin: 0px; position: absolute;">
-						<h2 style="color:white;font-size: 690%;">	Bijna Dood Ervaring </h2> <width="500px" height="500px" style="display: inline;">
-					</div>
-					 <div class="tunnel5 scroll_tunnel5" style="background-position: 0px 0px;"></div>
- 					 <div class="tunnel6 scroll_tunnel6" style="background-position: 0px 0px;"></div>
-
-										
-				</div>				
-			</div>
- 	</div>
-<script type="text/javascript">		
-				$(document).ready(function(){					
-					$('#mylogoparallax6').parallax({width: 2050,  height: 1204,focusZ:25, sensitivityY:0.2, sensitivityX:0.3});
-				});
-			</script>
-<div style="position:relative; height:700px; background-color: #000;">
-			<div style="padding-top:290px; padding-left:2%;">
-				<div class="example thumb_img"><h5>05</h5></div>
-				<h2 style="font-size:600%;padding-top:50px">Bijna dood ervaring: een glimp van het leven na de dood?</h2>
-			</div>
-		</div>
-
-		<div class="scroll_paral_8_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
-			
-			<div class="description" style="position:relative; ">
-				<nav> <p>
-
-	Een bijna dood ervaring (BDE) treedt volgens de wetenschap op tijdens een staat van verlaagd bewustzijn, bijvoorbeeld in een levensbedreigende situatie. De subjectieve vorm van een BDE gaat vaak gepaard met omschrijvingen als een tunnel met licht, vrede en pijnloosheid, een wederzien met overledenen en een algemene samenvatting van je leven in de vorm van een film. Vaak worden ze geassocieerd met bovennatuurlijke machten, wat al snel een leven na de dood suggereert, waarbij een BDE alvast een tipje van de sluier laat zien. Echter, meerdere gevallen zijn bekend waarbij een BDE optrad en geen sprake was van een naderende dood, bijvoorbeeld bij patiënten met temporale epilepsie, maar ook door gebruik van drugs.  Recent onderzoek bij ratten heeft bewezen dat zelfs nadat de bloedtoevoer naar de hersenen gestopt is, nog sprake is van hersenactiviteit. Zelfs meer dan tot op heden werd gedacht. Dit suggereert dat inderdaad een verband te vinden is tussen de speciale staat van hersenactiviteit en de BDE die bij een levensbedreigende situatie plaatsvindt. <br>
-	Ook zijn in het verleden medici geweest die geloven dat een BDE een bovennatuurlijk verschijnsel is. Cardioloog van Lommel deed in de periode 1988 tot 2002 onderzoek naar de BDE. Volgens hem konden ze niets te maken hebben met processen in de hersenen. Hij beschouwt ze als een bewijs dat we ons bewustzijn niet te danken hebben aan ons brein. In 'Eindeloos bewustzijn: een wetenschappelijke visie op de bijna-dood ervaring' betoogt hij dat bewustzijn geen materiële basis heeft. Ons bewustzijn bevindt zich naar zijn overtuiging in een metafysische, non-lokale ruimte, ‘een verborgen werkelijkheid die constant invloed uitoefent op onze fysieke wereld’. Al onze herinneringen liggen als golffuncties in deze non-lokale ruimte opgeslagen. ‘De hersenen en het lichaam functioneren slechts als een opvangstation'. Hij stelde dat ook bij een vlak EEG, een scan van de hersenactiviteit waarbij geen elektrische impulsen meer meetbaar zijn,  alsnog BDE’en zijn geconstateerd. Hij beriep zich echter tijdens dit onderzoek veelal op een vrij snel vlak wordende EEG, terwijl die stelling tegelijkertijd niet sluitend werd bewezen. Dat werd ook het punt van kritiek en ook via collega’s werd duidelijk dat van Lommel al vrij snel accepteerde dat bepaalde verschijnselen tijdens het onderzoek bovennatuurlijk waren.  
-
-
-				</p></nav>
-			</div>
-		</div>
-
-
-
-<!-- ---------------------------------------------------------------------------------------BUDDHA--------------------------------------------------------------------------------------------------   -->
-
-
-<div style="position:relative;z-index:20; width: 100%; height: 755px; overflow-x: hidden; overflow-y: hidden;">
-			<div class="row">		
-				<div id="mylogoparallax9" class="column" style="width:1920px; height: 755px; overflow:hidden">        
-					 <div style="left: -200px; top: 00px; padding: 0px; margin: 0px; position: absolute;">
-					 	<img src="./Parallax_files/buddha2.png" width="1920px" height="755px" style="display: inline;">
-					 </div>
-					 <div class="buddha1 scroll_buddha2" style="background-position: 0px 0px;"></div>
-					 <div style="left: 100px; top: 150px; padding: 0px; margin: 0px; position: absolute;">
-						<h2 style="color:white;font-size: 690%;">Ben ik mijn bewustzijn? </h2> <width="1600px" height="755px" style="display: inline;">
-					</div>
-					
-
-										
-				</div>				
-			</div>
- 	</div>
-<script type="text/javascript">		
-				$(document).ready(function(){					
-					$('#mylogoparallax9').parallax({width: 1920,  height: 755,focusZ:25, sensitivityY:0.1, sensitivityX:0.1});
-				});
-			</script>
-
-
-<div style="position:relative; height:900px; background-color: #000;">
-			<div style="padding-top:290px; padding-left:2%;">
-				<div class="example thumb_img"><h5>06</h5></div>
-				<h2 style="font-size:600%;padding-top:50px">Ben ik mijn bewustzijn?</h2>
-			</div>
-		</div>
-
-		<div class="scroll_paral_9_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
-			
-			<div class="description" style="position:relative; width:1200px">
-				<p>
-				“Is de mens zijn lichaam of heeft de mens een lichaam?”.  Een belangrijk vraagstuk in het kader van de Digitale Vereeuwiging, omdat deze feitelijk zou kunnen staan of vallen, afhankelijk van wat het antwoord zal zijn. Als de mens een bewustzijn heeft, dat wil zeggen een tot nu toe onverklaarbare, losstaande essentie naast zijn lichamelijke vermogen om te bestaan, dan zullen onze data-klonen mogelijk slechts stukjes software blijven. Daarentegen zal het leven op aarde wel betekenisvoller worden. 
-				<br><br>	
-				<div>
-					<div class="left">
-					<b><strong>Bewustzijn in de filosofie</strong></b>
-					<br>
-					Ons bewustzijn is sinds het begin der tijden een onderwerp van discussie. Grote denkers hebben een poging gedaan het te ontcijferen via filosofische invalshoeken, maar tot de dag van vandaag is het onduidelijk. Wat is het bewustzijn, naast een toestand van de geest die gekenmerkt is door een besef of beleving van het eigen ik en de omgeving?  Weten we, als we het over bewustzijn hebben, wel waarover we het hebben? Wordt het geproduceerd door de hersenen? Is het überhaupt iets dat geproduceerd wordt? Of is het bewustzijn van een zelfde soort als de onzichtbare sfeer op een feestje waarbij de mensen, drank en muziek wat betreft het bewustzijn, gelijk staan aan ons lichaam, onze hersenen en de wereld om ons heen?  
-					In de historie ontstonden denkbeelden over het bewustzijn in de vorm van het empirisme en het rationalisme. Een vaak gehoorde term binnen het empirisme gaat over het onbeschreven blad, een zogenaamd tabula rasa. Een leeg, passief stukje papier dat na de geboorte kan worden ingekleurd met waarnemingen vanuit de zintuigen. De persoon die uiteindelijk ook weer zal overlijden, is een samenraapsel van allerlei associaties en daaruit voortvloeiende overtuigingen die tijdens het leven zijn opgedaan. Daar tegenover staat het rationalisme dat uitgaat van een actieve geest, waarbij ideeën en denkwijze zijn aangeboren en tijdens het leven worden ingezet als interpretatiekader.  Deze twee theorieën vormen vandaag de dag nog steeds twee belangrijke tegenpolen in de hedendaagse neurowetenschappelijke onderzoeken. 
-					Ook in onze tijd zijn sommige denkers van mening dat niet alles van de menselijke geest in hersenfuncties valt te herleiden. Een voorbeeld hiervan is Thomas Nagel, die stelt dat: “Reductie van het mentale niet mogelijk is omdat men nooit de ervaring ´wat het is een mens te zijn´ in de fysische beschrijving van een mens kan vatten.”.   Nagel geeft aan dat het niet mogelijk is om ons bewustzijn te verklaren zonder de daarbij horende subjectieve ervaringen die wij allemaal hebben. Deze subjectieve ervaringen passen niet in functionele of intentionele systemen, en zijn daarom niet toegankelijk voor een reductionistisch onderzoek.
-					</div>
-
-					<div class="right">
-					<b><strong>Bewustzijn in de wetenschap</strong></b>
-					<br>
-					In het boek “Wetenschap, bewustzijn en integrale geneeskunde" wordt aangegeven wat volgens de hedendaagse geneeskunde wordt bedoeld met het bewustzijn. Hierbij wordt een onderscheid gemaakt in phenomenal consciousness, oftewel ‘waarneembaar bewustzijn’  (P-bewustzijn) en access consciousness, oftewel ‘toegankelijk bewustzijn’ (A-bewustzijn). 
-					In het P-bewustzijn wordt alles geplaatst dat te maken heeft met onze persoonlijke indrukken, gevoelens en belevingen van alles om ons heen. Het P-bewustzijn speelt zich voornamelijk af in de achterkwab van onze hersenen. Met het A-bewustzijn wordt ons vermogen bedoeld om over de inhoud van die indrukken, gevoelens en belevingen te vertellen. Het handelende deel van onze hersenen is grofweg te lokaliseren in de voorkwab. Het voorste gedeelte van ons denkende brein, net achter het voorhoofd aan de bovenzijde van de neus, waar ons commandocentrum ligt. Hier schijnt zich ook het bewustzijn, oftewel de waarneming van onze eigen “ik”, te bevinden.
-					De auteurs van het boek gaan ervan uit dat ons bewustzijn zich schuilhoudt in de frontale kwab van onze hersenen. Echter, onze fysieke en mentale doen en laten wordt gecoördineerd door gemiddeld honderd miljard hersencellen, die allemaal één op één verbonden zijn met honderdduizend andere hersencellen.   
-					Een dergelijke constatering als die van de auteurs in het boek is dus onvolledig, aangezien de voorkwab relatief een zelfde oppervlakte heeft als die van ons Melkwegstelsel. Dat is alsof buitenaards leven is aangetoond door te zeggen dat het buitenaardse leven in kwestie zich ergens in de ruimte bevindt. Waar het bewustzijn zich precies bevindt, dient nog te worden uitgezocht. Er zijn verscheidene interessante projecten aan de gang die een poging doen om een totaalplaatje van onze hersenpan in kaart te brengen. Neem bijvoorbeeld het ambitieuze project van Allan Jones, die samen met zijn team tracht een interactieve driedimensionale atlas van het menselijke brein te maken. 
 					</div>
 				</div>
+
+			</div>
+			<script type="text/javascript">		
+				$(document).ready(function(){					
+					$('#mylogoparallax0').parallax({width: 1800,  height: 813,focusZ:50, sensitivityY:0.2, sensitivityX:0.2}); 
+				});
+			</script>	
+
+	<div class="text1">	
+		<div style="position:relative; height:900px; background-color: #000;">
+		<<div class="texttitel">GILGAMESJ EN ENKIDOE</div>
+		<div class="rotate" style="transform-origin: left;transform: translate(10%, 500%) rotate(-90deg); "><h5>01</h5><h2 style="font-size:100%;color:white;">OPVATTINGEN IN OUDE CULTUREN</h2></div>
+			<div style="padding-top:-200px; padding-left:2%;">
+				<!-- <div class="example thumb_img"><h5>01</h5></div> -->
+				<h2 style="font-size:600%;padding-top:50px">OPVATTINGEN IN OUDE CULTUREN</h2>
+			</div>
+		</div>
+	</div>
+		<div class="scroll_paral_1_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 800px; width:98%;">
+			<div class="description" style="position:relative">
+				<p>In een van de oudste heldendichten vindt men het verhaal van Gilgamesj en Enkidoe. Gilgamesj was voor een deel goddelijk en voor een deel menselijk. Hij regeerde als machtig koning over zijn stad. Enkidoe, een man geschapen uit de flora en fauna en krachtig als een dozijn wilde dieren, trotseerde Gilgamesj. Hoewel verloren, slaagde hij er wel in, de vriendschap van Gilgamesj te winnen. Om hun krachten in goede staat te behouden, plande Gilgamesj een reis naar het Cederbos. Zij wilden namelijk van het aldaar groeiende cederhout een poort maken voor de stad. Eenmaal daar werd het tweetal door Humbaba, de demonische beschermer van het bos, tegengehouden. Nadat zij hem overwonnen hadden, twijfelde Gilgamesj over het lot van de demon, maar Enkidoe overtuigde hem tot doden, zodat hij op die manier eeuwig zou worden herinnerd. <br><br>De goden waren furieus over de dood van Humbaba en wezen Enkidoe aan als verantwoordelijke. Na de dood van zijn vriend, die tijdens zijn sterven de onderwereld tot in detail beschreef, was Gilgamesj naast zijn verdriet ook bang geworden voor de dood. Hij besloot daarom het eeuwige leven te behalen en zocht steun bij Utnapishtim. Utnapishtim komt in veel soortgelijke verhalen over de Zondvloed voor, weliswaar met andere namen, maar ook hier was hij met zijn gezin de enige overlevende van voor die tijd. De goden schonken hem in deze epos het eeuwig leven en dat wilde Gilgamesj ook. Nadat hij de gevaarlijke reis naar het “begin van de rivieren” had voltooid, vond hij hem. Hij faalde in de test voor eeuwig leven, maar Utnapishtim wees hem op de bloem die hem weer jong zou maken. De bloem groeide op de bodem van de zee, maar Gilgamesj bond stenen om zijn voeten en kreeg de bloem in zijn bezit. Hij vertrouwde het echter niet en wilde de bloem liever testen op een ouder persoon. Helaas raakte hij de bloem kwijt op de terugreis. De bloem werd gegeten door een slang en dit zou een oorzaak zijn van de gave van het vervellen.  <sup id="fnref:0.likethis"><a href="#fn:0.likethis" rel="footnote">0</a></sup>
+				</p>
+
 				</p>
 			</div>
 		</div>
 
-<!-- ---------------------------------------------------------------------------------------BRAINWIRE--------------------------------------------------------------------------------------------------   -->
+	<div class="footnoteforprint1">
+	<hr>
+		 1.  Groothof, F, Huiberts, M, Rogaar, K and Schutten, J (2006), Gilgamesj. Amsterdam: Nieuw 
+		
 
-
-<div style="position:relative;z-index:20; width: 100%; height: 795px; overflow-x: hidden; overflow-y: hidden;">
-			<div class="row">		
-				<div id="mylogoparallax5" class="column" style="width:2000px; height: 795px; overflow:hidden">        
-					 <div style="left: -200px; top: -220px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/brainwire1.png" width="2400px" height="1350px" style="display: inline;"></div>
-					 <div class="brainwire1 scroll_brainwire1" style="background-position: 0px 0px;"></div>
-					  <div style="left: 100px; top: 550px; padding: 0px; margin: 0px; position: absolute;">
-						<h2 style="color:white;font-size: 690%;">Waar komen  </h2> <width="1600px" height="813px" style="display: inline;">
-					</div>
-					 <div style="left:200px; top: 650px; padding: 0px; margin: 0px; position: absolute;">
-						<h2 style="color:white;font-size: 690%;">onze gedachten vandaan? </h2> <width="1600px" height="813px" style="display: inline;">
-					</div>
-					 <div class="brainwire2 scroll_brainwire2" style="background-position: 0px 0px;"></div>
-					 <div class="brainwire3 scroll_brainwire3" style="background-position: 0px 0px;"></div>
-
-										
-				</div>				
-			</div>
- 	</div>
-<script type="text/javascript">		
-				$(document).ready(function(){					
-					$('#mylogoparallax5').parallax({width: 1920,  height: 1080,focusZ:25, sensitivityY:0.2, sensitivityX:0.2});
-				});
-			</script>
-
-
-<div style="position:relative; height:700px; background-color: #000;">
-	<div style="padding-top:290px; padding-left:2%;">
-		<div class="example thumb_img"><h5>06</h5></div>
-		<h2 style="font-size:600%;padding-top:50px">Waar komen onze gedachten vandaan?</h2>
 	</div>
-</div>
 
-<div class="scroll_paral_10_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
-			
-	<div class="description" style="position:relative; ">
-				<nav> 
-					<p>
-					Zelfs met de meest geavanceerde onderzoeksapparatuur die we vandaag de dag tot onze beschikking hebben, is het nog niet mogelijk om een antwoord te geven op de vraag: “hoe ziet een gedachte eruit?”. En verder, op het gebied van gedachten, komen vragen zoals “hoe word je verliefd?” naar de oppervlakte. “Waarom praat ik tegen mezelf?” en "zijn mijn gedachten überhaupt van mij of gekopieerd van een overkoepelend gevoel waarbij ik een persoonlijk verhaaltje kwijt kon?". De wetenschap geeft hierop een voorzichtig antwoord: zij gaan er namelijk wel vanuit dat alles te herleiden valt naar de cellen in onze hersenen, maar daarbij speelt ook het lichaam en de omgeving een rol. Momenteel zijn ze nog niet in staat een sluitend antwoord te geven en daarbij feitelijke bewijzen te presenteren, maar verwachten ze met de huidige ontwikkelingen in de wetenschap wel in de nabije toekomst een antwoord klaar te hebben. 
-					Spiritueel invloedrijk schrijver Eckhart Tolle zegt dat onze gedachten niet echt van onszelf komen: in feite zijn het situaties die wij meemaken in ons leven, waarbij de gevoelens zoals verdriet, boosheid, jaloezie en blijheid onze reacties zijn. Wij verbinden vervolgens ons zojuist meegemaakte situaties aan deze gevoelens en noemen ze gedachten. Deze reacties zijn niet persoonlijk, ze horen allemaal bij een overkoepelend gevoel die we allemaal hetzelfde ervaren. 
-					In een interview met Marvin Minksy, een computerwetenschapper die in de jaren ‘60 al boeken schreef over de relaties tussen mens en computer , stond een heldere uitleg die het onderzoek iets dichter bij de potentiële betekenis van een bewustzijn bracht. Tegenwoordig is het populair om te denken dat de hersenen op den duur begrepen kunnen worden aan de hand van de manier waarop wetenschappers ook hun onderzoeken doen: hoe werken de verschillende onderdelen en hoe werken die ten opzichte van elkaar. In de geschiedenis is gebleken dat onverklaarbare processen en fenomenen op den duur op een dusdanige manier in kaart werden gebracht dat het in een aantal simpele spelregels te vatten was. Minsky geeft het voorbeeld van Archimedes, die een aantal belangrijke regels kwam te weten over natuurkunde. Na een lange stilte waren daar Galileo en Newton, waarvan de laatste drie simpele wetten neerschreef over elektriciteit en magnetisme, en uiteindelijk Einstein die de wetten terugbracht op een of twee. Minsky is van mening dat het brein niet op eenzelfde manier toegankelijk is. Het is simpelweg te ingewikkeld voor een paar standaard wetten. Volgens Minsky is het belangrijk om dat te realiseren en het brein te benaderen vanuit een perspectief waarbij eerst een hypothese wordt gedaan over onze gedachten, en dat dan alle verschillende mechanismen in het brein worden gecontroleerd totdat een match is gevonden. Minsky is van mening dat de mens niet echt een persoonlijkheid heeft, maar dat ons bewustzijn uitsluitend ontstaat uit activiteit in de hersenen. Het is een continu proces van afwegen en besluiten maken. Proberen, en mocht het niet lukken, iets anders proberen. Op die manier is ons interpretatiekader opgebouwd en op die manier denken wij te zijn wie we zijn.  
-					
-				</p></nav>
+	<div class="page-break"></div>		
+
+	<!-- --------------------------------------------------------------------------------------ELYSIAN---------------------------------------------------------------------------------------------------------- -->
+
+		<div style="position:relative;z-index:20; width: 100%; height: 1200px; overflow-x: hidden; overflow-y: hidden;">
+				<div class="row">
+
+								<div id="l"></div>		
+					<div id="mylogoparallax" class="column" style="width: 2000px; height: 1200px; overflow:hidden">        
+				
+							<div style="width:120%; height:120%;z-index:-50000;left: 0px; top: 0px; padding: 0px; margin: 0px; position: absolute;">
+								<video autoplay loop id="bgvid"><source src="Parallax_files/rippling-circle-in-white-and-black-water_bj-wso_eh__PM.mp4" type="video/mp4"></video>
+							</div>
+						
+							<div class="blur"><div style="left: -300px; top: 300px; padding: 0px; margin: 0px; position: absolute;"><img src="Parallax_files/elysium4.png" width="3264px" height="2448px" style=""></div></div>
+
+						    <div class="blur"><div class="elysium3 scroll_elysian1" style="background-position: 0px 00px;"></div></div>
+							<div class="blur"><div style="left: 600px; top: 600px; padding: 0px; margin: 0px; position: absolute;">
+								<h2 style="color:white;font-size: 1000%;">Elysische <br><br><br><br><br>velden </h2> <width="1600px" height="813px" style="display: inline;"></div></div>
+							<div class="blur"><div style="left: 700px; top: 700px; padding: 0px; margin: 0px; position: absolute;">
+								<h2 style="color:white;font-size: 1000%;">Velden <br><br><br><br><br>velden </h2> <width="1600px" height="813px" style="display: inline;"></div></div>
+							<div class="blur"><div class="elysium2 scroll_elysian2" style="background-position: 0px 0px;"></div></div>
+							<div class="blur"><div class="elysium1 scroll_elysian3" style="background-position: 0px 0px;"></div></div>
+						
+						</div>
+					</div>
+				</div>				
+		</div>
+				
+		
+	<script type="text/javascript">		
+					$(document).ready(function(){					
+						$('#mylogoparallax').parallax({width: 1800,  height: 1200,focusZ:20, sensitivityY:0.40, sensitivityX:0.2}); 
+					});
+				</script>
+
+		<div class="text2">	
+			<div style="position:relative; height:900px; background-color: #000;">
+				<div class="texttitel">ELYSIUM EN TARTAROS</div>
+		<div class="rotate" style="transform-origin: left;transform: translate(10%, 500%) rotate(-90deg); "><h5>01</h5><h2 style="font-size:100%;color:white;">OPVATTINGEN IN OUDE CULTUREN</h2></div>
+			<div style="padding-top:0px; padding-left:2%;">
+						<!-- <div class="example thumb_img"><h5>01</h5></div> -->
+						<h2 style="font-size:600%;padding-top:50px">OPVATTINGEN IN OUDE CULTUREN</h2>
+					</div>
 			</div>
+		</div>
+			<div class="scroll_paral_2_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 800px; width:98%;">
+				
+				<div class="description" style="position:relative">
+					<nav> <p>In de Griekse oudheid had men drie plaatsen waar men naartoe kon wanneer men overleden was: Tartaros, Elysium en Asphodulus. Alle drie bevonden zich in de zogenaamde “onderwereld”, waar Hades het voor het zeggen had. Tartaros was een ellendige plek in de duisternis, terwijl het Elysium zich in het zonlicht bevond. Asphodulus was een schimmige tussenplek waar je doelloos en willoos ronddwaalde. Voordat de ziel naar de onderwereld kon reizen, diende het begrafenisritueel volgens de regels te verlopen, omdat anders Hades het niet zou accepteren. Als dat werd voldaan, kwam de goddelijke boodschapper Hermes je ophalen en kwam je voorbij Cerberus, die je zonder problemen de onderwereld binnenliet, maar niet meer liet verlaten. Eenmaal aangekomen bij de dodenrivier Styx, betaalde je de veerman en kwam je bij drie rechters. Deze besloten vervolgens je toekomstbestemming. Dat leek vrij willekeurig te gebeuren, hoewel de meeste doden naar Asphodulus werden verbannen.  <sup id="fnref:2.likethis"><a href="#fn:2.likethis" rel="footnote">2</a></sup>
+					</p></nav>
+				</div>
+			</div>
+
+	<div class="footnoteforprint2">
+			<hr>
+		  2. Horst, E. “Invloed op het hiernamaals”, Kennislink.nl, 2010, online. 
+	Beschikbaar via: http://www.kennislink.nl/publicaties/invloed-op-het-hiernamaals [Geraadpleegd op 10 december 2014].
+
+		
+
+	</div>
+	<div class="page-break"></div>
+	<!-- ------------------------------------------------------------------------------------EGYPTE-------------------------------------------------------------------------------------------------------------- -->
+
+
+
+		<div style="position:relative;z-index:20; width: 100%; height: 663px; overflow-x: hidden; overflow-y: hidden;">
+				<div class="row">		
+					<div id="mylogoparallax2" class="column" style="width: 2000px; height: 1813px; overflow:hidden">        
+						   
+						    	<div class="blur"><div class="egypte1 scroll_egypte1" style="background-position: 0px 00px;"></div></div>
+						    	<div style="left: 200px; top: 100px; padding: 0px; margin: 0px; position: absolute;"><h2 style="color:white;font-size: 750%;">Egyptenaren (1150 v. Chr.).</h2> <width="1600px" height="813px" style="display: inline;">
+								</div>
+								<div class="blur"><div class="egypte2 scroll_egypte2" style="background-position: 0px 0px;"></div></div>
+								<div class="blur"><div class="egypte3 scroll_egypte3" style="background-position: 0px 0px;"></div></div>
+								<div class="blur"><div class="egypte4 scroll_egypte4" style="background-position: 0px 0px;"></div></div>
+								
+								<div class="blur"><div style="left: -100px; top: 100px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/egypte3.png" width="2000px" height="663px" style=""></div></div>
+					</div>								
+				</div>	
+		</div>
+	<script type="text/javascript">		
+					$(document).ready(function(){					
+						$('#mylogoparallax2').parallax({width: 1800,  height: 663,focusZ:70, sensitivityY:0, sensitivityX:0.2}); 
+					});
+				</script>
+
+	<div class="text3">	
+		<div style="position:relative; height:900px; background-color: #000;">
+			<div class="texttitel">EGYPTENAREN</div>
+
+		<div class="rotate" style="transform-origin: left;transform: translate(10%, 500%) rotate(-90deg); "><h5>01</h5><h2 style="font-size:100%;color:white;">OPVATTINGEN IN OUDE CULTUREN</h2></div>
+			<div style="padding-top:0px; padding-left:2%;">
+					<!-- <div class="example thumb_img"><h5>01</h5></div> -->
+					<h2 style="font-size:600%;padding-top:50px">OPVATTINGEN IN OUDE CULTUREN</h2>
+				</div>
+			</div>
+	</div>
+			<div class="scroll_paral_3_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
+				
+				<div class="description" style="position:relative">
+					<nav> <p>Ook de Egyptenaren hadden een visie op het leven en de dood, maar hier was geen sprake van een hel. Zij geloofden in een proces waarbij je hart op de weegschaal werd geplaatst en tegen een zogenaamde “veer van Maät” gewogen werd. Wanneer het hart lichter was dan de veer, was er niets aan de hand en kon je door naar het dodenrijk genaamd Kherneter. Je diende je wel te hebben gemummificeerd als je een succesvolle rustplaats wilde vinden in het dodenrijk. Indien je hart zwaarder was, werd je opgegeten door Ammit, de Grote Verslinderaar, wat dan je tweede dood betekende. Hierna was er niets.  Welke van de twee het werd, bepaalde de rechter Osiris met nog 42 andere rechters. Het wegen van het hart was echter niet puur doorslaggevend. Je kon je verdedigen, net als in een normale rechtszaal. Voor die reden namen de overledenen doorgaans veel manuscripten, ook wel dodenboeken, mee het graf in zodat deze van dienst konden zijn in het proces.  <sup id="fnref:3.likethis"><a href="#fn:3.likethis" rel="footnote">3</a></sup>
+					</p></nav>
+				</div>
+			</div>
+
+	<div class="footnoteforprint3">
+		<hr>
+		 3. McCoy, D. “Death and the Afterlife”, Norse Mythology for Smart People, 2012-2014, online. 
+	Beschikbaar via: http://norse-mythology.org/concepts/death-and-the-afterlife [Geraadpleegd op 10 december 2014]
+
+		
+
+	</div>
+	<div class="page-break"></div>
+	<!-- --------------------------------------------------------------------------------------VIKING----------------------------------------------------------------------------------------------------------   -->
+
+
+
+
+		<div style="position:relative;z-index:20; width: 100%; height: 1080px; overflow-x: hidden; overflow-y: hidden;">
+				<div class="row">		
+					<div id="mylogoparallax3" class="column" style="width:2000px; height: 1066px; overflow:hidden">        
+						   
+						<div class="viking1 scroll_viking1" style="background-position: 0px 0px;"></div>
+						<div style="left: 00px; top: 350px; padding: 0px; margin: 0px; position: absolute;">
+							<h2 style="color:white;font-size: 690%;">Walhalla en Helheim (800-1100 n. Chr.). </h2> <width="1600px" height="813px" style="display: inline;">
+						</div>
+						<div class="viking2 scroll_viking2" style="background-position: 0px 0px;"></div>
+						<div class="viking3 scroll_viking3" style="background-position: 0px 0px;"></div>
+						<div class="viking4 scroll_viking4" style="background-position: 0px 0px;"></div>
+						<div style="left: 0px; top: 0px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/viking5.png" width="1600px" height="1066px" style=""></div>
+					</div>								
+				</div>				
+		</div>
+	<script type="text/javascript">		
+					$(document).ready(function(){					
+						$('#mylogoparallax3').parallax({width: 1800,height: 1200,focusZ:40, sensitivityY:0.2, sensitivityX:0.1}); 
+					});
+				</script>
+
+	<div class="text4">	
+		<div style="position:relative; height:900px; background-color: #000;">
+			<div class="texttitel">WALHALLA EN HELHEIM</div>
+		<div class="rotate" style="transform-origin: left;transform: translate(10%, 500%) rotate(-90deg); "><h5>01</h5><h2 style="font-size:100%;color:white;">OPVATTINGEN IN OUDE CULTUREN</h2></div>
+			<div style="padding-top:0px; padding-left:2%;">
+					<h2 style="font-size:600%;padding-top:50px">OPVATTINGEN IN OUDE CULTUREN</h2>
+				</div>
+			</div>
+	</div>
+			<div class="scroll_paral_4_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
+				
+				<div class="description" style="position:relative">
+					<nav> <p>De heldhaftigheid en het succes van de Vikingen kunnen wellicht hun oorsprong vinden in het geloof dat zij hadden in Walhalla. Dit werd namelijk voorgesteld als een grote zaal waarin Odin, hun god, een eeuwig durend feestmaal aan de gang had. Echter, je moest wel worden opgehaald door Odins Walkuren en die namen je alleen mee als je heldhaftig op een slagveld was gestorven. Onwaardige strijders en vrouwen kwamen terecht in een oord, genaamd Fólkvangr, waar de godin Freya heerste en continu liefdesliederen te horen zouden zijn. Indien je door ziekte of ouderdom was overleden, was Helheim je bestemming: een plek van pure ellende. Vaak liet men zich daarom met speren doorboren in een poging het Helheim te ontvluchten. <sup id="fnref:3.likethis"><a href="#fn:3.likethis" rel="footnote">4</a></sup>
+					</p></nav>
+				</div>
+			</div>
+
+	<div class="footnoteforprint4">
+	<hr>
+		  4. Morris, I (1987) Burial and ancient society. Cambridgeshire: Cambridge University Press
+
+	</div>
+	<div class="page-break"></div>
+	<!-- ---------------------------------------------------------------------------------------BEGRAAFPLAATS--------------------------------------------------------------------------------------------------   -->
+
+
+		<div style="position:relative;z-index:20; width: 100%; height: 795px; overflow-x: hidden; overflow-y: hidden;">
+				<div class="row">		
+					<div id="mylogoparallax4" class="column" style="width:2000px; height: 795px; overflow:hidden">        
+						 <div style="left: -100px; top: 0px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/begraafplaats1.png" width="2300px" height="795px" style="">
+						 </div>	
+						 <div class="begraaf1 scroll_begraaf1" style="background-position: 0px 0px;"></div>
+						 <div style="left: 00px; top: 850px; padding: 0px; margin: 0px; position: absolute;">
+							<h2 style="color:white;font-size: 690%;">Eerste dodenakker (1778 n. Chr.). </h2> <width="1600px" height="813px" style="">
+						</div>					
+					</div>				
+				</div>
+	 	</div>
+	<script type="text/javascript">		
+					$(document).ready(function(){					
+						$('#mylogoparallax4').parallax({width:2300,  height: 795,focusZ:50, sensitivityY:0, sensitivityX:0.2}); 
+					});
+				</script>
+
+	<div class="text5">	
+		<div style="position:relative; height:900px; background-color: #000;">
+				<div class="texttitel">WESTERSE CULTUUR</div>
+		<div class="rotate" style="transform-origin: left;transform: translate(10%, 500%) rotate(-90deg); "><h5>02</h5><h2 style="font-size:100%;color:white;">WESTERSE OPVATTINGEN OVER DE DOOD</h2></div>
+			<div style="padding-top:0px; padding-left:2%;">
+					<!-- <div class="example thumb_img"><h5>01</h5></div> -->
+					<h2 style="font-size:600%;padding-top:50px">OPVATTINGEN IN OUDE CULTUREN</h2>
+				</div>
+			</div>
+	</div>
+		<div class="scroll_paral_5_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">	
+			<div class="description" style="position:relative">
+				<div id="outside">
+					<ul id="inside">	
+						<nav> <p><li>
+
+						<ul>De grootste invloed op onze westerse overlijdensrituelen is vooral terug te vinden in die van de christelijke geloofsovertuiging. Daar heerst de opvatting dat de dood direct gevolg is van onze zonden. Zodra de dood is ingetreden heeft het lichaam, de tempel van de ziel, een barmhartige uitvaart nodig en een eeuwige rustplaats. Want, zo luidt de bijbel, op een gegeven moment zal de Heer terugkeren op aarde en zullen de gelovigen opstaan uit hun graf. Deze herrijzenis is gemakkelijker als je stoffelijk overschot nog ergens ligt bewaard. Om die reden was crematie langere tijd niet toegestaan. In 1964 gaf het Vaticaan ‘De cadaverum crematione’ openbaar, waarin crematie werd geaccepteerd, maar er nog steeds een voorkeur werd gegeven aan de begrafenis. </ul>
+
+
+						De manier waarop de westerse beschaving historisch gezien met de dood is omgegaan wordt door Philippe Ariès (1914-1984), een gerenommeerd Frans historicus, omschreven in vijf periodes.
+						<ul>1.	De tamme dood. Hieronder wordt een natuurlijke omgang met de dood verstaan; het wordt gevreesd, maar herkend. Als het zover is, dan wordt de dood geaccepteerd. Dit was lange tijd de enige vorm van omgang met de dood. </ul>
+						<ul>2.	De dood van de Ik. 1100-1200 n. Chr. ontstond een nieuwe opinie ten op zichte van de dood: meer gefocust op het individu werd de dood gezien als een persoonlijk kwaad. Niet langer was het simpelweg het einde van het leven, maar een bitter noodlot, met alle negatieve associaties van dien. </ul>
+						<ul>3.	Afstandelijk maar naderend. Na de 16e eeuw werd de dood weer wat op de achtergrond geplaatst en had het niet veel te maken met het leven van alledag. Toch was het ook rond deze tijd de komst van het westerse familie-ideaal, waarbij de dood in het achterhoofd je toch af en toe van je gedachten deed afleiden. (Deze periode is lastig om te onderzoeken en veel historici hebben tegengestelde overtuigingen).</ul>
+						<ul>4.	De dood van de ander. Halverwege de 18e eeuw veranderde de dood mee met het romanticisme: de dood werd gedecoreerd. Ook met het familiebeeld werd de focus verplaatst naar de overlevenden, niet de overledene. </ul>
+						<ul>5.	De onzichtbare dood. Tegenwoordig is de dood afstandelijk. We vegen het schoon in ziekenhuizen en aan de hand van een begrafenisritueel, maar houden het vaak voor ons tijdens gezelligheid en houden het weg van kinderen. </ul><sup id="fnref:4.likethis"><a href="#fn:4.likethis" rel="footnote">4</a></sup></li>
+
+						<li><strong>Persoonlijk</strong><br><br>
+
+							Tijdens mijn onderzoek naar de opvattingen van vroegere culturen stuitte ik voornamelijk op verhalen die een zinvolle betekenis willen geven aan het feit dat we dood gaan. De mens verzet zich er tegen, wil het overstijgen in de vorm van goddelijke status, hoe dan ook – de dood is niet welkom. In dat opzicht verschillen ze nauwelijks met mijn opvatting. In de toevlucht naar een hogere macht die het verstand te boven gaat is er wel verschil: voor het voortbestaan dat ik najaag geloof ik in een puur wetenschappelijke benadering waarbij al het geloof dient te worden uitgebannen. Mocht er een dimensie kunnen bestaan naast onze huidige, dan wil ik daar niet in geloven. Dan wil ik daar op testen tot alle bugs eruit zijn, en dan een proefrit maken. </li>
+
+					</ul>
+				
+						<script>
+					$(function() {
+	   
+	  $("#right, #left").click(function() {
+	    var dir = this.id=="right" ? '+=' : '-=' ;
+	    $("#outside").stop().animate({scrollLeft: dir+'812'}, 1000);
+	  });
+	   
+	});
+						</script>
+						</p></nav>
+						</div>
+
+							
+	<button id="right">&RightTeeArrow; </button><button id="left">&LeftTeeArrow; </button>
+	</div>
+
+			
+	</div>
+	<div class="footnoteforprint5">
+		<hr>
+	3.	van Tongeren, L. (2007) De lange ontstaansgeschiedenis van de christelijke uitvaartrituelen” in “Vaarwel". Verschuivingen in vormgeving en duiding van uitvaartrituelen. Kampen, ten Have.
+	4.  Morris, I (1987) Burial and ancient society. Cambridgeshire: Cambridge University Press
+	</div>		
+
+	<div class="page-break"></div>
+	<!-- --------------------------------------------------------------------------------------lijkbezorging-------------------------------------------------------------------------------------------------   -->
+
+	<div style="position:relative;z-index:20; width: 100%; height: 860px; overflow-x: hidden; overflow-y: hidden;">
+				<div class="row">		
+					<div id="mylogoparallax12" class="column" style="width:1700px; height: 860px; overflow:hidden"> 
+
+
+					     <div style="width:120%; height:120%;z-index:-50000;left: 0px; top: 0px; padding: 0px; margin: 0px; position: absolute;">
+								<video autoplay loop id="bgvid"><source src="Parallax_files/rippling-circle-in-white-and-black-water_bj-wso_eh__PM.mp4" type="video/mp4"></video>
+							</div>
+						 
+						 
+
+						<!-- <div class="blur"> --><div style="left: -200px; top: 0px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/graveyard1.png" width="2100px" height="860px" style=""></div>
+						 <div class="blur"><div class="graveyard1 scroll_graveyard1" style="background-position: 0px 0px;"></div></div>
+	 					   <div class="graveyard2 scroll_graveyard2" style="background-position: 0px 0px;"></div>
+	 					   <div class="graveyard3 scroll_graveyard3" style="background-position: 0px 0px;"></div>
+	 					   <div class="graveyard4 scroll_graveyard4" style="background-position: 0px 0px;"></div>
+											
+											 <div style="left: 100px; top: 300px; padding: 0px; margin: 0px; position: absolute;">
+							<h2 style="color:white;font-size: 690%;">Lijkbezorging </h2> <width="1700px" height="860px" style="display: inline;">
+						</div>
+					</div>				
+				</div>
+	 	</div>
+	<script type="text/javascript">		
+					$(document).ready(function(){					
+						$('#mylogoparallax12').parallax({width: 1700,  height: 860,focusZ:0, sensitivityY:0, sensitivityX:0.2});
+					});
+				</script>
+	<div class="text6">	
+		<div style="position:relative; height:900px; background-color: #000;">
+			<div class="texttitel">LIJKBEZORGING</div>
+		<div class="rotate" style="transform-origin: left;transform: translate(10%, 500%) rotate(-90deg); "><h5>03</h5><h2 style="font-size:100%;color:white;">MANIEREN VAN LIJKBEZORGING</h2></div>
+			<div style="padding-top:0px; padding-left:2%;">
+					<h2 style="font-size:600%;padding-top:50px">Lijkbezorging</h2>
+				</div>
+			</div>
+	</div>
+			<div class="scroll_paral_13_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
+				
+				<div class="description" style="position:relative; ">
+					<div id="outside2">
+						<ul id="inside">	
+							<nav> 
+								<p>
+									<li>
+										<strong>Begraven</strong><br><br>
+
+										Voor de voorchristelijke periode van Europa was begraven ongebruikelijk. Germaanse en Keltische gebruiken neigden meer naar wat we nu cremeren noemen, iets wat ook gold voor de Noormannen die tot in 1100 n. Chr. Europa overdonderden. In 785 n. Chr. stelde Karel de Grote dat cremeren verboden was, en verwees hij naar de wederopstanding op de Dag des Oordeels: een volgens de kerkelijke leer nog te komen dag waarbij God terugkeert naar de aarde en alle zielen weer zal herenigen. In dat geval zou het handig zijn als je stoffelijk overschot nog ergens terug te vinden is.  <sup id="fnref:5.likethis"><a href="#fn:5.likethis" rel="footnote">5</a></sup>
+										Voor de 18e eeuw werden overledenen in en rondom de kerk begraven. In de loop van de 18e eeuw groeide er protest. Het werd in deze tijd namelijk duidelijk dat begraven in en rondom de kerk niet hygiënisch was. Kerken raakten overvol en door vloerverzakkingen ontstond een doordringende stank; de lijkruimtes waren niet goed afgesloten. Rond 1778 werd in Nederland de allereerste “dodenakker” in Scheveningen aangelegd. Met de inlijving door Napoleon werd in 1810  de zogenaamde “Code Civil” tot stand gebracht, wat wettelijk regelde dat begraafplaatsen 35 à 40 meter van een bebouwde kom moesten worden geplaatst.
+									</li>
+									<li>
+										<strong>Cremeren</strong><br><br>
+
+										Ruim zestig procent van de Nederlandse bevolking kiest tegenwoordig voor een crematie. Dit is niet alleen het geval voor atheïsten en ietsisten, ook bij gelovigen speelt het steeds vaker een rol. Dit is overigens niet typisch Nederlands, ook in Amerika krijgt cremeren de voorkeur. De Landelijke Vereniging van Crematoria voorspelt voor de komende tijd een stijging naar driekwart van de totale bevolking van Nederland. <sup id="fnref:6.likethis"><a href="#fn:6.likethis" rel="footnote">6</a></sup>
+									</li>
+									<li>
+										<strong>Resomeren</strong><br><br>
+
+										Resomeren is een nieuwe methode om van onze stoffelijke resten af te komen.  Bij een resomeringsproces wordt het dode lichaam ontbonden in een bak met een waterige oplossing van kaliumhydroxide. Dankzij de hoge druk worden de stoffelijke resten niet gekookt en wordt de zogenaamde hydrolyse (afbraak van een substantie door een chemische reactie met water) geoptimaliseerd. Je lichaam is weg binnen drie uur, en de botten die overblijven zijn zo broos dat ze gemakkelijk als poeder kunnen worden vermalen. Volgens een recent onderzoek is het daadwerkelijk resomeren onschadelijk voor het milieu, hoewel hierbij geen rekening is gehouden met het proces om de kaliumhydroxide te winnen.  <sup id="fnref:7.likethis"><a href="#fn:7.likethis" rel="footnote">7</a></sup>
+
+									</li>
+									<li>
+										<strong>Cryomeren</strong><br><br>
+
+										De publicatie van het boek “de Diepvriesmens”, vrij vertaald vanuit het Engelse “The prospect of immortality” staat als beginpunt voor de zogenaamde “Cryonicsbeweging". <sup id="fnref:8.likethis"><a href="#fn:8.likethis" rel="footnote">8</a></sup> Ettinger gaat in op de vraag of wij onszelf kunnen invriezen, met als doel het eeuwige leven te krijgen zodra de toekomstige wetenschap daar klaar voor is. Het is wachten op een moment in de toekomst dat onze beschaving dusdanig is geëvolueerd, dat men in staat is om de dood uit te bannen, met behulp van dezelfde methode die sommige insecten en dieren toepassen om de wintermaanden door te komen. Ook zij vriezen zich in met zelfgemaakt anti-vries: glycerol genaamd. Invriezen brengt veel schade aan het lichaam teweeg. De hoop is dat ook deze schade met toekomstige technologie verholpen kan worden.
+										In 1966 deden drie Japanse hoogleraren onderzoek naar het functioneren van kattenhersenen die over verschillende periodes van tijd waren ingevroren. Het bloed werd daarbij vervangen door een substantie, waarvan 15% glycerol. Nadat de hersenen werden ontdooid en er weer kattenbloed doorheen stroomde, bleken de hersenen te functioneren. <sup id="fnref:9.likethis"><a href="#fn:9.likethis" rel="footnote">9</a></sup>
+										In 1967 werd voor het eerst een cryonaut ingevroren: de gepensioneerde hoogleraar James Bedford. Dit werd gedaan door Cryonics Society California.
+										In 1978 werd ontdekt dat het bedrijf door chronisch geldgebrek het vloeibare stikstof niet op peil had gehouden. De lichamen die in de tussentijd waren ingevroren, waren gaan rotten. Na dit schandaal stond de Cryonics beweging een lange tijd stil.
+										Tot op heden is er een aantal nieuwe organisaties bijgekomen, maar zijn voornamelijk 'Cryonics Institute' en 'Alcor providers' de grootste. Met behulp van een nieuwe invriesmethode is de schade aan het lichaam al meer beperkt.  <sup id="fnref:10.likethis"><a href="#fn:10.likethis" rel="footnote">10</a></sup>
+									</li>
+									<li>
+										<strong>Het gebruik van doodskisten</strong><br><br>
+
+										Bij de eerdergenoemde lijkbezorgingsmethoden worden in de meeste gevallen de overledenen eerst in doodskisten gelegd, waarna ze vervolgens worden begraven, gecremeerd, geresomeerd of gecryomeerd. Volgens Jef de Jager, cultureel antropoloog, is dat in de loop van de 14e eeuw vanzelf ontstaan. Het gevoel van de emotionele pijn, de hygiëne en de relatief langere tijd dat onze doden vroeger “boven de grond” bleven, resulteerden in een kist. Soms bleven vorsten wel langer dan 40 dagen opgebaard, waardoor een kist wel uitkomst bood. Het is op den duur de norm geworden. Een kist is relatief kostbaar in vergelijking met een tot die tijd vaak gebruikte lijkwade, of anderzijds een simpel masker. Vandaar dat veel boeren al tijdens het leven “de planken klaar hadden staan”. Voor armeren en minder bedeelden waren zogenaamde wisselkisten beschikbaar: deze dienden slechts voor het vervoer van het lichaam. Eenmaal boven het gat in de grond werden de lichamen letterlijk gestort. <sup id="fnref:11.likethis"><a href="#fn:11.likethis" rel="footnote">11</a></sup>
+									</li>
+								
+						</ul>
+				
+						<script>
+					$(function() {
+	   
+	  $("#right, #left").click(function() {
+	    var dir = this.id=="right" ? '+=' : '-=' ;
+	    $("#outside2").stop().animate({scrollLeft: dir+'820'}, 1000);
+	  });
+	   
+	});
+						</script>
+						</p></nav>
+						</div>
+
+							
+	<button id="right">&RightTeeArrow; </button><button id="left">&LeftTeeArrow; </button>
+	</div>
+						
+
+
+					
+	</div>
 		</div>
 
 
-<!-- -----------------------------------------------------------------------------------DIGITALE VEREEUWIGING--------------------------------------------------------------------------------------------   -->
+	<div class="footnoteforprint6">
+		<hr>
+	5. de Jager, J. “Begraven, rituelen en tradities”, Jefdejager.nl, 2014, online. 
+	Beschikbaar via: http://www.jefdejager.nl/dood.php [Geraadpleegd op 10 december 2014].
+	6. den Boef, H. “Waarom is begraven worden nog steeds de norm?”, Volkskrant, 2013, online. 
+	Beschikbaar via: http://www.volkskrant.nl/opinie/waarom-is-begraven-worden-nog-steeds-de-norm~a3501079/ [Geraadpleegd op 11 december 2014]
+	7. Yarden Holding BV, “Milieueffecten van verschillende uitvaarttechnieken”, eindrapport TNO-NED, 2011, p.1-86 
+	Beschikbaar via: http://www.uitvaart.nl/docs/20110812-DEF-Eindrapport-TNO-NED.pdf [Geraadpleegd op 11 december 2014]
+	8. Ettinger, R and Lankester-van der Linden, C (1964) De diepvriesmens. Amsterdam: Agon Elsevier
+	9. Isamu Suda, K, Kito, K. and Adachi, C “Bioelectric discharges of isolated cat brain after revival from years of frozen storage”, Brain Research, Volume 70, Issue 3, 1974, p. 527–531
+	10. Cryonisme.nl, “De geschiedenis van Cryonics”, 2014, online. 
+	Beschikbaar via: http://www.cryonisme.nl/geschiedenis.php [Geraadpleegd op 12 december 2014]
+	11. de Jager, J. “kettingvraag20100517.mp3”, NTR Kettingvraag, 2010, online. 
+	Beschikbaar via: http://educatie.ntr.nl/radio/501624/kettingvraag/item/2946387/waarom-begraven-we-onze-doden-in-kisten/ [Geraadpleegd op 10 december 2014].
 
-<div style="position:relative;z-index:20; width: 100%; height: 815px; overflow-x: hidden; overflow-y: hidden;">
-			<div class="row">		
-				<div id="mylogoparallax10" class="column" style="width:2000px; height: 815px; overflow:hidden">        
-					 <div style="left: -200px; top: 0px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/vereeuwiging1.png" width="2000px" height="815px" style="display: inline;"></div>
-					 <div class="vereeuwiging1 scroll_vereeuwiging1" style="background-position: 0px 0px;opacity:0.3;"></div>
-					  <div style="left: 100px; top: 550px; padding: 0px; margin: 0px; position: absolute;">
-						<h2 style="color:white;font-size: 690%;">Digitale vereeuwiging  </h2> <width="1600px" height="815px" style="display: inline;">
-					</div>
-					
-					 <div class="vereeuwiging2 scroll_vereeuwiging2" style="background-position: 0px 0px; "></div>
-					 <div class="vereeuwiging3 scroll_vereeuwiging3" style="background-position: 0px 0px;"></div>
-					  <div class="vereeuwiging4 scroll_vereeuwiging4" style="background-position: 0px 0px;"></div>
-										
-				</div>				
-			</div>
- 	</div>
-<script type="text/javascript">		
-				$(document).ready(function(){					
-					$('#mylogoparallax10').parallax({width: 2000,  height: 815,focusZ:0, sensitivityY:0.2, sensitivityX:0.2});
-				});
-			</script>
 
-<div style="position:relative; height:700px; background-color: #000;">
-	<div style="padding-top:230px; padding-left:2%;">
-		<div class="example thumb_img"><h5>06</h5></div>
-		<h2 style="font-size:600%;padding-top:50px">Digitale vereeuwiging</h2>
 	</div>
+
+
+	<div class="page-break"></div>
+
+	<!-- --------------------------------------------------------------------------------------WATISLEVEN-------------------------------------------------------------------------------------------------   -->
+
+	<div style="position:relative;z-index:20; width: 100%; height: 1200px; overflow-x: hidden; overflow-y: hidden;">
+				<div class="row">		
+					<div id="mylogoparallax7" class="column" style="width:1920px; height: 1200px; overflow:hidden"> 
+
+
+					      <div class="gear4 scroll_gear4" style="background-position: 0px 0px;"></div>
+						 
+						 
+
+						<div style="left: -200px; top: 0px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/gear2tp.png" width="1920px" height="1200px" style=""></div>
+						
+						 <div class="gear3 scroll_gear3" style="background-position: 0px 0px;"></div>
+	 					 <div class="gear1 scroll_gear1" style="background-position: 0px 0px;"></div>
+											
+											 <div style="left: 100px; top: 300px; padding: 0px; margin: 0px; position: absolute;">
+							<h2 style="color:white;font-size: 690%;">Wat is leven? </h2> <width="1600px" height="813px" style="display: inline;">
+						</div>
+					</div>				
+				</div>
+	 	</div>
+	<script type="text/javascript">		
+					$(document).ready(function(){					
+						$('#mylogoparallax7').parallax({width: 1920,  height: 1200,focusZ:25, sensitivityY:0.2, sensitivityX:0.2});
+					});
+				</script>
+	<div class="text6">	
+		<div style="position:relative; height:900px; background-color: #000;">
+			<div class="texttitel">WAT IS LEVEN?</div>
+		<div class="rotate" style="transform-origin: left;transform: translate(10%, 500%) rotate(-90deg); "><h5>04</h5><h2 style="font-size:100%;color:white;">WAT IS LEVEN?</h2></div>
+			<div style="padding-top:0px; padding-left:2%;">
+
+					<h2 style="font-size:600%;padding-top:50px">WAT IS LEVEN?</h2>
+				</div>
+			</div>
+	</div>
+			<div class="scroll_paral_6_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
+				
+				<div class="description" style="position:relative; ">
+					<div id="outside6">
+						<ul id="inside">
+					<nav> <p>
+						<li>
+						Abiogenese is de wetenschappelijke term voor het onbewezen ontstaan van leven uit niet-levende materie.  Zonder bovennatuurlijke en metafysische inbreng is het een hypothetische verklaring voor de eerste vormen van leven op aarde. De modellen van de abiogenese dienen een verklaring te vinden voor alles wat tot nu toe wordt geacht nodig te zijn voor leven: water, DNA, cellen, eiwitten en andere organische moleculen. Los van deze aspecten waar het leven uit bestaat, zeggen ze echter niets over een definitie, een algemene omschrijving die je kunt geven aan het fenomeen “leven”. <sup id="fnref:12.likethis"><a href="#fn:12.likethis" rel="footnote">12</a></sup><br> 
+							Er zijn veel verschillende definities over wat leven is, maar geen van deze theorieën is compleet. Zodra gekeken wordt naar de benodigde componenten die worden toegeschreven aan iets levends, wordt het vaag en ontoereikend.  
+						<ul>•	Aristoteles definieerde het leven als iets dat groeit, zichzelf kan onderhouden en reproduceert. Maar zou in dit geval vuur ook niet levend moeten zijn? <sup id="fnref:13.likethis"><a href="#fn:13.likethis" rel="footnote">13</a></sup> </ul>
+						<ul>•	Descartes achtte het leven als een mechanisme. Met dat begrip wordt bedoeld, dat alles wat we kunnen ervaren in de wereld, is opgebouwd uit waarneembare mechanieken. Wat dat betreft is een klok ook levend.<sup id="fnref:14.likethis"><a href="#fn:14.likethis" rel="footnote">14</a></sup></ul>
+						<ul>•	Sommigen beroepen zich op het vermogen tot metabolisme: iets is levend als het kan groeien dankzij de energie die het tot zich neemt en vervolgens weer afscheidt. Volgens die logica is een auto ook een levend wezen.<sup id="fnref:15.likethis"><a href="#fn:15.likethis" rel="footnote">15</a></sup></ul>
+						</li><li>
+						<ul>•	In 1944 werd door Erwin Schrödinger, een Australische natuurkundige, leven omschreven aan de hand van de tweede wet van thermodynamica. Deze stelt in een simpele uitleg voor dat als je deeltjes willekeurig neerzet, ze zich uiteindelijk zo ver mogelijk zullen verspreiden. Dankzij ons metabolisme zijn onze deeltjes juist tegenstrijdig daaraan: de kans dat wij als losse deeltjes mens over de aarde zweven is natuurkundig gezien vele malen groter, maar in de praktijk doen wij dat geheel tegenstrijdig in “kluwen mens”. Echter, aan de hand van die theorie zouden kristallen ook een vorm van leven moeten zijn: de kans dat een kristal ontstaat is natuurkundig gezien ook heel klein: het wil liever geen kristal vormen, omdat ze daarvoor de kernkracht van de deeltjes moeten overwinnen om zo dicht bij elkaar in de buurt te komen om verbindingen te vormen. Het feit dat ze dat toch doen, is vergelijkbaar met het feit dat wij toch kluwen mensen zijn.<sup id="fnref:16.likethis"><a href="#fn:16.likethis" rel="footnote">16</a></sup> 
+						<br>
+						Een echt sluitende definitie voor leven is nog niet gevonden. Deze definitie is voor velen natuurlijk uitermate interessant. Levensvragen zijn ontstaan om het hele gebeuren om ons heen te verklaren, maar wellicht kunnen we pas definiëren wat leven is, zodra we een andere vorm van leven hebben gevonden.
+					</ul></li>	
+													<script>
+					$(function() {
+	   
+	  $("#right4, #left4").click(function() {
+	    var dir = this.id=="right4" ? '+=' : '-=' ;
+	    $("#outside6").stop().animate({scrollLeft: dir+'820'}, 1000);
+	  });
+	   
+	});
+						</script>
+						</p></nav>
+						</div>
+
+
+							<button id="right4">&RightTeeArrow; </button><button id="left4">&LeftTeeArrow; </button>
+	</div>			
+
+					</p></nav>
+				</div>
+			</div>
 </div>
 
-<div class="scroll_paral_11_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
-			
-	<div class="description" style="position:relative; ">
-				<nav> 
-					<p>
-					De Digitale Vereeuwiging is een hypothetische nieuwe vorm van lijkbezorging, en een eerste stap richting onsterfelijkheid. Het is een poging een begraafplaats te upgraden naar een vorm die gebruikmaakt van de hedendaagse technologie en als eerste doelstelling de focus legt op de verbetering van de communicatie tussen de overledenen en nabestaanden. 
-					<br><br>
-					<strong>Waarborgen van herinneringen</strong>
-					<br><br>
-					Herinneringen worden al snel gefragmenteerd. Van de delen die overblijven zullen sommige langer blijven hangen dan andere. De herinneringen aan mijn ouders vallen uiteen in fragmenten van hun stemmen, delen van hun uiterlijk en plaatsen waar we ergens een keer samen waren. Nauw verbonden daaraan is het gevoel van pijn. Ook de pijn valt samen uiteen met de fragmenten van de herinnering. Elk stukje pijn afzonderlijk doet in het grotere plaatje minder zeer. Naarmate de fragmentatie toeneemt, verandert de pijn naar korte gevoelens van melancholie totdat het helemaal vergeten is. Tijd heelt wat dat betreft alle wonden, tot het moment dat je herinnering getriggerd wordt door iets in de omgeving. Dan nog is de pijn minder heftig, omdat je het nooit helemaal de complete situatie herinnert. De pijn heeft in dat opzicht een plaats gekregen in het gevoel, waarbij het accepteert dat de persoon overleden is en niet meer terugkomt. 
-					In zekere zin voel ik me schuldig over de fragmentatie van mijn herinneringen. Gevoelsmatig houd ik evenveel van mijn ouders als toen ze nog leefden, maar lichamelijk lijk ik te zeggen dat ze geen plaats meer hebben op de voorste rij van mijn meest belangrijke gedachten. Terwijl ze relatief velen malen belangrijker zijn dan de top drie van mijn huidige belangrijke gedachten. Je zou haast kunnen zeggen dat herinnering de rangschikking is van belangrijke gedachten. Persoonlijk ben ik niet gediend van deze rangschikking en zoek ik naar alternatieven die deze indeling overbodig maakt. De Digitale Vereeuwiging is in dat opzicht het middel bij uitstek om een dergelijke rangschikking uit te bannen. In de digitale realiteit staan de dingen namelijk vast totdat zij veranderd worden en staat een zogenaamde back-up garant voor een niet gefragmenteerde herinnering van de digitale werkelijkheid.  
+	<div class="footnoteforprint7">
+		<hr>
+	 12.  InfoNu, “Begin van het leven op aarde”, Mayopros, 2014 , online. 
+	Beschikbaar via: http://wetenschap.infonu.nl/diversen/116505-begin-van-het-leven-op-aarde.html [Geraadpleegd op 16 december 2014].
+	 13. Weber, B. (2003). “Life” Plato.stanford.edu., 2003, online
+	Beschikbaar via: http://plato.stanford.edu/entries/life/ Geraadpleegd op 16 december 2014].
+	 14. Hatfield, G. “René Descartes”, Plato.stanford.edu. 2008, online.
+	 Beschikbaar via: http://plato.stanford.edu/entries/descartes/ [Geraadpleegd op 16 december 2014].
+	 15. David, M. “What is Metabolism - A New Metabolism Definition”, Psychology Of Eating, 2013, online 
+	Beschikbaar via: http://psychologyofeating.com/new-definition-metabolism/ [Geraadpleegd op 16 december 2014].
+	 16. Schrodinger, E (1992) What is life? Cambridge: Cambridge University Presser
 
+
+	</div>
+
+	<div class="page-break"></div>
+	<!-- --------------------------------------------------------------------------------------DNA--------------------------------------------------------------------------------------------------   -->
+
+
+
+	<div style="position:relative;z-index:20; width: 100%; height: 1080px; overflow-x: hidden; overflow-y: hidden;">
+				<div class="row">		
+					<div id="mylogoparallax8" class="column" style="width:1920px; height: 1080px; overflow:hidden"> 
+
+						<div class="blur"><div style="left:-100px; top: -100px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/dna5.png" width="2200px" height="1238px" style=""></div></div>
+						<div style="width:120%; height:120%;z-index:-50000;left: 0px; top: 0px; padding: 0px; margin: 0px; position: absolute;">
+								<video autoplay loop id="bgvid"><source src="Parallax_files/rippling-circle-in-white-and-black-water_bj-wso_eh__PM.mp4" type="video/mp4"></video></div>
+					    <div class="blur"> <div class="dna4 scroll_dna4" style="background-position: 0px 0px;"></div></div>
+						<div style="left: 1200px;   top: 440px; padding: 0px; margin: 0px; position: absolute;">
+							<h2 style="color:white;font-size: 690%;">DNA </h2> <width="1600px" height="813px" style="display: inline;"></div>
+						<div class="blur"> <div class="dna3 scroll_dna3" style="background-position: 0px 0px;"></div></div>		
+						<div class="blur"> <div class="dna2 scroll_dna2" style="background-position: 0px 0px;"></div></div>
+	 					<div class="blur"> <div class="dna1 scroll_dna1" style="background-position: 0px 0px;"></div></div>
+											
+					</div>				
+				</div>
+	 	</div>
+	<script type="text/javascript">		
+					$(document).ready(function(){					
+						$('#mylogoparallax8').parallax({width: 1920,  height: 1080,focusZ:25, sensitivityY:0.2, sensitivityX:0.2});
+					});
+				</script>
+	<div class="text7">	
+	<div style="position:relative; height:900px; background-color: #000;">
+		<div class="texttitel">DNA</div>
+		<div class="rotate" style="transform-origin: left;transform: translate(10%, 500%) rotate(-90deg); "><h5>04</h5><h2 style="font-size:100%;color:white;">WAT IS LEVEN?</h2></div>
+			<div style="padding-top:0px; padding-left:2%;">
+					<h2 style="font-size:600%;padding-top:50px">DNA</h2>
+				</div>
+			</div>
+	</div>
+			<div class="scroll_paral_7_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
+				
+				<div class="description" style="position:relative; ">
+					<nav> <p>
+
+							DNA is een belangrijk onderwerp om apart te nemen, omdat het in het rijtje van benodigdheden voor leven het onderdeel is dat de basis vormt voor het verschil tussen levensvormen. Het geeft de genetische code door die ons tot op zekere hoogte op onze ouders laat lijken, maar met nieuwe mutaties. Iets minder dichtbij, hoewel slechts twee procent, lijkt de mens dan op apen, en nog verder weg op andere vormen van leven, zoals planten en bacteriën. 
+							Op 14 april 2003 was de eerst complete genoomsequentie van een mens (het in kaart brengen van de nagenoeg volledige DNA-volgorde van een menselijk lichaam) een feit. Deze prestatie vormt sindsdien een belangrijk speelveld voor nieuwe onderzoeken. <sup id="fnref:17.likethis"><a href="#fn:17.likethis" rel="footnote">17</a></sup> Momenteel worden bijvoorbeeld de uitwerkingen die DNA heeft op gezichtskenmerken onderzocht, waarbij de invloed van geslacht en ras wordt buitengesloten. Op deze wijze kan bepaald worden hoe specifieke genen hun uitwerkingen hebben op ons voorkomen. Dit is een volgende stap naar een digitale visualisatie van de mens waarbij DNA gebruikt wordt.  <sup id="fnref:18.likethis"><a href="#fn:18.likethis" rel="footnote">18</a></sup>
+
+
+					</p></nav>
+				</div>
+			</div>
+
+
+	<div class="footnoteforprint8">
+	<hr>
+	  17. Genome.gov, “Human Genome Project Completion: Frequently Asked Questions”, 2014, US Government, online. Beschikbaar via: http://www.genome.gov/11006943 [Geraadpleegd op 16 december 2014].
+	  18. Messer, A. “3-D model links facial features and DNA. Penn State News, online. p.1. 
+
+
+	</div>
+	<div class="page-break"></div>
+
+	<!-- --------------------------------------------------------------------------------------BIJNADOODERVARING--------------------------------------------------------------------------------------------------   -->
+
+	<div style="position:relative;z-index:20; width: 100%; height: 1000px; overflow-x: hidden; overflow-y: hidden;">
+				<div class="row">		
+					<div id="mylogoparallax6" class="column" style="width:2050px; height: 1204px; overflow:hidden">        
+						 <div style="left: -200px; top: 0px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/tunnel1.png" width="2050px" height="1204px" style=""></div>
+						 <div class="tunnel2 scroll_tunnel2" style="background-position: 0px 0px;"></div>
+						 
+						 <div class="tunnel3 scroll_tunnel3" style="background-position: 0px 0px;"></div>
+
+						 <div style="left: -200px; top: 0; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/tunnel4.png" width="2050px" height="1204px" style=""></div>
+						  <div style="left: 290px; top: 350px; padding: 0px; margin: 0px; position: absolute;">
+							<h2 style="color:white;font-size: 690%;">	Bijna Dood Ervaring </h2> <width="500px" height="500px" style="display: inline;">
+						</div>
+						 <div class="tunnel5 scroll_tunnel5" style="background-position: 0px 0px;"></div>
+	 					 <div class="tunnel6 scroll_tunnel6" style="background-position: 0px 0px;"></div>
+
+											
+					</div>				
+				</div>
+	 	</div>
+	<script type="text/javascript">		
+					$(document).ready(function(){					
+						$('#mylogoparallax6').parallax({width: 2050,  height: 1204,focusZ:25, sensitivityY:0.2, sensitivityX:0.3});
+					});
+				</script>
+
+	<div class="text8">	
+		<div style="position:relative; height:900px; background-color: #000;">
+			<div class="texttitel">BIJNA DOOD ERVARINGEN</div>
+		<div class="rotate" style="transform-origin: left;transform: translate(10%, 500%) rotate(-90deg); "><h5>05</h5><h2 style="font-size:100%;color:white;">BIJNA DOOD ERVARING</h2></div>
+			<div style="padding-top:0px; padding-left:2%;">
+					<h2 style="font-size:600%;padding-top:50px">Bijna dood ervaring: een glimp van het leven na de dood?</h2>
+				</div>
+			</div>
+	</div>
+			<div class="scroll_paral_8_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
+				
+				<div class="description" style="position:relative; ">
+					<nav> <p>
+
+						Een bijna dood ervaring (BDE) treedt volgens de wetenschap op tijdens een staat van verlaagd bewustzijn, bijvoorbeeld in een levensbedreigende situatie. De subjectieve vorm van een BDE gaat vaak gepaard met omschrijvingen als een tunnel met licht, vrede en pijnloosheid, een wederzien met overledenen en een algemene samenvatting van je leven in de vorm van een film. Vaak worden ze geassocieerd met bovennatuurlijke machten, wat al snel een leven na de dood suggereert, waarbij een BDE alvast een tipje van de sluier laat zien. Echter, meerdere gevallen zijn bekend waarbij een BDE optrad en geen sprake was van een naderende dood, bijvoorbeeld bij patiënten met temporale epilepsie, maar ook door gebruik van drugs. <sup id="fnref:19.likethis"><a href="#fn:19.likethis" rel="footnote">19</a></sup> Recent onderzoek bij ratten heeft bewezen dat zelfs nadat de bloedtoevoer naar de hersenen gestopt is, nog sprake is van hersenactiviteit. Zelfs meer dan tot op heden werd gedacht. Dit suggereert dat inderdaad een verband te vinden is tussen de speciale staat van hersenactiviteit en de BDE die bij een levensbedreigende situatie plaatsvindt. <sup id="fnref:20.likethis"><a href="#fn:20.likethis" rel="footnote">20</a></sup><br>
+						Ook zijn in het verleden medici geweest die geloven dat een BDE een bovennatuurlijk verschijnsel is. Cardioloog van Lommel deed in de periode 1988 tot 2002 onderzoek naar de BDE.<sup id="fnref:21.likethis"><a href="#fn:21.likethis" rel="footnote">21</a></sup> Volgens hem konden ze niets te maken hebben met processen in de hersenen. Hij beschouwt ze als een bewijs dat we ons bewustzijn niet te danken hebben aan ons brein. In 'Eindeloos bewustzijn: een wetenschappelijke visie op de bijna-dood ervaring' betoogt hij dat bewustzijn geen materiële basis heeft. Ons bewustzijn bevindt zich naar zijn overtuiging in een metafysische, non-lokale ruimte, ‘een verborgen werkelijkheid die constant invloed uitoefent op onze fysieke wereld’. Al onze herinneringen liggen als golffuncties in deze non-lokale ruimte opgeslagen. ‘De hersenen en het lichaam functioneren slechts als een opvangstation'. Hij stelde dat ook bij een vlak EEG, een scan van de hersenactiviteit waarbij geen elektrische impulsen meer meetbaar zijn,  alsnog BDE’en zijn geconstateerd. Hij beriep zich echter tijdens dit onderzoek veelal op een vrij snel vlak wordende EEG, terwijl die stelling tegelijkertijd niet sluitend werd bewezen. Dat werd ook het punt van kritiek en ook via collega’s werd duidelijk dat van Lommel al vrij snel accepteerde dat bepaalde verschijnselen tijdens het onderzoek bovennatuurlijk waren.  
+
+
+					</p></nav>
+				</div>
+			</div>
+
+	<div class="footnoteforprint9">
+	<hr>
+
+	 19. de Ridder, D., van Laere, K., Dupont, P., Menovsky, T. and van de Heyning, P. “Visualizing Out-of-Body Experience in the Brain”, New England Journal of Medicine, 2007, Antwerpen, p.1. 
+	Beschikbaar via: http://www.nejm.org/doi/full/10.1056/NEJMoa070010#t=articleTop [Geraadpleegd op 12 december 2014].
+	 20. Borjigin, J. “Surge of neurophysiological coherence and connectivity in the dying brain”, The Johns Hopkins University School of Medicine, 2014, online.
+	 21. Lommel, P (2007), Eindeloos bewustzijn. Kampen: Ten Have.
+
+	</div>
+	<div class="page-break"></div>
+	<!-- ---------------------------------------------------------------------------------------BUDDHA--------------------------------------------------------------------------------------------------   -->
+
+
+	<div style="position:relative;z-index:20; width: 100%; height: 755px; overflow-x: hidden; overflow-y: hidden;">
+				<div class="row">		
+					<div id="mylogoparallax9" class="column" style="width:1920px; height: 755px; overflow:hidden">        
+						 <div style="left: -200px; top: 00px; padding: 0px; margin: 0px; position: absolute;">
+						 	<img src="./Parallax_files/buddha2.png" width="1920px" height="755px" style="">
+						 </div>
+						 <div class="buddha1 scroll_buddha2" style="background-position: 0px 0px;"></div>
+						 <div style="left: 100px; top: 150px; padding: 0px; margin: 0px; position: absolute;">
+							<h2 style="color:white;font-size: 690%;">Ben ik mijn bewustzijn? </h2> <width="1600px" height="755px" style="display: inline;">
+						</div>
+						
+
+											
+					</div>				
+				</div>
+	 	</div>
+	<script type="text/javascript">		
+					$(document).ready(function(){					
+						$('#mylogoparallax9').parallax({width: 1920,  height: 755,focusZ:25, sensitivityY:0.1, sensitivityX:0.1});
+					});
+				</script>
+
+
+
+	<div class="text9">	
+		<div style="position:relative; height:900px; background-color: #000;">
+
+			<div class="texttitel">BEN IK MIJN BEWUSTZIJN?</div>
+		<div class="rotate" style="transform-origin: left;transform: translate(10%, 500%) rotate(-90deg); "><h5>06</h5><h2 style="font-size:100%;color:white;">BEN IK MIJN BEWUSTZIJN?</h2></div>
+			<div style="padding-top:0px; padding-left:2%;">
+					<h2 style="font-size:600%;padding-top:50px">Ben ik mijn bewustzijn?</h2>
+				</div>
+			</div>
+	</div>
+			<div class="scroll_paral_9_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
+				
+				<div class="description" style="position:relative;">
+					<div id="outside4">
+						<ul id="inside">	
+					<p><li>
+					“Is de mens zijn lichaam of heeft de mens een lichaam?”. <sup id="fnref:22.likethis"><a href="#fn:22.likethis" rel="footnote">22</a></sup> Een belangrijk vraagstuk in het kader van de Digitale Vereeuwiging, omdat deze feitelijk zou kunnen staan of vallen, afhankelijk van wat het antwoord zal zijn. Als de mens een bewustzijn heeft, dat wil zeggen een tot nu toe onverklaarbare, losstaande essentie naast zijn lichamelijke vermogen om te bestaan, dan zullen onze data-klonen mogelijk slechts stukjes software blijven. Daarentegen zal het leven op aarde wel betekenisvoller worden, omdat dat zou betekenen dat er “nog iets” bestaat buiten de realiteit die we kunnen begrijpen. Als het niet een bijproduct van onze hersenen is, wat is het dan wel? 
+					<br><br>	
+						<b><strong>Bewustzijn in de filosofie</strong></b>
+						<br>
+						Ons bewustzijn is sinds het begin der tijden een onderwerp van discussie. Grote denkers hebben een poging gedaan het te ontcijferen via filosofische invalshoeken, maar tot de dag van vandaag is het onduidelijk. Wat is het bewustzijn, naast een toestand van de geest die gekenmerkt is door een besef of beleving van het eigen ik en de omgeving? <sup id="fnref:23.likethis"><a href="#fn:23.likethis" rel="footnote">23</a></sup> Weten we, als we het over bewustzijn hebben, wel waarover we het hebben? Wordt het geproduceerd door de hersenen? Is het überhaupt iets dat geproduceerd wordt? Of is het bewustzijn van een zelfde soort als de onzichtbare sfeer op een feestje waarbij de mensen, drank en muziek wat betreft het bewustzijn, gelijk staan aan ons lichaam, onze hersenen en de wereld om ons heen? <sup id="fnref:24.likethis"><a href="#fn:24.likethis" rel="footnote">24</a></sup></li>
 					
-				</p></nav>
+						<li>
+						In de historie ontstonden denkbeelden over het bewustzijn in de vorm van het empirisme en het rationalisme. Een vaak gehoorde term binnen het empirisme gaat over het onbeschreven blad, een zogenaamd tabula rasa. Een leeg, passief stukje papier dat na de geboorte kan worden ingekleurd met waarnemingen vanuit de zintuigen. De persoon die uiteindelijk ook weer zal overlijden, is een samenraapsel van allerlei associaties en daaruit voortvloeiende overtuigingen die tijdens het leven zijn opgedaan. Daar tegenover staat het rationalisme dat uitgaat van een actieve geest, waarbij ideeën en denkwijze zijn aangeboren en tijdens het leven worden ingezet als interpretatiekader. <sup id="fnref:25.likethis"><a href="#fn:25.likethis" rel="footnote">25</a></sup> Deze twee theorieën vormen vandaag de dag nog steeds twee belangrijke tegenpolen in de hedendaagse neurowetenschappelijke onderzoeken. 
+						Ook in onze tijd zijn sommige denkers van mening dat niet alles van de menselijke geest in hersenfuncties valt te herleiden. Een voorbeeld hiervan is Thomas Nagel, die stelt dat: “Reductie van het mentale niet mogelijk is omdat men nooit de ervaring ´wat het is een mens te zijn´ in de fysische beschrijving van een mens kan vatten.”. <sup id="fnref:26.likethis"><a href="#fn:26.likethis" rel="footnote">26</a></sup>  Nagel geeft aan dat het niet mogelijk is om ons bewustzijn te verklaren zonder de daarbij horende subjectieve ervaringen die wij allemaal hebben. Deze subjectieve ervaringen passen niet in functionele of intentionele systemen, en zijn daarom niet toegankelijk voor een reductionistisch onderzoek.
+				
+						</li>
+						<li>
+						
+						<b><strong>Bewustzijn in de wetenschap</strong></b>
+						<br>
+						In het boek “Wetenschap, bewustzijn en integrale geneeskunde" wordt aangegeven wat volgens de hedendaagse geneeskunde wordt bedoeld met het bewustzijn. Hierbij wordt een onderscheid gemaakt in phenomenal consciousness, oftewel ‘waarneembaar bewustzijn’  (P-bewustzijn) en access consciousness, oftewel ‘toegankelijk bewustzijn’ (A-bewustzijn). <sup id="fnref:27.likethis"><a href="#fn:27.likethis" rel="footnote">27</a></sup>
+						In het P-bewustzijn wordt alles geplaatst dat te maken heeft met onze persoonlijke indrukken, gevoelens en belevingen van alles om ons heen. Het P-bewustzijn speelt zich voornamelijk af in de achterkwab van onze hersenen. Met het A-bewustzijn wordt ons vermogen bedoeld om over de inhoud van die indrukken, gevoelens en belevingen te vertellen. Het handelende deel van onze hersenen is grofweg te lokaliseren in de voorkwab. Het voorste gedeelte van ons denkende brein, net achter het voorhoofd aan de bovenzijde van de neus, waar ons commandocentrum ligt. Hier schijnt zich ook het bewustzijn, oftewel de waarneming van onze eigen “ik”, te bevinden.
+						De auteurs van het boek gaan ervan uit dat ons bewustzijn zich schuilhoudt in de frontale kwab van onze hersenen. Echter, onze fysieke en mentale doen en laten wordt gecoördineerd door gemiddeld honderd miljard hersencellen, die allemaal één op één verbonden zijn met honderdduizend andere hersencellen.   
+						Een dergelijke constatering als die van de auteurs in het boek is dus onvolledig, aangezien de voorkwab relatief een zelfde oppervlakte heeft als die van ons Melkwegstelsel. Dat is alsof buitenaards leven is aangetoond door te zeggen dat het buitenaardse leven in kwestie zich ergens in de ruimte bevindt. Waar het bewustzijn zich precies bevindt, dient nog te worden uitgezocht. Er zijn verscheidene interessante projecten aan de gang die een poging doen om een totaalplaatje van onze hersenpan in kaart te brengen. Neem bijvoorbeeld het ambitieuze project van Allan Jones, die samen met zijn team tracht een interactieve driedimensionale atlas van het menselijke brein te maken. <sup id="fnref:28.likethis"><a href="#fn:28.likethis" rel="footnote">28</a></sup>
+					
+				
+				</li>
+											<script>
+					$(function() {
+	   
+	  $("#right4, #left4").click(function() {
+	    var dir = this.id=="right4" ? '+=' : '-=' ;
+	    $("#outside4").stop().animate({scrollLeft: dir+'820'}, 1000);
+	  });
+	   
+	});
+						</script>
+						</p></nav>
+						</div>
+
+
+							<button id="right4">&RightTeeArrow; </button><button id="left4">&LeftTeeArrow; </button>
+	</div>		
+	
+					
+					</p>
+				</div>
+			</div>
+				</div>	</div>
+
+	<div class="footnoteforprint10">
+		<hr>
+	 22. Lommel, P (2007), Eindeloos bewustzijn. Kampen: Ten Have.
+	 23. Damasio, A (2010), Self comes to mind. New York: Pantheon Books.
+	 24. Keizer, B. “Hij praat alsof het bewustzijn buiten de hersenen bestaat.” Trouw, 2014, online. 
+	Beschikbaar via: http://www.trouw.nl/tr/nl/4328/Opinie/article/detail/1192703/2008/12/20/Hij-praat-alsof-het-bewustzijn-buiten-de-hersenen-bestaat.dhtml [Geraadpleegd op 4 december 2014].
+	 25. Kolk, H (2008), Bewustzijn. Amsterdam: Boom.
+	 26. Nagel, T (1992), Mortal questions. Cambridge: Cambridge University Press.
+	 27. Westerman, N., Wietmarschen, H., Busch, M. en Wijk, E. (2012), Wetenschap, bewustzijn en integrale geneeskunde. Harderwijk: Stichting TIG.
+	 28. Jones, A. “A map of the brain”, Allen Institute for Brain Science 2012, online video. 
+	Beschikbaar via: http://www.ted.com/talks/allan_jones_a_map_of_the_brain [Geraadpleegd op 14 november 2014].
+
+
+	</div>
+	<div class="page-break"></div>
+	<!-- ---------------------------------------------------------------------------------------BRAINWIRE--------------------------------------------------------------------------------------------------   -->
+
+
+	<div style="position:relative;z-index:20; width: 100%; height: 795px; overflow-x: hidden; overflow-y: hidden;">
+				<div class="row">		
+					<div id="mylogoparallax5" class="column" style="width:2000px; height: 795px; overflow:hidden">        
+						 <div style="left: -200px; top: -220px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/brainwire1.png" width="2400px" height="1350px" style=""></div>
+						 <div class="brainwire1 scroll_brainwire1" style="background-position: 0px 0px;"></div>
+						  <div style="left: 100px; top: 550px; padding: 0px; margin: 0px; position: absolute;">
+							<h2 style="color:white;font-size: 690%;">Waar komen  </h2> <width="1600px" height="813px" style="display: inline;">
+						</div>
+						 <div style="left:200px; top: 650px; padding: 0px; margin: 0px; position: absolute;">
+							<h2 style="color:white;font-size: 690%;">onze gedachten vandaan? </h2> <width="1600px" height="813px" style="display: inline;">
+						</div>
+						 <div class="brainwire2 scroll_brainwire2" style="background-position: 0px 0px;"></div>
+						 <div class="brainwire3 scroll_brainwire3" style="background-position: 0px 0px;"></div>
+
+											
+					</div>				
+				</div>
+	 	</div>
+	<script type="text/javascript">		
+					$(document).ready(function(){					
+						$('#mylogoparallax5').parallax({width: 1920,  height: 1080,focusZ:25, sensitivityY:0.2, sensitivityX:0.2});
+					});
+				</script>
+
+	<div class="text10">	
+		<div style="position:relative; height:900px; background-color: #000;">
+					<div class="texttitel">WAT ZIJN GEDACHTEN?</div>
+		<div class="rotate" style="transform-origin: left;transform: translate(10%, 500%) rotate(-90deg); "><h5>06</h5><h2 style="font-size:100%;color:white;">BEN IK MIJN BEWUSTZIJN?</h2></div>
+			<div style="padding-top:0px; padding-left:2%;">
+				<h2 style="font-size:600%;padding-top:50px">Waar komen onze gedachten vandaan?</h2>
 			</div>
 		</div>
-
-
-<script>
-			(function(){
-			  var parallax1_1 = document.querySelectorAll(".scroll_paral_1_1"),
-			      speed1_1 = 0.9;
-			
-			  var parallax1_2 = document.querySelectorAll(".scroll_paral_1_2"),
-			      speed1_2 = 0.5;
-
-			  var parallax1_tekst = document.querySelectorAll(".scroll_paral_1_tekst"),
-			      speed1_t = 0.6;
-
-			  var parallax3 = document.querySelectorAll(".scroll_elysian1"),
-			      speed1_3 = 1.10;
-			
-			  var parallax4 = document.querySelectorAll(".scroll_elysian2"),
-			      speed1_4 = 0.5;
-
-			  var parallax5 = document.querySelectorAll(".scroll_elysian3"),
-			      speed1_5 = 0.5; 
-
-			  var parallax2_tekst = document.querySelectorAll(".scroll_paral_2_tekst"),
-			      speed2_t = 0.6;
-
-			  var parallax6 = document.querySelectorAll(".scroll_egypte1"),
-			      speed1_6 = 0.6;
-
-			  var parallax7 = document.querySelectorAll(".scroll_egypte2"),
-			      speed1_7 = 0.48;
-			
-			  var parallax8 = document.querySelectorAll(".scroll_egypte3"),
-			      speed1_8 = 0.5;
-
-			  var parallax9 = document.querySelectorAll(".scroll_egypte4"),
-			      speed1_9 = 0.5; 
-
-	  var parallax3_tekst = document.querySelectorAll(".scroll_paral_3_tekst"),
-			      speed3_t = 0.6;
-
-
-			  var parallax10 = document.querySelectorAll(".scroll_viking1"),
-			      speed2_0 = 0.95;
-
-			  var parallax11 = document.querySelectorAll(".scroll_viking2"),
-			      speed2_1 = 0.9;
-			
-			  var parallax12 = document.querySelectorAll(".scroll_viking3"),
-			      speed2_2 = 0.9;
-
-			  var parallax13 = document.querySelectorAll(".scroll_viking4"),
-			      speed2_3 = 0.9; 
-
-	   var parallax4_tekst = document.querySelectorAll(".scroll_paral_4_tekst"),
-			      speed4_t = 0.6;
-
-			  var parallax14 = document.querySelectorAll(".scroll_begraaf1"),
-			      speed2_4 = 1.45;
-
-		var parallax5_tekst = document.querySelectorAll(".scroll_paral_5_tekst"),
-			      speed5_t = 0.6;
-
-			
-
-
-			  var parallax22 = document.querySelectorAll(".scroll_gear1"),
-			      speed3_2 = 0.55;
-
-			  var parallax23 = document.querySelectorAll(".scroll_gear2"),
-			      speed3_3 = 0.55;
-
-			  var parallax24 = document.querySelectorAll(".scroll_gear3"),
-			      speed3_4	= 0.55; 
-
-		var parallax6_tekst = document.querySelectorAll(".scroll_paral_6_tekst"),
-			      speed6_t = 0.6;
-
-
-
-	  		  var parallax25 = document.querySelectorAll(".scroll_dna1"),
-			      speed3_5 = 0.51;
-
-			  var parallax26 = document.querySelectorAll(".scroll_dna2"),
-			      speed3_6 = 0.51; 
-
-			  var parallax27 = document.querySelectorAll(".scroll_dna3"),
-			      speed3_7 = 0.51;
-
-			  var parallax28 = document.querySelectorAll(".scroll_dna4"),
-			      speed3_8 = 0.51;
-
-		var parallax7_tekst = document.querySelectorAll(".scroll_paral_7_tekst"),
-			      speed7_t = 0.6;	
-
-
-
-			  var parallax18 = document.querySelectorAll(".scroll_tunnel2"),
-			      speed2_8 = 0.65;
-
-			  var parallax19 = document.querySelectorAll(".scroll_tunnel3"),
-			      speed2_9 = 0.65;
-
-			  var parallax20 = document.querySelectorAll(".scroll_tunnel5"),
-			      speed3_0 = 0.65; 
-
-			  var parallax21 = document.querySelectorAll(".scroll_tunnel6"),
-			      speed3_1 = 0.65;
-
-
-		var parallax8_tekst = document.querySelectorAll(".scroll_paral_8_tekst"),
-			      speed8_t = 0.6;	
-
-
-			  var parallax15 = document.querySelectorAll(".scroll_brainwire1"),
-			      speed2_5 = 0.55;
-
-			  var parallax16 = document.querySelectorAll(".scroll_brainwire2"),
-			      speed2_6 = 0.55; 
-
-			  var parallax17 = document.querySelectorAll(".scroll_brainwire3"),
-			      speed2_7 = 0.55;
-
- 
-		var parallax9_tekst = document.querySelectorAll(".scroll_paral_9_tekst"),
-			      speed9_t = 0.6;	
-
-
-
-			  var parallax29 = document.querySelectorAll(".scroll_buddha2"),
-			      speed3_9 = 0.65;
-
-		var parallax10_tekst = document.querySelectorAll(".scroll_paral_10_tekst"),
-			      speed10_t = 0.6;	
-
-
-			  var parallax30 = document.querySelectorAll(".scroll_vereeuwiging1"),
-			      speed4_0 = 0.91;
-
-			  var parallax31 = document.querySelectorAll(".scroll_vereeuwiging2"),
-			      speed4_1 = 0.91; 
-
-			  var parallax32 = document.querySelectorAll(".scroll_vereeuwiging3"),
-			      speed4_2 = 0.91;
-
- 			  var parallax33 = document.querySelectorAll(".scroll_vereeuwiging4"),
-			      speed4_3 = 0.91;
-			  
-
-		 var parallax11_tekst = document.querySelectorAll(".scroll_paral_11_tekst"),
-			      speed11_t = 0.6;	
-
-//gilgamesh		  
-			
-			  window.onscroll = function(){			  	
-			    [].slice.call(parallax1_1).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed1_1) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			
-			    [].slice.call(parallax1_2).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed1_2) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-
-			    [].slice.call(parallax1_tekst).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset;
-			      if (windowYOffset > 500) {
-			    	  speed1_t = speed1_t;
-			      }
-			      var elTop = (1150 - windowYOffset * speed1_t);
-			      var elTopPX = elTop + "px";
-			      el.style.top = elTopPX;
-			    });
-//elysische
-
-			    [].slice.call(parallax3).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed1_3) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			
-			    [].slice.call(parallax4).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed1_4) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			    [].slice.call(parallax5).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed1_5) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-
-			    [].slice.call(parallax2_tekst).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset;
-			      if (windowYOffset > 2700) {
-			    	  speed2_t = speed2_t;
-			      }
-			      var elTop = (3850 - windowYOffset * speed2_t);
-			      var elTopPX = elTop + "px";
-			      el.style.top = elTopPX;
-			    });
-
-//egypte
-
-			    [].slice.call(parallax6).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed1_6) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			
-			    [].slice.call(parallax7).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed1_7) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			    [].slice.call(parallax8).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed1_8) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			     [].slice.call(parallax9).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed1_9) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			     [].slice.call(parallax3_tekst).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset;
-			      if (windowYOffset > 4500) {
-			    	  speed3_t = speed3_t;
-			      }
-			      var elTop = (5500 - windowYOffset * speed3_t);
-			      var elTopPX = elTop + "px";
-			      el.style.top = elTopPX;
-			    });
-
-//walhalla
-
-			    [].slice.call(parallax10).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed2_0) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			    [].slice.call(parallax11).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed2_1) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			    [].slice.call(parallax12).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed2_2) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			     [].slice.call(parallax13).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed2_3) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-
-     			[].slice.call(parallax4_tekst).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset;
-			      if (windowYOffset > 7500) {
-			    	  speed4_t = speed4_t;
-			      }
-			      var elTop = (7900 - windowYOffset * speed4_t);
-			      var elTopPX = elTop + "px";
-			      el.style.top = elTopPX;
-			    });
-
-
-
-//ternavolging
-
- 				[].slice.call(parallax14).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed2_4) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-
-			    [].slice.call(parallax5_tekst).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset;
-			      if (windowYOffset > 9000) {
-			    	  speed5_t = speed5_t;
-			      }
-			      var elTop = (9750 - windowYOffset * speed5_t);
-			      var elTopPX = elTop + "px";
-			      el.style.top = elTopPX;
-			    });
-
-//watis leven?
-
- 				[].slice.call(parallax22).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed3_2) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			   [].slice.call(parallax23).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed3_3) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			    [].slice.call(parallax24).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed3_4) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-
-			    [].slice.call(parallax6_tekst).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset;
-			      if (windowYOffset > 9000) {
-			    	  speed6_t = speed6_t;
-			      }
-			      var elTop = (12430 - windowYOffset * speed6_t);
-			      var elTopPX = elTop + "px";
-			      el.style.top = elTopPX;
-			    });
-
-//dna
-
- 				[].slice.call(parallax25).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed3_5) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			   [].slice.call(parallax26).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed3_6) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			    [].slice.call(parallax27).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed3_7) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			     [].slice.call(parallax28).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed3_8) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
- 				 [].slice.call(parallax7_tekst).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset;
-			      if (windowYOffset > 13000) {
-			    	  speed7_t = speed7_t;
-			      }
-			      var elTop = (15200 - windowYOffset * speed7_t);
-			      var elTopPX = elTop + "px";
-			      el.style.top = elTopPX;
-			    });
-
-//bijnadoodervaring
-
- 				[].slice.call(parallax18).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed2_8) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			   [].slice.call(parallax19).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed2_9) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			    [].slice.call(parallax20).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed3_0) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			     [].slice.call(parallax21).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed3_1) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-
-			     	 [].slice.call(parallax8_tekst).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset;
-			      if (windowYOffset > 15000) {
-			    	  speed8_t = speed8_t;
-			      }
-			      var elTop = (17560 - windowYOffset * speed8_t);
-			      var elTopPX = elTop + "px";
-			      el.style.top = elTopPX;
-			    });
-
-
-//buddha
-
-  				[].slice.call(parallax29).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed3_9) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			       	 [].slice.call(parallax9_tekst).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset;
-			      if (windowYOffset > 17000) {
-			    	  speed9_t = speed9_t;
-			      }
-			      var elTop = (19880 - windowYOffset * speed9_t);
-			      var elTopPX = elTop + "px";
-			      el.style.top = elTopPX;
-			    });
-
-
-//bewustzijn
-
-			   [].slice.call(parallax15).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed2_5) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			    [].slice.call(parallax16).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed2_6) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			     [].slice.call(parallax17).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed2_7) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-
-    			 [].slice.call(parallax10_tekst).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset;
-			      if (windowYOffset > 19000) {
-			    	  speed10_t = speed10_t;
-			      }
-			      var elTop = (22530 - windowYOffset * speed10_t);
-			      var elTopPX = elTop + "px";
-			      el.style.top = elTopPX;
-			    });
-
-
-//vereeuwiging
-
-			   [].slice.call(parallax30).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed4_0) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			    [].slice.call(parallax31).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed4_1) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			     [].slice.call(parallax32).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed4_2) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-			      [].slice.call(parallax33).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset,
-			          elBackgrounPos = "0 " + (windowYOffset * speed4_3) + "px";
-			      el.style.backgroundPosition = elBackgrounPos;
-			    });
-
-    			 [].slice.call(parallax11_tekst).forEach(function(el,i){
-			      var windowYOffset = window.pageYOffset;
-			      if (windowYOffset > 2300) {
-			    	  speed11_t = speed11_t;
-			      }
-			      var elTop = (24830 - windowYOffset * speed11_t);
-			      var elTopPX = elTop + "px";
-			      el.style.top = elTopPX;
-			    });
-
-
-
-
-
-			   
-
-			  };
-			})();
-</script>
-
-<div id="preload">
-   <img src="/Parallax_files/gilgamesh1.png" width="1" height="1" alt="Image 01" />
-   
-
-
-		   <img src="./Parallax_files/gilgamesh2s.png" width="1" height="1" alt="Image 02" />
+	</div>
+		<div class="scroll_paral_10_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
+					
+			<div class="description" style="position:relative; ">
+				<div id="outside5">
+						<ul id="inside">	
+						<nav> 
+							<li>
+							<p>
+							Zelfs met de meest geavanceerde onderzoeksapparatuur die we vandaag de dag tot onze beschikking hebben, is het nog niet mogelijk om een antwoord te geven op de vraag: “hoe ziet een gedachte eruit?”. En verder, op het gebied van gedachten, komen vragen zoals “hoe word je verliefd?” naar de oppervlakte. “Waarom praat ik tegen mezelf?” en "zijn mijn gedachten überhaupt van mij of gekopieerd van een overkoepelend gevoel waarbij ik een persoonlijk verhaaltje kwijt kon?". De wetenschap geeft hierop een voorzichtig antwoord: zij gaan er namelijk wel vanuit dat alles te herleiden valt naar de cellen in onze hersenen, maar daarbij speelt ook het lichaam en de omgeving een rol. Momenteel zijn ze nog niet in staat een sluitend antwoord te geven en daarbij feitelijke bewijzen te presenteren, maar verwachten ze met de huidige ontwikkelingen in de wetenschap wel in de nabije toekomst een antwoord klaar te hebben. <sup id="fnref:29.likethis"><a href="#fn:29.likethis" rel="footnote">29</a></sup>
+							Spiritueel invloedrijk schrijver Eckhart Tolle zegt dat onze gedachten niet echt van onszelf komen: in feite zijn het situaties die wij meemaken in ons leven, waarbij de gevoelens zoals verdriet, boosheid, jaloezie en blijheid onze reacties zijn. Wij verbinden vervolgens ons zojuist meegemaakte situaties aan deze gevoelens en noemen ze gedachten. Deze reacties zijn niet persoonlijk, ze horen allemaal bij een overkoepelend gevoel die we allemaal hetzelfde ervaren. <sup id="fnref:30.likethis"><a href="#fn:30.likethis" rel="footnote">30</a></sup></li><li>
+							In een interview met Marvin Minsky, een computerwetenschapper die in de jaren ‘60 al boeken schreef over de relaties tussen mens en computer <sup id="fnref:31.likethis"><a href="#fn:31.likethis" rel="footnote">31</a></sup>, stond een heldere uitleg die het onderzoek iets dichter bij de potentiële betekenis van een bewustzijn bracht. Tegenwoordig is het populair om te denken dat de hersenen op den duur begrepen kunnen worden aan de hand van de manier waarop wetenschappers ook hun onderzoeken doen: hoe werken de verschillende onderdelen en hoe werken die ten opzichte van elkaar. In de geschiedenis is gebleken dat onverklaarbare processen en fenomenen op den duur op een dusdanige manier in kaart werden gebracht dat het in een aantal simpele spelregels te vatten was. Minsky geeft het voorbeeld van Archimedes, die een aantal belangrijke regels kwam te weten over natuurkunde. Na een lange stilte waren daar Galileo en Newton, waarvan de laatste drie simpele wetten neerschreef over elektriciteit en magnetisme, en uiteindelijk Einstein die de wetten terugbracht op een of twee. Minsky is van mening dat het brein niet op eenzelfde manier toegankelijk is. Het is simpelweg te ingewikkeld voor een paar standaard wetten. Volgens Minsky is het belangrijk om dat te realiseren en het brein te benaderen vanuit een perspectief waarbij eerst een hypothese wordt gedaan over onze gedachten, en dat dan alle verschillende mechanismen in het brein worden gecontroleerd totdat een match is gevonden. Minsky is van mening dat de mens niet echt een persoonlijkheid heeft, maar dat ons bewustzijn uitsluitend ontstaat uit activiteit in de hersenen. Het is een continu proces van afwegen en besluiten maken. Proberen, en mocht het niet lukken, iets anders proberen. Op die manier is ons interpretatiekader opgebouwd en op die manier denken wij te zijn wie we zijn.  <sup id="fnref:32.likethis"><a href="#fn:32.likethis" rel="footnote">32</a></sup><sup id="fnref:33.likethis"><a href="#fn:33.likethis" rel="footnote">33</a></sup>
+							</li>
+						</p></nav>
+				
+						<script>
+			$(function() {
+
+			$("#right, #left").click(function() {
+			var dir = this.id=="right" ? '+=' : '-=' ;
+			$("#outside5").stop().animate({scrollLeft: dir+'820'}, 1000);
+			});
+
+			});
+			</script>
+		</p></nav>
+	</div>
+
+							
+	<button id="right">&RightTeeArrow; </button><button id="left">&LeftTeeArrow; </button>
+	</div>
+				
+					</div></div>
+
+	<div class="footnoteforprint11">
+	<hr>
+	 29. Joëls, M. "Fysieke gedachten", NPO Kettingreactie aflevering 10, 2012, video, online
+	Beschikbaar via: http://www.npowetenschap.nl/videos/Kettingreactie/Fysieke-gedachten.html [Geraadpleegd op 14 november 2014].
+	 30. Tolle, E. "QA Sample - Where do our thoughts come from?", EckharttolleTV, 2014, video, online.
+	Beschikbaar via: https://www.youtube.com/watch?v=rWFVi1cPUZo [Geraadpleegd op 13 november 2014].
+	 31. Minsky, M (1967). Computation: finite and infinite machines. Englewood Cliffs, N.J.: Prentice-Hall.
+	 32. Terasem Motion Infoculture and KurzweilAI.net, “Kurzweil Interviews Minsky: Is Singularity Near?”, 2014, video, online. 
+	Beschikbaar via: https://www.youtube.com/watch?v=RZ3ahBm3dCk [Geraadpleegd op 21 november 2014].
+	33.  Minsky, M (1986), The society of mind. New York: Simon and Schuster.
+
+	</div>
+	<div class="page-break"></div>
+	<!-- -----------------------------------------------------------------------------------VEREEUWIGING--------------------------------------------------------------------------------------------   -->
+
+	<div style="position:relative;z-index:20; width: 100%; height: 700px; overflow-x: hidden; overflow-y: hidden;">
+				<div class="row">		
+					<div id="mylogoparallax11" class="column" style="width:1600px; height: 700px; overflow:hidden">        
+						 <div style="left: 00px; top: 0px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/vereeuwiging1.png" width="140%" height="140%" style=""></div>
+						 <div class="vereeuwiging1 scroll_vereeuwiging1" style="background-position: 0px 0px; opacity:0.3;"></div>
+						 <div class="vereeuwiging2 scroll_vereeuwiging2" style="background-position: 0px 0px;opacity:0.7"></div>
+						<div class="vereeuwiging3 scroll_vereeuwiging3" style="background-position: 0px 0px;"></div>
+						 <div class="vereeuwiging4 scroll_vereeuwiging4" style="background-position: 0px 0px;"></div>
+
+
+						  <div style="left: 100px; top: 350px; padding: 0px; margin: 0px; position: absolute;">
+							<h2 style="color:white;font-size: 690%;">Digitale  </h2> <width="1600px" height="815px" style="display: inline;">
+						</div>
+						  <div style="left: 100px; top: 450px; padding: 0px; margin: 0px; position: absolute;">
+							<h2 style="color:white;font-size: 690%;">Vereeuwiging  </h2> <width="1600px" height="815px" style="display: inline;">
+						</div>
+						
+								
+					</div>				
+				</div>
+	 	</div>
+	<script type="text/javascript">		
+					$(document).ready(function(){					
+						$('#mylogoparallax11').parallax({width: 1700,  height: 700,focusZ:100, sensitivityY:0, sensitivityX:0.2});
+					});
+				</script>
+	<div class="text11">	
+		<div style="position:relative; height:900px; background-color: #000;">
+			<div class="texttitel">DIGITALE VEREEUWIGING</div>
+
+		<div class="rotate" style="transform-origin: left;transform: translate(10%, 500%) rotate(-90deg); "><h5>07</h5><h2 style="font-size:100%;color:white;">DIGITALE VEREEUWIGING</h2></div>
+			<div style="padding-top:0px; padding-left:2%;">
+				<h2 style="font-size:600%;padding-top:50px">DIGITALE VEREEUWIGING</h2>
+			</div>
+		</div>
+	</div>
+		<div class="scroll_paral_11_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
+					
+			<div class="description" style="position:relative; ">
+				<div id="outside3">
+					<ul id="inside">
+						<nav> 
+
+					<li>
+								
+							De Digitale Vereeuwiging is een hypothetische nieuwe vorm van lijkbezorging, en een eerste stap richting onsterfelijkheid. Het is een poging een begraafplaats te upgraden naar een vorm die gebruikmaakt van de hedendaagse technologie en als eerste doelstelling de focus legt op de verbetering van de communicatie tussen de overledenen en nabestaanden. 
+
+					Waarborgen van herinneringen</strong>
+					<br><br>
+
+						Herinneringen worden al snel gefragmenteerd. Van de delen die overblijven zullen sommige langer blijven hangen dan andere. De herinneringen aan mijn ouders vallen uiteen in fragmenten van hun stemmen, delen van hun uiterlijk en plaatsen waar we ergens een keer samen waren. Nauw verbonden daaraan is het gevoel van pijn. Ook de pijn valt samen uiteen met de fragmenten van de herinnering. Elk stukje pijn afzonderlijk doet in het grotere plaatje minder zeer. Naarmate de fragmentatie toeneemt, verandert de pijn naar korte gevoelens van melancholie totdat het helemaal vergeten is. Tijd heelt wat dat betreft alle wonden, tot het moment dat je herinnering getriggerd wordt door iets in de omgeving. Dan nog is de pijn minder heftig, omdat je het nooit helemaal de complete situatie herinnert. De pijn heeft in dat opzicht een plaats gekregen in het gevoel, waarbij het accepteert dat de persoon overleden is en niet meer terugkomt. 
+							In zekere zin voel ik me schuldig over de fragmentatie van mijn herinneringen. Gevoelsmatig houd ik evenveel van mijn ouders als toen ze nog leefden, maar lichamelijk lijk ik te zeggen dat ze geen plaats meer hebben op de voorste rij van mijn meest belangrijke gedachten. Terwijl ze relatief velen malen belangrijker zijn dan de top drie van mijn huidige belangrijke gedachten. Je zou haast kunnen zeggen dat herinnering de rangschikking is van belangrijke gedachten. Persoonlijk ben ik niet gediend van deze rangschikking en zoek ik naar alternatieven die deze indeling overbodig maakt. De Digitale Vereeuwiging is in dat opzicht het middel bij uitstek om een dergelijke rangschikking uit te bannen. In de digitale realiteit staan de dingen namelijk vast totdat zij veranderd worden en staat een zogenaamde back-up garant voor een niet gefragmenteerde herinnering van de digitale werkelijkheid.  
+
+							</li>
+					<li>
+						<strong>Interactiviteit met overledenen</strong>
+					<br><br>
+						
+
+						In de westerse cultuur is de mate aan interactiviteit met de overledenen in mijn opinie te klein. Dat is in eerste instantie te wijten aan de afwezigheid van technologische mogelijkheden die de interactiviteit positief beïnvloeden. Echter, in sommige culturen lijkt diezelfde afwezigheid de lokale bevolking niet te hebben weerhouden een verhoogde interactiviteit met de overledenen te hebben. Hieronder een  tweetal voorbeelden. 
+
+						Dans begrafenis (Madagascar, rond 1600 n. Chr.). In Madagascar bestaat een traditie, genaamd Famadihana, (afbeelding 7) wat simpelweg een ritueel inhoudt waarbij de nabestaanden hun voorvaderen uit de tombe halen, opnieuw wikkelen in verse kleden en vervolgens een dans met hen uitvoeren op live muziek. Dat gebeurt eens in de zeven jaar. Dit is voor Westerse opvattingen een vrij extreme vorm van herdenking, maar voor de lokale bevolking een traditie, en zo echt als het maar zijn kan. <sup id="fnref:34.likethis"><a href="#fn:34.likethis" rel="footnote">34</a></sup> 
+
+						Picknickbegrafenis (Mexico, 1000-500 v. Chr.). In Mexico is “Dia de les muertos” erg belangrijk voor de bevolking en het wordt door het hele land gevierd. Het geloof heerst dat de doden niet gebaat zijn bij verdriet; ze zouden daar juist door beledigd zijn. Daarom is dia de les muertos dan ook een feestelijke aangelegenheid, waarbij men eet, drinkt en doet wat de doden in hun leven op aarde graag zouden hebben gedaan. De dood is een onderdeel van de cyclus, en men gelooft dat de overledenen tijdens deze dag ontwaken uit hun eeuwige slaap om deel uit te maken van het feest. Het evenement vindt plaats op de begraafplaatsen, maar ook buiten in de stad kun je decoraties vinden. In feite is het van oudsher een soort picknick rondom de graven, waar sociale interactie en herdenking van de doden centraal staan. <sup id="fnref:35.likethis"><a href="#fn:35.likethis" rel="footnote">35</a></sup> 
+							
+						Wat opvalt is dat de interactie uitsluitend gelimiteerd is aan de stoffelijke resten van het lichaam en niet aan het bewustzijn. Vaak gaat dat wel gepaard met een bepaalde vorm van geloof dat het bewustzijn wel aanwezig is, in vorm van onzichtbare geesten of andere etherische essenties. Daarin gaat de Digitale Vereeuwiging een stap verder, iets wat kan worden uitgelegd aan de hand van het proces van het zogenaamde “Mind Uploading”. 
+					</li>
+					<li>
+						<strong>Mind Uploading</strong>
+					<br><br>
+						Tijdens het Global Future 2045 International Congres, waarbij belangrijke mensen op het gebied van diverse technologische ontwikkelingen bijeenkwamen, sprak Martine Rothblatt, advocate, auteur en ondernemer, over Mind Uploading. De titel van haar toespraak was: “Het doel van de biotechnologie is het einde van de dood”. Ze sprak over “Mindclones”, digitale versies van onszelf die het eeuwig leven online hebben. Deze klonen worden gecreëerd aan de hand van een “Mindfile”, een soort online reservoir van onze persoonlijkheid – iets waar Facebook vandaag de dag al op een beperkte manier naar neigt. De Mindfile moet vervolgens kunnen functioneren op “Mindware”, de toekomstige software voor ons bewustzijn. <sup id="fnref:36.likethis"><a href="#fn:36.likethis" rel="footnote">36</a></sup>  
+						Deze vorm van digitaal bewustzijn is uiteindelijk het doel, maar voor nu nog toekomstmuziek. Dat vereist minimaal een complete atlas van ons DNA en de processen in ons brein plus een verregaand begrip van de mens. Dat wil overigens niet zeggen dat er nu geen ruimte is voor experimenten die dit eindstreven in het achterhoofd houden. Ray Kurzweil, hoofd Engineering bij Google, doet zo’n experiment met zijn overleden vader, Frederic Kurzweil. <br><br>
+						In Newton, Massachusetts staat Kurzweils huis vol verhuisdozen. Deze bevatten alle documentatie over het leven van zijn vader en dienen als “huiswerk” voor de digitale avatar die op den duur zijn vader moet gaan voorstellen. Momenteel is het proces van het digitaliseren van alle informatie gaande, maar zal zijn vader dan herrijzen uit de dood? En met een bewustzijn dat herkend wordt door zijn nabestaanden? Zou zijn vader hem ervan willen overtuigen dat hij dezelfde man is als die is overleden? Volgens Kurzweil zal dat te bewijzen kunnen zijn aan de hand van de Turing-test: een test ontwikkeld door Alan Turing (1912 –1954), waarbij wordt gekeken naar het vermogen van een computer om een persoon te imiteren. <sup id="fnref:37.likethis"><a href="#fn:37.likethis" rel="footnote">37</a></sup> Daarnaast is de vraag of het verkregen bewustzijn dan wel dat van zijn vader is. Dit is voor nu nog een filosofisch vraagstuk.<sup id="fnref:38.likethis"><a href="#fn:38.likethis" rel="footnote">38</a></sup>  <sup id="fnref:39.likethis"><a href="#fn:39.likethis" rel="footnote">39</a></sup>   
+					</li><li>
+						<strong>Mind Uploading</strong>
+					<br><br>
+						De kracht van de Digitale Vereeuwiging ligt ook voor een groot deel in de kracht van het archief. Het archief zal bestaan uit de opgeslagen herinneringen en gewoontes die iemand in het leven heeft verkregen. Momenteel wordt dit al op  ongestructureerde wijze gedaan door social media. Mensen digitaliseren in zekere zin al een beetje: het scherm van onze mobieltjes, tablets en laptops lijken tegenwoordig steeds meer een gematerialiseerd interpretatiekader te worden. 	Instanties die nu de begrafenisceremonies verzorgen zullen in de toekomst een rol kunnen spelen in een gestructureerde digitalisering van ons bestaan. Deze informatie en het DNA zijn de essentiële onderdelen, daar ze de basis vormen voor de “avatar”, oftewel de digitale driedimensionale voorstelling van het lichaam dat overleden is. Het is natuurlijk speculatief of de avatar daadwerkelijk ook dezelfde structuur en kenmerken zal overnemen die de persoon tijdens het leven had, maar hoe completer de achtergrondinformatie en het DNA, hoe gedetailleerder de avatar. Avatars, Mind Uploading en Digitalisering zijn begrippen die veel overeenkomsten bevatten met de trans- en post-humanistische filosofie die uitgaat van een toekomst waarin we de natuurlijke beperkingen van de mens zullen overstijgen met technologische ontwikkelingen. 
+					</li>
+
+				</ul>
 		
-		   <img src="./Parallax_files/elysium1.png" width="1" height="1" alt="Image 03" />
-		
-		   <img src="./Parallax_files/elysium2.png" width="1" height="1" alt="Image 04" />
-		   <img src="./Parallax_files/elysium3 copy.png" width="1" height="1" alt="Image 05" />
-		   <img src="./Parallax_files/egypte1.png" width="1" height="1" alt="Image 06" />
-		   <img src="./Parallax_files/egypte2.png" width="1" height="1" alt="Image 07" />
-		   <img src="./Parallax_files/egypte5.png" width="1" height="1" alt="Image 08" />
-		   <img src="./Parallax_files/egypte4.png" width="1" height="1" alt="Image 09" />
-		   <img src="./Parallax_files/viking.png" width="1" height="1" alt="Image 10" />
-		   <img src="./Parallax_files/viking2.png" width="1" height="1" alt="Image 11" />
-		   <img src="./Parallax_files/viking3.png" width="1" height="1" alt="Image 12" />
-		   <img src="./Parallax_files/viking4.png" width="1" height="1" alt="Image 13" />
-		   <img src="./Parallax_files/begraafplaats4.png" width="1" height="1" alt="Image 14" />
-		   <img src="./Parallax_files/brainwire2.png" width="1" height="1" alt="Image 15" />
-		   <img src="./Parallax_files/brainwire3.png" width="1" height="1" alt="Image 16" />
-		   <img src="./Parallax_files/brainwire4.png" width="1" height="1" alt="Image 17" />
-		   <img src="./Parallax_files/tunnel2.png" width="1" height="1" alt="Image 18" />
-		   <img src="./Parallax_files/tunnel3.png" width="1" height="1" alt="Image 19" />
-		   <img src="./Parallax_files/tunnel5.png" width="1" height="1" alt="Image 20" />
-		   <img src="./Parallax_files/tunnel6.png" width="1" height="1" alt="Image 21" />
-		   <img src="./Parallax_files/gear1tp.png" width="1" height="1" alt="Image 22" />
-		   <img src="./Parallax_files/gear3tp.png" width="1" height="1" alt="Image 23" />
-		   <img src="./Parallax_files/gear4tp.png" width="1" height="1" alt="Image 24" />
-		   <img src="./Parallax_files/dna1.png" width="1" height="1" alt="Image 25" />
-		   <img src="./Parallax_files/dna2.png" width="1" height="1" alt="Image 26" />
-		   <img src="./Parallax_files/dna3.png" width="1" height="1" alt="Image 27" />
-		   <img src="./Parallax_files/dna4.png" width="1" height="1" alt="Image 28" />
-		   <img src="./Parallax_files/buddha1.png" width="1" height="1" alt="Image 29" />
-		   <img src="./Parallax_files/vereeuwiging2.png" width="1" height="1" alt="Image 30" />
-		   <img src="./Parallax_files/vereeuwiging3.png" width="1" height="1" alt="Image 31" />
-		   <img src="./Parallax_files/vereeuwiging4.png" width="1" height="1" alt="Image 32" />
-		   <img src="./Parallax_files/vereeuwiging5.png" width="1" height="1" alt="Image 33" />
+			<script>
+			$(function() {
 
-		   </div>
+			$("#right, #left").click(function() {
+			var dir = this.id=="right" ? '+=' : '-=' ;
+			$("#outside3").stop().animate({scrollLeft: dir+'820'}, 1000);
+			});
+
+			});
+			</script>
+		</p></nav>
+	</div>
+
+							
+	<button id="right">&RightTeeArrow; </button><button id="left">&LeftTeeArrow; </button>
+	</div>
+						
+
+
+					
+	</div>
+		</div>
+
+	<div class="footnoteforprint12">
+	<hr>
+
+	 34. Ancient Origins, "Turning of the bones and the Madagascar dance with the dead", 2014, online.
+	Beschikbaar via: http://www.ancient-origins.net/ancient-places-africa/turning-bones-and-madagascar-dance-dead-001346 [Geraadpleegd op 15 december 2014].
+	 35. Society, N. and Society, N. "Dia de los Muertos", National Geographic, 2014, online.
+	Beschikbaar via: http://education.nationalgeographic.com/education/media/dia-de-los-muertos/?ar_a=1 [Geraadpleegd op 1 december 2014].
+	 36. Lewis, T. "The Singularity Is Near: Mind Uploading by 2045?", Live Science, 2014, online. 
+	Beschikbaar via: http://wwwlivesciencecom/37499-immortality-by-2045-conferencehtml [Geraadpleegd op 12 december 2014]
+	 37. Wikipedia, "Turing test", 2014, online.
+	Beschikbaar via: http://en.wikipedia.org/wiki/Turing_test#CITEREFKurzweil1990 [Geraadpleegd op 16 december 2014]
+	 38. Berman, J. "Futurist Ray Kurzweil Says He Can Bring His Dead Father Back to Life Through a Computer Avatar.", ABCNews, 2014, online.
+	Beschikbaar via: http://abcnews.go.com/Technology/futurist-ray-kurzweil-bring-dead-father-back-life/story?id=14267712 [Geraadpleegd op 16 december 2014].
+	 39. PBS NewsHour, "Ray Kurzweil on Bringing Back the Dead", 2012, video, online. Beschikbaar via: https://www.youtube.com/watch?v=ZlhYY3z5Hv8 [Geraadpleegd op 16 december 2014].
+
+
+	</div>
+
+	<div class="page-break"></div>
+
+
+	<!-- -----------------------------------------------------------------------------------Transhumanisme--------------------------------------------------------------------------------------------   -->
+
+	<div style="position:relative;z-index:20; width: 100%; height: 700px; overflow-x: hidden; overflow-y: hidden;">
+				<div class="row">		
+					<div id="mylogoparallax13" class="column" style="width:1600px; height: 700px; overflow:hidden">        
+						 <div style="left: 00px; top: 0px; padding: 0px; margin: 0px; position: absolute;"><img src="./Parallax_files/transhumanism1.png" width="140%" height="140%" style=""></div>
+						 <div class="transhumanisme1 scroll_transhumanisme1" style="background-position: 0px 0px;"></div>
+						 <div class="transhumanisme2 scroll_transhumanisme2" style="background-position: 0px 0px;"></div>
+						  <div style="left: 100px; top: 550px; padding: 0px; margin: 0px; position: absolute;">
+							<h2 style="color:white;font-size: 690%;">Transhumanisme  </h2> <width="1600px" height="815px" style="display: inline;">
+						</div>
+						
+								
+					</div>				
+				</div>
+	 	</div>
+	<script type="text/javascript">		
+					$(document).ready(function(){					
+						$('#mylogoparallax13').parallax({width: 1700,  height: 700,focusZ:100, sensitivityY:0, sensitivityX:0.2});
+					});
+				</script>
+	<div class="text12">	
+		<div style="position:relative; height:900px; background-color: #000;">
+			<div class="texttitel">TRANSHUMANISME</div>
+		<div class="rotate" style="transform-origin: left;transform: translate(10%, 500%) rotate(-90deg); "><h5>07</h5><h2 style="font-size:100%;color:white;">DIGITALE VEREEUWIGNG</h2></div>
+			<div style="padding-top:0px; padding-left:2%;">
+				<h2 style="font-size:600%;padding-top:50px">TRANSHUMANISME</h2>
+			</div>
+		</div>
+	</div>
+		<div class="scroll_paral_12_tekst" style="position:absolute; padding-left: 0px; ;z-index:30; top: 00px; width:98%;">
+					
+			<div class="description" style="position:relative; ">
+						<nav> <p>
+							Om de term transhumanisme uit te leggen, dient eerst het principe van de humanistische stroming uitgelegd te worden. Humanisme ontstond al in de 14e eeuw en was het begin van de moderniteit. Het is de overkoepelende benaming voor de overtuiging dat niet God, maar de mens zelf verantwoordelijk is voor zijn lot en het leven op aarde. Daarbij ging men uit van normen en waarden zoals deugdzaamheid, tolerantie, vrijheid en verantwoordelijkheid, waarbij de Griekse en Romeinse oudheid van grote invloed was geweest op de vorming van deze cultuur<sup id="fnref:40.likethis"><a href="#fn:40.likethis" rel="footnote">40</a></sup>   
+		In relatie tot het transhumanisme is het belangrijk om te realiseren dat het humanisme de opvatting heeft dat ons leven stopt zodra we overlijden. Dit in tegenstelling tot de religie, waarbij men na het overlijden gelooft verder te leven. Het troosteloze karakter van de humanistische opvatting over de dood en de natuurlijke drang van de mens om te overleven, zijn triggers geweest voor het transhumanisme. Het transhumanisme gaat er namelijk vanuit, dat ondanks de afwezigheid van een hemel, we onszelf kunnen vereeuwigen aan de hand van technologie. Transhumanisme is slechts een tussenvorm voor de uiteindelijke vorm van een post-humanist: een levensvorm met ongeëvenaarde lichamelijke, intellectuele en psychische mogelijkheden, waarbij de ontwikkeling ongelimiteerd is en het individu uiteindelijk een onsterfelijke levensvorm kan worden. <sup id="fnref:41.likethis"><a href="#fn:41.likethis" rel="footnote">41</a></sup> 
+
+							
+					</p></nav>
+			</div>
+		</div>
+	<div class="footnoteforprint13">
+	<hr>
+	  40. Cliteur, P and Dooren, W (1991), Geschiedenis van het Humanisme. Meppel [etc]: Boom.
+	  41. Reich, W (1995), Encyclopedia of bioethics. New York: Simon & Schuster Macmillan [u.a.].
+
+
+
+	</div>
+	<div class="page-break"></div>
+	<!-- -----------------------------------------------------------------------------------FOOTNOTES--------------------------------------------------------------------------------------------   -->
+
+
+	<div class="footnotes">
+
+
+		
+
+
+		<li id="fn:0.likethis"><p>	Groothof, F, Huiberts, M, Rogaar, K and Schutten, J	<br>	2006	<br>	Gilgamesj	<br>	Beschikbaar via:<a>	Amsterdam: Nieuw Amsterdam	</a><br>		&#160;</p>	</li>
+		<li id="fn:1.likethis"><p>	  Horst, E. <br>	Invloed op het hiernamaals	<br>	Kennislink.nl, 2010, online. <br>	Beschikbaar via:<a>	: http://www.kennislink.nl/publicaties/invloed-op-het-hiernamaals	</a><br>	[Geraadpleegd op 10 december 2014].	&#160;</p>	</li>	
+		<li id="fn:3.likethis"><p>	   McCoy, D. <br>	Death and the Afterlife	<br>	Norse Mythology for Smart People, 2012-2014, online. <br>	Beschikbaar via:<a>	: http://norse-mythology.org/concepts/death-and-the-afterlife	</a><br>	[Geraadpleegd op 10 december 2014]	&#160;</p>	</li>	
+
+
+		<li id="fn:4.likethis"><p>	Morris, I.	<br>	1987	<br>	Burial and ancient society	<br>	Beschikbaar via:<a>	Cambridgeshire: Cambridge University Press	</a><br>		&#160;</p>	</li>
+		<li id="fn:5.likethis"><p>	de Jager, J.	<br>	Begraven, rituelen en tradities	<br>	Jefdejager.nl, 2014, online.	<br>	Beschikbaar via:<a>	http://www.jefdejager.nl/dood.php	</a><br>	[Geraadpleegd op 10 december 2014].	&#160;</p>	</li>
+		<li id="fn:6.likethis"><p>	den Boef, H.	<br>	Waarom is begraven worden nog steeds de norm?	<br>	Volkskrant, 2013, online.	<br>	Beschikbaar via:<a>	http://www.volkskrant.nl/opinie/waarom-is-begraven-worden-nog-steeds-de-norm~a3501079/	</a><br>	[Geraadpleegd op 11 december 2014]	&#160;</p>	</li>
+		<li id="fn:7.likethis"><p>	Yarden Holding BV.	<br>	Milieueffect van verschillende uitvaarttechnieken	<br>	eindrapport TNO-NED, 2011, p1-86	<br>	Beschikbaar via:<a>	http://www.uitvaart.nl/docs/20110812-DEF-Eindrapport-TNO-NED.pdf 	</a><br>	[Geraadpleegd op 11 december 2014]	&#160;</p>	</li>
+		<li id="fn:8.likethis"><p>	Ettinger, R and Lankester- van der Linden, C.	<br>	1964	<br>	De Dieprvriesmens	<br>	Beschikbaar via:<a>	Amsterdam, Agon Elsevier	</a><br>		&#160;</p>	</li>
+		<li id="fn:9.likethis"><p>	 Isamu Suda, K, Kito, K. and Adachi, C	<br>	Bioelectric discharges of isolated cat brain after revival from years of frozen storage	<br>	Brain Research, Volume 70, Issue 3, 1974, p. 527–531	<br>	Beschikbaar via:<a>	http://www.sciencedirect.com/science/article/pii/0006899374902637	</a><br>		&#160;</p>	</li>
+		<li id="fn:10.likethis"><p>	Cryonisme.nl	<br>	De geschiedenis van Crynonics	<br>	2014, online	<br>	Beschikbaar via:<a>	http://www.cryonisme.nl/geschiedenis.php	</a><br>	[Geraadpleegd op 11 december 2014]	&#160;</p>	</li>
+		<li id="fn:11.likethis"><p>	de Jager, J.	<br>	kettingvraag20100517.mp3	<br>	NTR Kettingvraag , 2010, online	<br>	Beschikbaar via:<a>	http://educatie.ntr.nl/radio/501624/kettingvraag/item/2946387/waarom-begraven-we-onze-doden-in-kisten/	</a><br>	[Geraadpleegd op 10 december 2014].	&#160;</p>	</li>
+		<li id="fn:12.likethis"><p>	InfoNU	<br>	Begin van het leven op aarde	<br>	Mayopros, 2014, online	<br>	Beschikbaar via:<a>	http://wetenschap.infonu.nl/diversen/116505-begin-van-het-leven-op-aarde.html	</a><br>	[Geraadpleegd op 16 december 2014]	&#160;</p>	</li>
+		<li id="fn:13.likethis"><p>	Weber, B.	<br>	Life	<br>	Plato.stanford.edu., 2003, online	<br>	Beschikbaar via:<a>	http://plato.stanford.edu/entries/life/	</a><br>	[Geraadpleegd op 16 december 2014]	&#160;</p>	</li>
+		<li id="fn:14.likethis"><p>	Hatfield, G.	<br>	Rene Descartes	<br>	Plato.stanford.edu., 2008, online	<br>	Beschikbaar via:<a>	http://plato.stanford.edu/entries/descartes	</a><br>	[Geraadpleegd op 16 december 2014]	&#160;</p>	</li>
+		<li id="fn:15.likethis"><p>	David, M.	<br>	What is Metabolism - A new Metabolism Definition	<br>	Psychology of Eating, 2013, online	<br>	Beschikbaar via:<a>	http://psychologyofeating.com/new-definition-metabolism/	</a><br>	[Geraadpleegd op 16 december 2014]	&#160;</p>	</li>
+		<li id="fn:16.likethis"><p>	Schrodinger, E.	<br>	1992	<br>	What is life?	<br>	Beschikbaar via:<a>	Cambridge University Presser	</a><br>		&#160;</p>	</li>
+		<li id="fn:17.likethis"><p>	Genome.gov	<br>	Human Genome Project Completion : FAQ	<br>	US Government, 2014, online	<br>	Beschikbaar via:<a>	http://www.genome.gov/11006943	</a><br>	[Geraadpleegd op 16 december 2014]	&#160;</p>	</li>
+		<li id="fn:18.likethis"><p>	Messer, A	<br>	“3-D model links facial features and DNA.	<br>	Penn State News, online. p.1. 	<br>	Beschikbaar via:<a>	http://news.psu.edu/story/308588/2014/03/20/research/3-d-model-links-facial-features-and-dna	</a><br>	[Geraadpleegd op 16 december 2014]	&#160;</p>	</li>
+		<li id="fn:19.likethis"><p>	 de Ridder, D., van Laere, K., Dupont, P., Menovsky, T. and van de Heyning, P	<br>	Visualizing Out-of-Body Experience in the Brain	<br>	 New England Journal of Medicine, 2007, Antwerpen, p.1. 	<br>	Beschikbaar via:<a>	http://www.nejm.org/doi/full/10.1056/NEJMoa070010#t=articleTop	</a><br>	[Geraadpleegd op 12 december 2014]	&#160;</p>	</li>
+		<li id="fn:20.likethis"><p>	 Borjigin, J.	<br>	Surge of neurophysiological coherence and connectivity in the dying brain	<br>	The Johns Hopkins University School of Medicine, 2014, online	<br>	Beschikbaar via:<a>	http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3761619/	</a><br>	[Geraadpleegd op 14 december 2014]	&#160;</p>	</li>
+		<li id="fn:21.likethis"><p>	Lommel, P	<br>	Lommel, P	<br>	 Eindeloos bewustzijn	<br>	Beschikbaar via:<a>	Kampen, ten Have	</a><br>		&#160;</p>	</li>
+		<li id="fn:22.likethis"><p>	Lommel, P	<br>	Lommel, P	<br>	 Eindeloos bewustzijn	<br>	Beschikbaar via:<a>	Kampen, ten Have	</a><br>		&#160;</p>	</li>
+		<li id="fn:23.likethis"><p>	 Damasio, A	<br>	2010	<br>	Self comes to mind	<br>	Beschikbaar via:<a>	New York: Pantheon Books	</a><br>		&#160;</p>	</li>
+		<li id="fn:24.likethis"><p>	Keizer, B.	<br>	Hij praat alsof het bewustzijn buiten de hersenen bestaat	<br>	Trouw, 2014, online	<br>	Beschikbaar via:<a>	http://www.trouw.nl/tr/nl/4328/Opinie/article/detail/1192703/2008/12/20/Hij-praat-alsof-het-bewustzijn-buiten-de-hersenen-bestaat.dhtml	</a><br>	[Geraadpleegd op 4 december 2014]	&#160;</p>	</li>
+		<li id="fn:25.likethis"><p>	Kolk, H	<br>	2008	<br>	Bewustzijn.	<br>	Beschikbaar via:<a>	Amsterdam: Boom	</a><br>		&#160;</p>	</li>
+		<li id="fn:26.likethis"><p>	Nagel, T	<br>	1992	<br>	Mortal Questions.	<br>	Beschikbaar via:<a>	Cambridge: Cambridge University Press	</a><br>		&#160;</p>	</li>
+		<li id="fn:27.likethis"><p>	 Westerman, N., Wietmarschen, H., Busch, M. en Wijk, E.	<br>	2012	<br>	Wetenschap, bewustzijn en intergrale geneeskunde	<br>	Beschikbaar via:<a>	Harderwijk, Stichting TIG	</a><br>		&#160;</p>	</li>
+		<li id="fn:28.likethis"><p>	Jones, A.	<br>	A map of the brain	<br>	Allen Institute for Brain Science 2012, online video	<br>	Beschikbaar via:<a>	 http://www.ted.com/talks/allan_jones_a_map_of_the_brain	</a><br>	[Geraadpleegd op 14 november 2014].	&#160;</p>	</li>
+		<li id="fn:29.likethis"><p>	Joëls, M.	<br>	Fysieke gedachten	<br>	NPO Kettingreactie aflevering 10, 2012, video, online	<br>	Beschikbaar via:<a>	 http://www.npowetenschap.nl/videos/Kettingreactie/Fysieke-gedachten.html	</a><br>	[Geraadpleegd op 14 november 2014].	&#160;</p>	</li>
+		<li id="fn:30.likethis"><p>	Tolle, E.	<br>	QA Sample - Where do our thoughts come from?	<br>	EckharttolleTV, 2014, video, online.	<br>	Beschikbaar via:<a>	https://www.youtube.com/watch?v=rWFVi1cPUZo	</a><br>	[Geraadpleegd op 13 november 2014]	&#160;</p>	</li>
+		<li id="fn:31.likethis"><p>	 Minsky, M 	<br>	1967	<br>	Computation: finite and infinite machines.	<br>	Beschikbaar via:<a>	Englewood Cliffs, N.J.: Prentice-Hall	</a><br>	[Geraadpleegd op 21 november 2014]	&#160;</p>	</li>
+		<li id="fn:32.likethis"><p>	Terasem Motion Infoculture and KurzweilAI.net	<br>	Kurzweil Interviews Minsky: Is Singularity Near?	<br>	2014, video, online	<br>	Beschikbaar via:<a>	 https://www.youtube.com/watch?v=RZ3ahBm3dCk	</a><br>		&#160;</p>	</li>
+		<li id="fn:33.likethis"><p>	 Minsky, M	<br>	1986	<br>	The Society of Mind	<br>	Beschikbaar via:<a>	New York: Simon and Schuster	</a><br>		&#160;</p>	</li>
+		<li id="fn:34.likethis"><p>	Ancient Origins	<br>	Turning of the bones and the Madagascar dance with the dead	<br>	2014, online	<br>	Beschikbaar via:<a>	 http://www.ancient-origins.net/ancient-places-africa/turning-bones-and-madagascar-dance-dead-001346	</a><br>	[Geraadpleegd op 15 december 2014]	&#160;</p>	</li>
+		<li id="fn:35.likethis"><p>	Society, N. and Society, N.	<br>	Dia de los Muertos	<br>	National Geographic, 2014, online.	<br>	Beschikbaar via:<a>	 http://education.nationalgeographic.com/education/media/dia-de-los-muertos/?ar_a=1	</a><br>	[Geraadpleegd op 1 december 2014]	&#160;</p>	</li>
+		<li id="fn:36.likethis"><p>	Lewis, T.	<br>	The Singularity is near: Mind uploading by 2045?	<br>	Live Science, 2014, online	<br>	Beschikbaar via:<a>	http://www.livescience.com/37499-immortality-by-2045-conference.html	</a><br>	[Geraadpleegd op 12 december 2014]	&#160;</p>	</li>
+		<li id="fn:37.likethis"><p>	Wikipedia	<br>	Turing Test	<br>	2014, online	<br>	Beschikbaar via:<a>	http://en.wikipedia.org/wiki/Turing_test#CITEREFKurzweil1990	</a><br>	[Geraadpleegd op 16 december 2014]	&#160;</p>	</li>
+		<li id="fn:38.likethis"><p>	Berman, J.	<br>	Futurist Ray Kurzweil Says He Can Bring His Dead Father Back to Life Through a Computer Avatar	<br>	ABCNews, 2014, online.	<br>	Beschikbaar via:<a>	http://abcnews.go.com/Technology/futurist-ray-kurzweil-bring-dead-father-back-life/story?id=14267712	</a><br>	[Geraadpleegd op 16 december 2014]	&#160;</p>	</li>
+		<li id="fn:39.likethis"><p>	PBS NewsHour	<br>	Ray Kurzweil on Bringing Back the Dead	<br>	 2012, video, online	<br>	Beschikbaar via:<a>	https://www.youtube.com/watch?v=ZlhYY3z5Hv8	</a><br>	[Geraadpleegd op 16 december 2014]	&#160;</p>	</li>
+		<li id="fn:40.likethis"><p>	Cliteur, P and Dooren, W 	<br>	1991	<br>	Geschiedenis van het Humanisme	<br>	Beschikbaar via:<a>	Meppel [etc]: Boom	</a><br>		&#160;</p>	</li>
+		<li id="fn:41.likethis"><p>	Reich, W	<br>	1995	<br>	 Encyclopedia of bioethics	<br>	Beschikbaar via:<a>	New York: Simon & Schuster Macmillan [u.a.].	</a><br>		&#160;</p>	</li>
+		</ol>
+	<div class="bronnenlijst">
+	<strong>Boeken</strong>
+
+	Cliteur, P and Dooren, W (1991), Geschiedenis van het Humanisme. Meppel [etc]: 	Boom.
+	Damasio, A (2010), Self comes to mind. New York: Pantheon Books.
+	Ettinger, R and Lankester-van der Linden, C (1964) De diepvriesmens. Amsterdam: 	Agon Elsevier
+	Groothof, F, Huiberts, M, Rogaar, K and Schutten, J (2006), Gilgamesj. Amsterdam: 	Nieuw Amsterdam
+	Kolk, H (2008), Bewustzijn. Amsterdam: Boo
+	Lommel, P (2007), Eindeloos bewustzijn. Kampen: Ten Have
+	Minsky, M (1967). Computation: finite and infinite machines. Englewood Cliffs, N.J.: 	Prentice-Hall.
+	Minsky, M (1986), The society of mind. New York: Simon and Schuster.
+	Morris, I (1987) Burial and ancient society. Cambridgeshire: Cambridge University 	Press
+	Nagel, T (1992), Mortal questions. Cambridge: Cambridge University Press
+	Reich, W (1995), Encyclopedia of bioethics. New York: Simon & Schuster Macmillan 	[u.a.].
+	Schrödinger, E (1992) What is life? Cambridge: Cambridge University Presser
+	Westerman, N., Wietmarschen, H., Busch, M. en Wijk, E. (2012), Wetenschap, 	bewustzijn en integrale geneeskunde. Harderwijk: Stichting TIG.
+
+	<strong>Online publicaties</strong>
+
+	Ancient Origins, "Turning of the bones and the Madagascar dance with the dead", 	2014, online.
+		Beschikbaar via: http://www.ancient-origins.net/ancient-places-	africa/turning-bones-and-madagascar-dance-dead-001346 [Geraadpleegd op 	15 december 2014].
+	Berman, J. "Futurist Ray Kurzweil Says He Can Bring His Dead Father Back to Life 	Through a Computer Avatar.", ABCNews, 2014, online.
+		Beschikbaar via: http://abcnews.go.com/Technology/futurist-ray-kurzweil-	bring-dead-father-back-life/story?id=14267712 [Geraadpleegd op 16 	december 2014].
+	den Boef, H. “Waarom is begraven worden nog steeds de norm?”, Volkskrant, 2013, 	online. 
+		Beschikbaar via: http://www.volkskrant.nl/opinie/waarom-is-begraven-	worden-nog-steeds-de-norm~a3501079/ [Geraadpleegd op 11 december 	2014]
+	Borjigin, J. “Surge of neurophysiological coherence and connectivity in the dying 	brain”, The Johns Hopkins University School of Medicine, 2014, online.
+	Cryonisme.nl, “De geschiedenis van Cryonics”, 2014, online. 
+		Beschikbaar via: http://www.cryonisme.nl/geschiedenis.php [Geraadpleegd 	op 12 december 2014]
+	David, M. “What is Metabolism - A New Metabolism Definition”, Psychology Of 	Eating, 2013, online 
+		Beschikbaar via: http://psychologyofeating.com/new-definition-metabolism/ 	[Geraadpleegd op 16 december 2014].
+	 Genome.gov, “Human Genome Project Completion: Frequently Asked Questions”, 	2014, US Government, online. Beschikbaar via: 	http://www.genome.gov/11006943 [Geraadpleegd op 16 december 2014].
+	Hatfield, G. “René Descartes”, Plato.stanford.edu. 2008, online.
+		Beschikbaar via: http://plato.stanford.edu/entries/descartes/ [Geraadpleegd 	op 16 december 2014].
+	Horst, E. “Invloed op het hiernamaals”, Kennislink.nl, 2010, online. 
+		Beschikbaar via: http://www.kennislink.nl/publicaties/invloed-op-het-	hiernamaals [Geraadpleegd op 10 december 2014].
+	InfoNu, “Begin van het leven op aarde”, Mayopros, 2014 , online. 
+		Beschikbaar via: http://wetenschap.infonu.nl/diversen/116505-begin-van-	het-leven-op-aarde.html [Geraadpleegd op 16 december 2014].
+	de Jager, J. “Begraven, rituelen en tradities”, Jefdejager.nl, 2014, online. 
+		Beschikbaar via: http://www.jefdejager.nl/dood.php [Geraadpleegd op 10 	december 2014].
+	de Jager, J. “kettingvraag20100517.mp3”, NTR Kettingvraag, 2010, online. 
+		Beschikbaar via: 	http://educatie.ntr.nl/radio/501624/kettingvraag/item/2946387/waarom-	begraven-we-onze-doden-in-kisten/ [Geraadpleegd op 10 december 2014].
+	Jones, A. “A map of the brain”, Allen Institute for Brain Science 2012, online video. 
+		Beschikbaar via: 	http://www.ted.com/talks/allan_jones_a_map_of_the_brain [Geraadpleegd 	op 14 november 2014].
+	Keizer, B. “Hij praat alsof het bewustzijn buiten de hersenen bestaat.” Trouw, 2014, 	online. 
+		Beschikbaar via: 	http://www.trouw.nl/tr/nl/4328/Opinie/article/detail/1192703/2008/12/20/	Hij-praat-alsof-het-bewustzijn-buiten-de-hersenen-bestaat.dhtml 	[Geraadpleegd op 4 december 2014].
+	Lewis, T. "The Singularity Is Near: Mind Uploading by 2045?", Live Science, 2014, 	online. 
+		Beschikbaar via: http://wwwlivesciencecom/37499-immortality-by-2045-	conferencehtml [Geraadpleegd op 12 december 2014]
+	McCoy, D. “Death and the Afterlife”, Norse Mythology for Smart People, 2012-2014, 	online. 
+		Beschikbaar via: http://norse-mythology.org/concepts/death-and-the-	afterlife [Geraadpleegd op 10 december 2014]
+	Messer, A. “3-D model links facial features and DNA. Penn State News, online. p.1. 
+		Beschikbaar via: http://news.psu.edu/story/308588/2014/03/20/research/3-	d-model-links-facial-features-and-dna [Geraadpleegd op 16 december 2014].
+	PBS NewsHour, "Ray Kurzweil on Bringing Back the Dead", 2012, video, online. 	Beschikbaar via: https://www.youtube.com/watch?v=ZlhYY3z5Hv8 	[Geraadpleegd op 16 december 2014].
+	de Ridder, D., van Laere, K., Dupont, P., Menovsky, T. and van de Heyning, P. 	“Visualizing Out-of-Body Experience in the Brain”, New England Journal of 	Medicine, 2007, Antwerpen, p.1. 
+		Beschikbaar via: 	http://www.nejm.org/doi/full/10.1056/NEJMoa070010#t=articleTop 	[Geraadpleegd op 12 december 2014].
+	Society, N. and Society, N. "Dia de los Muertos", National Geographic, 2014, online.
+		Beschikbaar via: 	http://education.nationalgeographic.com/education/media/dia-de-los-	muertos/?ar_a=1 [Geraadpleegd op 1 december 2014].
+	Weber, B. (2003). “Life” Plato.stanford.edu., 2003, online
+		Beschikbaar via: http://plato.stanford.edu/entries/life/ Geraadpleegd op 16 	december 2014].
+	Wikipedia, "Turing test", 2014, online.
+		Beschikbaar via: 	http://en.wikipedia.org/wiki/Turing_test#CITEREFKurzweil1990 		[Geraadpleegd op 16 december 2014]
+	Yarden Holding BV, “Milieueffecten van verschillende uitvaarttechnieken”, 	eindrapport TNO-NED, 2011, p.1-86 
+		Beschikbaar via: http://www.uitvaart.nl/docs/20110812-DEF-Eindrapport-	TNO-NED.pdf [Geraadpleegd op 11 december 2014]
+
+	<strong>Video's</strong> 
+
+	Joëls, M. "Fysieke gedachten", NPO Kettingreactie aflevering 10, 2012, video, online
+		Beschikbaar via: 	http://www.npowetenschap.nl/videos/Kettingreactie/Fysieke-	gedachten.html [Geraadpleegd op 14 november 2014].
+	Terasem Motion Infoculture and KurzweilAI.net, “Kurzweil Interviews Minsky: Is 	Singularity Near?”, 2014, video, online. 
+		Beschikbaar via: 	https://www.youtube.com/watch?v=RZ3ahBm3dCk [Geraadpleegd op 21 	november 2014].
+	Tolle, E. "QA Sample - Where do our thoughts come from?", EckharttolleTV, 2014, 	video, online.
+		Beschikbaar via: https://www.youtube.com/watch?v=rWFVi1cPUZo 	[Geraadpleegd op 13 november 2014].
+
+	<strong>Artikelen</strong>
+
+	Isamu Suda, K, Kito, K. and Adachi, C “Bioelectric discharges of isolated cat brain 	after revival from years of frozen storage”, Brain Research, Volume 70, Issue 	3, 1974, p. 527–531
+
+
+
+	 
+
+
+	</div>
+	</div>
+
+	<script>
+				(function(){
+				  var parallax1_1 = document.querySelectorAll(".scroll_paral_1_1"),
+				      speed1_1 = 0.9;
+				
+				  var parallax1_2 = document.querySelectorAll(".scroll_paral_1_2"),
+				      speed1_2 = 0.5;
+
+				  var parallax1_tekst = document.querySelectorAll(".scroll_paral_1_tekst"),
+				      speed1_t = 0.6;
+
+				  var parallax3 = document.querySelectorAll(".scroll_elysian1"),
+				      speed1_3 = 0.8;
+				
+				  var parallax4 = document.querySelectorAll(".scroll_elysian2"),
+				      speed1_4 = 0.44;
+
+				  var parallax5 = document.querySelectorAll(".scroll_elysian3"),
+				      speed1_5 = 0.44; 
+
+				  var parallax2_tekst = document.querySelectorAll(".scroll_paral_2_tekst"),
+				      speed2_t = 0.6;
+
+				  var parallax6 = document.querySelectorAll(".scroll_egypte1"),
+				      speed1_6 = 0.6;
+
+				  var parallax7 = document.querySelectorAll(".scroll_egypte2"),
+				      speed1_7 = 0.55;
+				
+				  var parallax8 = document.querySelectorAll(".scroll_egypte3"),
+				      speed1_8 = 0.55;
+
+				  var parallax9 = document.querySelectorAll(".scroll_egypte4"),
+				      speed1_9 = 0.55; 
+
+		  var parallax3_tekst = document.querySelectorAll(".scroll_paral_3_tekst"),
+				      speed3_t = 0.6;
+
+
+				  var parallax10 = document.querySelectorAll(".scroll_viking1"),
+				      speed2_0 = 0.95;
+
+				  var parallax11 = document.querySelectorAll(".scroll_viking2"),
+				      speed2_1 = 0.9;
+				
+				  var parallax12 = document.querySelectorAll(".scroll_viking3"),
+				      speed2_2 = 0.9;
+
+				  var parallax13 = document.querySelectorAll(".scroll_viking4"),
+				      speed2_3 = 0.9; 
+
+		   var parallax4_tekst = document.querySelectorAll(".scroll_paral_4_tekst"),
+				      speed4_t = 0.6;
+
+				  var parallax14 = document.querySelectorAll(".scroll_begraaf1"),
+				      speed2_4 = 1.33;
+
+			var parallax5_tekst = document.querySelectorAll(".scroll_paral_5_tekst"),
+				      speed5_t = 0.6;
+
+				
+
+
+				  var parallax22 = document.querySelectorAll(".scroll_gear1"),
+				      speed3_2 = 0.55;
+
+				  var parallax23 = document.querySelectorAll(".scroll_gear2"),
+				      speed3_3 = 0.55;
+
+				  var parallax24 = document.querySelectorAll(".scroll_gear3"),
+				      speed3_4	= 0.55; 
+
+			var parallax6_tekst = document.querySelectorAll(".scroll_paral_6_tekst"),
+				      speed6_t = 0.6;
+
+
+
+		  		  var parallax25 = document.querySelectorAll(".scroll_dna1"),
+				      speed3_5 = 0.49;
+
+				  var parallax26 = document.querySelectorAll(".scroll_dna2"),
+				      speed3_6 = 0.49; 
+
+				  var parallax27 = document.querySelectorAll(".scroll_dna3"),
+				      speed3_7 = 0.49;
+
+				  var parallax28 = document.querySelectorAll(".scroll_dna4"),
+				      speed3_8 = 0.49;
+
+			var parallax7_tekst = document.querySelectorAll(".scroll_paral_7_tekst"),
+				      speed7_t = 0.6;	
+
+
+
+				  var parallax18 = document.querySelectorAll(".scroll_tunnel2"),
+				      speed2_8 = 0.65;
+
+				  var parallax19 = document.querySelectorAll(".scroll_tunnel3"),
+				      speed2_9 = 0.65;
+
+				  var parallax20 = document.querySelectorAll(".scroll_tunnel5"),
+				      speed3_0 = 0.65; 
+
+				  var parallax21 = document.querySelectorAll(".scroll_tunnel6"),
+				      speed3_1 = 0.65;
+
+
+			var parallax8_tekst = document.querySelectorAll(".scroll_paral_8_tekst"),
+				      speed8_t = 0.6;	
+
+
+				  var parallax15 = document.querySelectorAll(".scroll_brainwire1"),
+				      speed2_5 = 0.40;
+
+				  var parallax16 = document.querySelectorAll(".scroll_brainwire2"),
+				      speed2_6 = 0.40; 
+
+				  var parallax17 = document.querySelectorAll(".scroll_brainwire3"),
+				      speed2_7 = 0.40;
+
+	 
+			var parallax9_tekst = document.querySelectorAll(".scroll_paral_9_tekst"),
+				      speed9_t = 0.6;	
+
+
+
+				  var parallax29 = document.querySelectorAll(".scroll_buddha2"),
+				      speed3_9 = 0.541;
+
+			var parallax10_tekst = document.querySelectorAll(".scroll_paral_10_tekst"),
+				      speed10_t = 0.6;	
+
+
+				  var parallax30 = document.querySelectorAll(".scroll_vereeuwiging1"),
+				      speed4_0 = 0.77;
+
+				  var parallax31 = document.querySelectorAll(".scroll_vereeuwiging2"),
+				      speed4_1 = 0.77; 
+
+				  var parallax32 = document.querySelectorAll(".scroll_vereeuwiging3"),
+				      speed4_2 = 0.77;
+
+	 			  var parallax33 = document.querySelectorAll(".scroll_vereeuwiging4"),
+				      speed4_3 = 0.77;
+				  
+
+			 var parallax11_tekst = document.querySelectorAll(".scroll_paral_11_tekst"),
+				      speed11_t = 0.6;	
+
+
+				  var parallax34 = document.querySelectorAll(".scroll_transhumanisme1"),
+				      speed4_4 = 0.905;
+
+	 			  var parallax35 = document.querySelectorAll(".scroll_transhumanisme2"),
+				      speed4_5 = 0.905;
+				  
+
+			 var parallax12_tekst = document.querySelectorAll(".scroll_paral_12_tekst"),
+				      speed12_t = 0.6;	
+
+
+
+	 			var parallax36 = document.querySelectorAll(".scroll_graveyard1"),
+				      speed4_6 = 0.89;
+	 			  var parallax37 = document.querySelectorAll(".scroll_graveyard2"),
+				      speed4_7 = 0.92;
+
+				  var parallax38 = document.querySelectorAll(".scroll_graveyard3"),
+				      speed4_8 = 0.91;
+
+	 			  var parallax39 = document.querySelectorAll(".scroll_graveyard4"),
+				      speed4_9 = 0.855;
+				  
+
+			 var parallax13_tekst = document.querySelectorAll(".scroll_paral_13_tekst"),
+				      speed13_t = 0.6;	
+
+	//gilgamesh		  
+				
+				  window.onscroll = function(){			  	
+				    [].slice.call(parallax1_1).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed1_1) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				
+				    [].slice.call(parallax1_2).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed1_2) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+
+				    [].slice.call(parallax1_tekst).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset;
+				      if (windowYOffset > 500) {
+				    	  speed1_t = speed1_t;
+				      }
+				      var elTop = (1450 - windowYOffset * speed1_t);
+				      var elTopPX = elTop + "px";
+				      el.style.top = elTopPX;
+				    });
+	//elysische
+
+				    [].slice.call(parallax3).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed1_3) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				
+				    [].slice.call(parallax4).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed1_4) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				    [].slice.call(parallax5).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed1_5) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+
+				    [].slice.call(parallax2_tekst).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset;
+				      if (windowYOffset > 2700) {
+				    	  speed2_t = speed2_t;
+				      }
+				      var elTop = (4950 - windowYOffset * speed2_t);
+				      var elTopPX = elTop + "px";
+				      el.style.top = elTopPX;
+				    });
+
+	//egypte
+
+				    [].slice.call(parallax6).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed1_6) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				
+				    [].slice.call(parallax7).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed1_7) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				    [].slice.call(parallax8).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed1_8) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				     [].slice.call(parallax9).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed1_9) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				     [].slice.call(parallax3_tekst).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset;
+				      if (windowYOffset > 4500) {
+				    	  speed3_t = speed3_t;
+				      }
+				      var elTop = (7450 - windowYOffset * speed3_t);
+				      var elTopPX = elTop + "px";
+				      el.style.top = elTopPX;
+				    });
+
+	//walhalla
+
+				    [].slice.call(parallax10).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed2_0) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				    [].slice.call(parallax11).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed2_1) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				    [].slice.call(parallax12).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed2_2) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				     [].slice.call(parallax13).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed2_3) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+
+	     			[].slice.call(parallax4_tekst).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset;
+				      if (windowYOffset > 7500) {
+				    	  speed4_t = speed4_t;
+				      }
+				      var elTop = (10650 - windowYOffset * speed4_t);
+				      var elTopPX = elTop + "px";
+				      el.style.top = elTopPX;
+				    });
+
+
+
+	//ternavolging
+
+	 				[].slice.call(parallax14).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed2_4) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+
+				    [].slice.call(parallax5_tekst).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset;
+				      if (windowYOffset > 9000) {
+				    	  speed5_t = speed5_t;
+				      }
+				      var elTop = (13100 - windowYOffset * speed5_t);
+				      var elTopPX = elTop + "px";
+				      el.style.top = elTopPX;
+				    });
+
+
+
+	//lijkbezorging
+
+				   [].slice.call(parallax36).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed4_6) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				    [].slice.call(parallax37).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed4_7) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+
+				   [].slice.call(parallax38).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed4_8) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				    [].slice.call(parallax39).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed4_9) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+
+
+	    			 [].slice.call(parallax13_tekst).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset;
+				      if (windowYOffset > 10000) {
+				    	  speed13_t = speed13_t;
+				      }
+				      var elTop = (16000 - windowYOffset * speed13_t);
+				      var elTopPX = elTop + "px";
+				      el.style.top = elTopPX;
+				    });
+
+
+	//watis leven?
+
+	 				[].slice.call(parallax22).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed3_2) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				   [].slice.call(parallax23).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed3_3) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				    [].slice.call(parallax24).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed3_4) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+
+				    [].slice.call(parallax6_tekst).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset;
+				      if (windowYOffset > 9000) {
+				    	  speed6_t = speed6_t;
+				      }
+				      var elTop = (19400 - windowYOffset * speed6_t);
+				      var elTopPX = elTop + "px";
+				      el.style.top = elTopPX;
+				    });
+
+	//dna
+
+	 				[].slice.call(parallax25).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed3_5) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				   [].slice.call(parallax26).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed3_6) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				    [].slice.call(parallax27).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed3_7) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				     [].slice.call(parallax28).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed3_8) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+	 				 [].slice.call(parallax7_tekst).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset;
+				      if (windowYOffset > 13000) {
+				    	  speed7_t = speed7_t;
+				      }
+				      var elTop = (22700 - windowYOffset * speed7_t);
+				      var elTopPX = elTop + "px";
+				      el.style.top = elTopPX;
+				    });
+
+	//bijnadoodervaring
+
+	 				[].slice.call(parallax18).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed2_8) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				   [].slice.call(parallax19).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed2_9) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				    [].slice.call(parallax20).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed3_0) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				     [].slice.call(parallax21).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed3_1) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+
+				     	 [].slice.call(parallax8_tekst).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset;
+				      if (windowYOffset > 15000) {
+				    	  speed8_t = speed8_t;
+				      }
+				      var elTop = (25560 - windowYOffset * speed8_t);
+				      var elTopPX = elTop + "px";
+				      el.style.top = elTopPX;
+				    });
+
+
+	//buddha
+
+	  				[].slice.call(parallax29).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed3_9) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				       	 [].slice.call(parallax9_tekst).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset;
+				      if (windowYOffset > 17000) {
+				    	  speed9_t = speed9_t;
+				      }
+				      var elTop = (28140 - windowYOffset * speed9_t);
+				      var elTopPX = elTop + "px";
+				      el.style.top = elTopPX;
+				    });
+
+
+	//bewustzijn
+
+				   [].slice.call(parallax15).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed2_5) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				    [].slice.call(parallax16).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed2_6) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				     [].slice.call(parallax17).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed2_7) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+
+	    			 [].slice.call(parallax10_tekst).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset;
+				      if (windowYOffset > 19000) {
+				    	  speed10_t = speed10_t;
+				      }
+				      var elTop = (30930 - windowYOffset * speed10_t);
+				      var elTopPX = elTop + "px";
+				      el.style.top = elTopPX;
+				    });
+
+
+	//vereeuwiging
+
+				   [].slice.call(parallax30).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed4_0) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				    [].slice.call(parallax31).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed4_1) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				     [].slice.call(parallax32).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed4_2) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				      [].slice.call(parallax33).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed4_3) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+
+	    			 [].slice.call(parallax11_tekst).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset;
+				      if (windowYOffset > 2300) {
+				    	  speed11_t = speed11_t;
+				      }
+				      var elTop = (33430 - windowYOffset * speed11_t);
+				      var elTopPX = elTop + "px";
+				      el.style.top = elTopPX;
+				    });
+
+
+	//transhumanisme
+
+				   [].slice.call(parallax34).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed4_4) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+				    [].slice.call(parallax35).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset,
+				          elBackgrounPos = "0 " + (windowYOffset * speed4_5) + "px";
+				      el.style.backgroundPosition = elBackgrounPos;
+				    });
+
+
+	    			 [].slice.call(parallax12_tekst).forEach(function(el,i){
+				      var windowYOffset = window.pageYOffset;
+				      if (windowYOffset > 2300) {
+				    	  speed12_t = speed12_t;
+				      }
+				      var elTop = (36130 - windowYOffset * speed12_t);
+				      var elTopPX = elTop + "px";
+				      el.style.top = elTopPX;
+				    });
+
+
+
+
+
+				   
+
+				  };
+				})();
+	</script>
+
+	<div id="preload">
+	   <img src="/Parallax_files/gilgamesh1s.png" width="1" height="1" alt="Image 01" />
+	   
+
+
+			   <img src="./Parallax_files/gilgamesh2s.png" width="1" height="1" alt="Image 02" />
+			
+			   <img src="./Parallax_files/elysium1.png" width="1" height="1" alt="Image 03" />
+			
+			   <img src="./Parallax_files/elysium2.png" width="1" height="1" alt="Image 04" />
+			   <img src="./Parallax_files/elysium3 beste.png" width="1" height="1" alt="Image 05" />
+			   <img src="./Parallax_files/egypte1.png" width="1" height="1" alt="Image 06" />
+			   <img src="./Parallax_files/egypte2.png" width="1" height="1" alt="Image 07" />
+			   <img src="./Parallax_files/egypte5.png" width="1" height="1" alt="Image 08" />
+			   <img src="./Parallax_files/egypte4.png" width="1" height="1" alt="Image 09" />
+			   <img src="./Parallax_files/viking.png" width="1" height="1" alt="Image 10" />
+			   <img src="./Parallax_files/viking2.png" width="1" height="1" alt="Image 11" />
+			   <img src="./Parallax_files/viking3.png" width="1" height="1" alt="Image 12" />
+			   <img src="./Parallax_files/viking4.png" width="1" height="1" alt="Image 13" />
+			   <img src="./Parallax_files/begraafplaats4.png" width="1" height="1" alt="Image 14" />
+			   <img src="./Parallax_files/brainwire2.png" width="1" height="1" alt="Image 15" />
+			   <img src="./Parallax_files/brainwire3.png" width="1" height="1" alt="Image 16" />
+			   <img src="./Parallax_files/brainwire4.png" width="1" height="1" alt="Image 17" />
+			   <img src="./Parallax_files/tunnel2.png" width="1" height="1" alt="Image 18" />
+			   <img src="./Parallax_files/tunnel3.png" width="1" height="1" alt="Image 19" />
+			   <img src="./Parallax_files/tunnel5.png" width="1" height="1" alt="Image 20" />
+			   <img src="./Parallax_files/tunnel6.png" width="1" height="1" alt="Image 21" />
+			   <img src="./Parallax_files/gear1.png" width="1" height="1" alt="Image 22" />
+			   <img src="./Parallax_files/gear3tp.png" width="1" height="1" alt="Image 23" />
+			   <img src="./Parallax_files/gear4tp.png" width="1" height="1" alt="Image 24" />
+			   <img src="./Parallax_files/dna1.png" width="1" height="1" alt="Image 25" />
+			   <img src="./Parallax_files/dna2.png" width="1" height="1" alt="Image 26" />
+			   <img src="./Parallax_files/dna3.png" width="1" height="1" alt="Image 27" />
+			   <img src="./Parallax_files/dna4.png" width="1" height="1" alt="Image 28" />
+			   <img src="./Parallax_files/buddha1.png" width="1" height="1" alt="Image 29" />
+			   <img src="./Parallax_files/vereeuwiging2.png" width="1" height="1" alt="Image 30" />
+			   <img src="./Parallax_files/vereeuwiging3.png" width="1" height="1" alt="Image 31" />
+			   <img src="./Parallax_files/vereeuwiging4.png" width="1" height="1" alt="Image 32" />
+			   <img src="./Parallax_files/vereeuwiging5.png" width="1" height="1" alt="Image 33" />
+
+			   </div>
+</div>
 </body>
 </html>
